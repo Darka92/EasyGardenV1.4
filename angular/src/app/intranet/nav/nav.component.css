@@ -1,0 +1,103 @@
+/*--------NAVBAR--------*/
+.navbar {
+  margin-bottom: 2rem;
+  padding: 0rem 0rem;
+  height: 4.5em;
+  background-color: #f2f2f2;
+}
+.menu-top a {
+  color:#999999;
+}
+.menu-top a:hover {
+  color:#95C11F;
+}
+.nav-tabs {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+.nav-tabs, .nav-link {
+  border: none;
+}
+.nav-tabs .nav-item.show .nav-link {
+  background-color: rgba(248, 249, 255, .4);
+  color: #95C11F;
+}
+.navbar-light .navbar-nav .active > .nav-link {
+  color: #95C11F;
+  border-bottom: 2px solid #95C11F;
+}
+.profil-nav {
+  margin-left: 2rem;
+}
+button:focus {
+  outline: 1px solid #95cb11;
+}
+#submit {
+  color: #666666;
+  border: 2px solid #95cb11;
+  background-color: #d9d9d9;
+  margin-top: 40px;
+}
+#submit:hover {
+  background-color: #95cb11;
+  border-color: #95cb11;
+}
+#DecoNav {
+  margin-right: 1em;
+}
+
+/*------Burger Menu------*/
+
+.btn-burger {
+  display:inline;
+  position:absolute;
+  text-align:center;
+  border: 2px solid #95cb11;
+  height: 2.5em;
+  width: 2.5em;
+  right:30px;
+  margin-top: 0.4em;
+  z-index:999;
+  outline:0;
+  padding:0;
+  top:0;
+  border: 2px solid #95cb11;
+  background-color: #d9d9d9;
+  -webkit-box-shadow: 0 8px 10px -6px rgba(0,0,0,0.5);
+  box-shadow: 0 8px 10px -6px rgba(0,0,0,0.5);
+  visibility: hidden;
+}
+.btn-burger:hover {
+  background-color: #95cb11;
+  border: 1px solid #95cb11;
+  opacity: 0.9;
+}
+.link-deco {
+  visibility: hidden;
+}
+
+/*------Responsive Burger Menu------*/
+
+@media all and (max-width: 992px) {
+  #DecoNav {
+    visibility: hidden;
+  }
+  .link-deco {
+    visibility: visible;
+  }
+  .btn-burger {
+    visibility: visible;
+  }
+  .nav-item {
+    max-width: 8rem;
+    margin: auto;
+  }
+  div.collapse#BurgerNav {
+    background-color: #f2f2f2;
+    position: relative;
+    width: 100%;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+

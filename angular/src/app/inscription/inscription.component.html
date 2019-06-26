@@ -1,0 +1,23 @@
+<div class="wrapper fadeInDown" id="logo">
+  <div class="align-content-center">
+    <img width=150 height=150 src="assets/images/logo.png">
+  </div>
+</div>
+
+<div class="wrapper fadeInDown">
+  <h2 class="h2-titre-appli shadows">Inscription</h2>
+  <div id="formContent">
+    <form ng-submit="submit()">
+      <input type="text" id="name" placeholder="Name" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <input type="password" id="confirmpassword" placeholder="Confirm Password" required>
+      <button id="submit" class="btn btn-secondary btn-log" (click)=href routerLink="/intranet/easy-garden">S'inscrire</button>
+    </form>
+
+    <div id="formFooter">
+      <a class="underlineHover" (click)=href routerLink="/connexion">Retour</a><br>
+    </div>
+
+  </div>
+</div>

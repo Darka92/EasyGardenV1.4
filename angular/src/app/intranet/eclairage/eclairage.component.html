@@ -1,0 +1,50 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col- center-block">
+                <hr class="separation-contenu">
+                    <h1 class="titre-tableau">Panneau Eclairage</h1>
+                <hr class="separation-contenu-bottom">
+                <div class="table-fix-head">
+                  <table class="table-light table-fixed">
+                    <thead>
+                      <tr>
+                          <th>Statut</th>
+                          <th>Nom</th>
+                          <th>Location</th>
+                          <th>Capteur Défaut Ampoule</th>
+                          <th>Capteur Luminosité (Lux)</th>
+                          <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let eclairage of data; let i = index">
+                          <td>
+                              <div [ngClass]="{'btn-statut-off': eclairage.statut === 'Off', 'btn-statut-on': eclairage.statut === 'On'}">
+                              </div>
+                          </td>
+                          <td [ngStyle]="{color: getColor(eclairage.statut)}">{{ eclairage.nom }}</td>
+                          <td>{{ eclairage.location }}</td>
+                          <td [ngClass]="{'cellule-alert': eclairage.capteurampoule == 1}">{{ eclairage.capteurampoule }}</td>
+                          <td>{{ eclairage.capteurluminosite }}</td>
+                          <td>
+                              <button class="btn btn-switch-on"
+                              *ngIf="eclairage.statut === 'Off'"
+                              (click)="onSwitch(i, eclairage.statut)">Allumer</button>
+                              <button class="btn btn-switch-off"
+                              *ngIf="eclairage.statut === 'On'"
+                              (click)="onSwitch(i, eclairage.statut)">Eteindre</button>
+                          </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+              <div class="row justify-content-center">
+                <button id="submit" class="btn btn-add-equipement" routerLink="equipement">C.R.U.D</button>
+              </div>
+
+            </div>
+        </div>
+    </div>
+</section>

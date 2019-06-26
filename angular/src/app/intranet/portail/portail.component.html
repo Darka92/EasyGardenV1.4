@@ -1,0 +1,48 @@
+<section>
+  <div class="container">
+      <div class="row">
+          <div class="col center-block">
+              <hr class="separation-contenu">
+                  <h1 class="titre-tableau">Panneau Portail</h1>
+            <hr class="separation-contenu-bottom">
+            <div class="table-fix-head">
+              <table class="table-light table-fixed">
+                <thead>
+                  <tr>
+                      <th>Statut</th>
+                      <th>Nom</th>
+                      <th>Capteur Présence</th>
+                      <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let portail of data; let i = index">
+                      <td>
+                          <div [ngClass]="{'btn-statut-off': portail.statut === 'Ferme', 'btn-statut-on': portail.statut === 'Ouvert'}">
+                          </div>
+                      </td>
+                      <td [ngStyle]="{color: getColor(portail.statut)}">{{ portail.nom }}</td>
+                      <td [ngClass]="{'cellule-alert': portail.capteurpresence > 0}">{{ portail.capteurpresence }}</td>
+                      <td>
+                        <button class="btn btn-switch-on"
+                        *ngIf="portail.statut === 'Ferme'"
+                        (click)="onSwitch(i, portail.statut)">Ouvrir</button>
+                        
+                        <button class="btn btn-switch-off"
+                        *ngIf="portail.statut === 'Ouvert'"
+                        (click)="onSwitch(i, portail.statut)">Fermer</button>
+                      </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="row justify-content-center">
+              <button id="submit" class="btn btn-add-equipement" routerLink="equipement">C.R.U.D</button>
+            </div>
+
+          </div>
+      </div>
+  </div>
+</section>
+

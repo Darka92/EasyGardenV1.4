@@ -1,0 +1,11 @@
+[
+    {  "statut":"On", "nom": "Pompe" },
+    {  "statut":"Off", "nom": "Skimmer" },
+    {  "statut":"On", "nom": "Eclairage Périphérie Bassin" },
+    {  "statut":"On", "nom": "Eclairage Aquatique Bassin" },
+    {  "statut":"Off", "nom": "Jet 1" },
+    {  "statut":"Off", "nom": "Jet 2" },
+    {  "statut":"On", "nom": "Jet 3 (Manneken Pis)" },
+    {  "statut":"Off", "nom": "Cascade" },
+    {  "statut":"Off", "nom": "Vidange" }
+]

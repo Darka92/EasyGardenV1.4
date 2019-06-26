@@ -1,0 +1,40 @@
+<div class="wrapper fadeInDown" id="logo">
+  <div class="align-content-center">
+    <img width=150 height=150 src="assets/images/logo.png">
+  </div>
+</div>
+
+<div class="wrapper fadeInDown">
+  <h2 class="h2-titre-appli shadows">Easy Garden</h2>
+  <div id="formContent">
+    <form ng-submit="submit()">
+      <input type="text" id="name" placeholder="Name" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button id="submit" class="btn btn-secondary btn-log" *ngIf="!authStatus" (click)=href routerLink="/intranet/easy-garden">Connexion</button>
+    </form>
+
+    <div class="formFooter">
+      <div class="or">
+        <span>Or signup using</span>
+      </div>
+      <div class="row gutters">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <button type="submit" class="btn btn-tw btn-block fa fa-twitter-square"></button>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <button type="submit" class="btn btn-fb btn-block fa fa-facebook-square"></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Password oublié -->
+    <div class="formFooter">
+      <a class="underlineHover" (click)=href routerLink="/inscription">Créer un compte</a><br>
+      <hr class="separation-contenu">
+      <a class="underlineHover" (click)=href routerLink="/fpassword">Forgot Password?</a>
+    </div>
+
+  </div>
+</div>
+
+

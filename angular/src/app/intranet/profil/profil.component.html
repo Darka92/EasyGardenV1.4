@@ -1,0 +1,17 @@
+<div class="wrapper">
+  <h2 class="h2-titre-appli shadows">Modification Profil</h2>
+  <div id="formContent">
+    <form ng-submit="submit()">
+      <input type="text" id="name" placeholder="Name" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <input type="password" id="confirmpassword" placeholder="Confirm Password" required>
+      <button id="submit" class="btn btn-secondary btn-log" *ngIf="!authStatus" (click)=href routerLink="/intranet/easy-garden">Modifier</button>
+    </form>
+
+    <div id="formFooter">
+      <a class="underlineHover" *ngIf="!authStatus" (click)=href routerLink="/intranet/easy-garden">Retour</a><br>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,10 @@
+[
+    { "statut":"Off", "nom": "Réseau 1", "location": "Façade", "capteurdebit": "0.01", "capteurpression": "8.5" },
+    { "statut":"On", "nom": "Réseau 2", "location": "Côté Gauche", "capteurdebit": "0.015", "capteurpression": "10" },
+    { "statut":"Off", "nom": "Réseau 3", "location": "Côté Droit", "capteurdebit": "0.018", "capteurpression": "9.7" },
+    { "statut":"Off", "nom": "Réseau 4", "location": "Arrière Gauche", "capteurdebit": "0.014", "capteurpression": "8.9" },
+    { "statut":"On", "nom": "Réseau 5", "location": "Arrière Droite", "capteurdebit": "0.02", "capteurpression": "9.2" },
+    { "statut":"Off", "nom": "Réseau 6", "location": "Massif Arrière 1", "capteurdebit": "0.012", "capteurpression": "10.3" },
+    { "statut":"On", "nom": "Réseau 7", "location": "Massif Arrière 2", "capteurdebit": "0.011", "capteurpression": "9.4" },
+    { "statut":"Off", "nom": "Réseau 8", "location": "Tour Bassin", "capteurdebit": "0.013", "capteurpression": "10.8" }
+]

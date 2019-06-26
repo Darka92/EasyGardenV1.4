@@ -1,0 +1,32 @@
+footer {
+    background-color: #f2f2f2;
+    margin-top: 7.5rem;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    bottom : 0px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #666666;
+}
+
+.name-color {
+    color: #95cb11;
+}
+.name-color:hover {
+    text-decoration: underline;
+    color:  #33ccff;
+}
+.text-custom {
+    font-size: 16px;
+}
+
+/*------Responsive Footer------*/
+@media all and (max-width: 992px) {
+  footer {
+    margin-top: 3rem;
+  }
+  .text-custom {
+    font-size: 13px;
+  }
+}

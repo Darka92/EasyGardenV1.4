@@ -1,0 +1,44 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col center-block">
+                <hr class="separation-contenu">
+                    <h1 class="titre-tableau">Panneau Bassin</h1>
+              <hr class="separation-contenu-bottom">
+              <div class="table-fix-head">
+                <table class="table-light table-fixed">
+                  <thead>
+                    <tr>
+                        <th>Statut</th>
+                        <th>Nom</th>
+                        <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let bassin of data; let i = index">
+                        <td>
+                            <div [ngClass]="{'btn-statut-off': bassin.statut === 'Off', 'btn-statut-on': bassin.statut === 'On'}">
+                            </div>
+                        </td>
+                        <td [ngStyle]="{color: getColor(bassin.statut)}">{{ bassin.nom }}</td>
+                        <td>
+                            <button class="btn btn-switch-on"
+                            *ngIf="bassin.statut === 'Off'"
+                            (click)="onSwitch(i, bassin.statut)">Allumer</button>
+                            <button class="btn btn-switch-off"
+                            *ngIf="bassin.statut === 'On'"
+                            (click)="onSwitch(i, bassin.statut)">Eteindre</button>
+                        </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="row justify-content-center">
+                <button id="submit" class="btn btn-add-equipement" routerLink="equipement">C.R.U.D</button>
+              </div>
+
+            </div>
+        </div>
+    </div>
+</section>

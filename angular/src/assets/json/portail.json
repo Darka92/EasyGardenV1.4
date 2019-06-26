@@ -1,0 +1,4 @@
+[
+    {  "statut":"Ferme", "nom": "Portail Façade", "capteurpresence": "0" },
+    {  "statut":"Ferme", "nom": "Portail Arrière", "capteurpresence": "1" }
+]
