@@ -11,6 +11,7 @@
                   <tr>
                       <th>Statut</th>
                       <th>Nom</th>
+                      <th>Localisation</th>
                       <th>Capteur Présence</th>
                       <th>Action</th>
                   </tr>
@@ -22,6 +23,7 @@
                           </div>
                       </td>
                       <td [ngStyle]="{color: getColor(portail.statut)}">{{ portail.nom }}</td>
+                      <td>{{ portail.localisation }}</td>
                       <td [ngClass]="{'cellule-alert': portail.capteurpresence > 0}">{{ portail.capteurpresence }}</td>
                       <td>
                         <button class="btn btn-switch-on"

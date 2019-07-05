@@ -11,7 +11,7 @@
                       <tr>
                           <th>Statut</th>
                           <th>Nom</th>
-                          <th>Location</th>
+                          <th>Localisation</th>
                           <th>Capteur Débit (m3/s)</th>
                           <th>Capteur Pression (bars)</th>
                           <th>Action</th>
@@ -24,7 +24,7 @@
                               </div>
                           </td>
                           <td [ngStyle]="{color: getColor(arrosage.statut)}">{{ arrosage.nom }}</td>
-                          <td>{{ arrosage.location }}</td>
+                          <td>{{ arrosage.localisation }}</td>
                           <td [ngClass]="{'cellule-alert': arrosage.capteurdebit < 0.012}">{{ arrosage.capteurdebit }}</td>
                           <td [ngClass]="{'cellule-alert': arrosage.capteurpression < 9}">{{ arrosage.capteurpression }}</td>
                           <td>

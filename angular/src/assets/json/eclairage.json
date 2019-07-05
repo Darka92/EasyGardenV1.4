@@ -1,13 +1,13 @@
 [
-    { "statut":"Off", "nom": "Secteur 1", "location": "Allée", "capteurampoule": "0", "capteurluminosite": "34205" },
-    { "statut":"On", "nom": "Secteur 2", "location": "Façade", "capteurampoule": "1", "capteurluminosite": "30105" },
-    { "statut":"Off", "nom": "Secteur 3", "location": "Tour de Maison", "capteurampoule": "0", "capteurluminosite": "36704" },
-    { "statut":"Off", "nom": "Secteur 4", "location": "Pas Japonais", "capteurampoule": "0", "capteurluminosite": "45209" },
-    { "statut":"On", "nom": "Secteur 5", "location": "Massif Arrière 1", "capteurampoule": "0", "capteurluminosite": "27963" },
-    { "statut":"On", "nom": "Secteur 6", "location": "Massif Arrière 2", "capteurampoule": "0", "capteurluminosite": "28198" },
-    { "statut":"Off", "nom": "Secteur 7", "location": "Périphérie Bassin", "capteurampoule": "0", "capteurluminosite": "40445" },
-    { "statut":"Off", "nom": "Secteur 8", "location": "Aquatiques Bassin", "capteurampoule": "0", "capteurluminosite": "42678" },
-    { "statut":"On", "nom": "Secteur 9", "location": "Terrasse", "capteurampoule": "0", "capteurluminosite": "29402" },
-    { "statut":"Off", "nom": "Secteur 10", "location": "Cuisine Extérieure", "capteurampoule": "1", "capteurluminosite": "39486" },
-    { "statut":"On", "nom": "Secteur 11", "location": "Piscine", "capteurampoule": "0", "capteurluminosite": "30584" }
+    { "statut":"Off", "nom": "Secteur 1", "localisation": "Allée", "capteurampoule": "0", "capteurluminosite": "34205" },
+    { "statut":"On", "nom": "Secteur 2", "localisation": "Façade", "capteurampoule": "1", "capteurluminosite": "30105" },
+    { "statut":"Off", "nom": "Secteur 3", "localisation": "Tour de Maison", "capteurampoule": "0", "capteurluminosite": "36704" },
+    { "statut":"Off", "nom": "Secteur 4", "localisation": "Pas Japonais", "capteurampoule": "0", "capteurluminosite": "45209" },
+    { "statut":"On", "nom": "Secteur 5", "localisation": "Massif Arrière 1", "capteurampoule": "0", "capteurluminosite": "27963" },
+    { "statut":"On", "nom": "Secteur 6", "localisation": "Massif Arrière 2", "capteurampoule": "0", "capteurluminosite": "28198" },
+    { "statut":"Off", "nom": "Secteur 7", "localisation": "Périphérie Bassin", "capteurampoule": "0", "capteurluminosite": "40445" },
+    { "statut":"Off", "nom": "Secteur 8", "localisation": "Aquatiques Bassin", "capteurampoule": "0", "capteurluminosite": "42678" },
+    { "statut":"On", "nom": "Secteur 9", "localisation": "Terrasse", "capteurampoule": "0", "capteurluminosite": "29402" },
+    { "statut":"Off", "nom": "Secteur 10", "localisation": "Cuisine Extérieure", "capteurampoule": "1", "capteurluminosite": "39486" },
+    { "statut":"On", "nom": "Secteur 11", "localisation": "Piscine", "capteurampoule": "0", "capteurluminosite": "30584" }
 ]

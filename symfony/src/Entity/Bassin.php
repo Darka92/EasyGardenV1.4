@@ -22,7 +22,7 @@ class Bassin
     private $nom;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Jardin", inversedBy="")
+     * @ORM\OneToOne(targetEntity="App\Entity\Jardin")
      * @ORM\JoinColumn(name="jardin", referencedColumnName="jardin_id", nullable=false)
      */
     private $jardin;

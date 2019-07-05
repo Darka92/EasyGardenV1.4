@@ -22,10 +22,17 @@ class Jardin
     private $nom;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="jardins")
      * @ORM\JoinColumn(name="user", referencedColumnName="id", nullable=false)
      */
     private $user;
+
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Bassin")
+     * @ORM\JoinColumn(name="bassin", referencedColumnName="bassin_id", nullable=true)
+     */
+    private $bassin;
 
 
 
@@ -57,4 +64,27 @@ class Jardin
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getBassin()
+    {
+        return $this->bassin;
+    }
+
+    /**
+     * @param mixed $bassin
+     */
+    public function setBassin($bassin): void
+    {
+        $this->bassin = $bassin;
+    }
+
+
+
+
+
+
+
 }

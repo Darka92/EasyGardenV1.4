@@ -27,12 +27,12 @@ class Arrosage
     private $localisation;
 
     /**
-     * @ORM\Column(name="capteur_debit", type="integer")
+     * @ORM\Column(name="capteur_debit", type="float")
      */
     private $capteurDebit;
 
     /**
-     * @ORM\Column(name="capteur_pression", type="integer")
+     * @ORM\Column(name="capteur_pression", type="float")
      */
     private $capteurPression;
 

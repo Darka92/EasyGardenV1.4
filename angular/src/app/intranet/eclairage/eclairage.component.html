@@ -11,7 +11,7 @@
                       <tr>
                           <th>Statut</th>
                           <th>Nom</th>
-                          <th>Location</th>
+                          <th>Localisation</th>
                           <th>Capteur Défaut Ampoule</th>
                           <th>Capteur Luminosité (Lux)</th>
                           <th>Action</th>
@@ -24,7 +24,7 @@
                               </div>
                           </td>
                           <td [ngStyle]="{color: getColor(eclairage.statut)}">{{ eclairage.nom }}</td>
-                          <td>{{ eclairage.location }}</td>
+                          <td>{{ eclairage.localisation }}</td>
                           <td [ngClass]="{'cellule-alert': eclairage.capteurampoule == 1}">{{ eclairage.capteurampoule }}</td>
                           <td>{{ eclairage.capteurluminosite }}</td>
                           <td>

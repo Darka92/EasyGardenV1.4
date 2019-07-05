@@ -11,7 +11,15 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
+            anonymous: true
+            form_login:
+                login_path: login
+                check_path: login_check
+            logout:
+                path: logout
+                target: login
         main:
+            pattern: ^/
             anonymous: true
             logout: ~
             logout_on_user_change: true

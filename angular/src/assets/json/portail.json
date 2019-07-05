@@ -1,4 +1,4 @@
 [
-    {  "statut":"Ferme", "nom": "Portail Façade", "capteurpresence": "0" },
-    {  "statut":"Ferme", "nom": "Portail Arrière", "capteurpresence": "1" }
+    {  "statut":"Ferme", "nom": "Portail 1", "localisation": "Façade", "capteurpresence": "0" },
+    {  "statut":"Ferme", "nom": "Portail 2", "localisation": "Arrière" , "capteurpresence": "1" }
 ]

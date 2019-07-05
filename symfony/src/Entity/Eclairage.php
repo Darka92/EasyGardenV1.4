@@ -32,7 +32,7 @@ class Eclairage
     private $capteurDefautAmpoule;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="float")
      */
     private $capteurLuminosite;
 
