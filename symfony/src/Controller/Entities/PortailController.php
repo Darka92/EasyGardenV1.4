@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller\Entities;
 
+use App\Entity\Arrosage;
 use App\Entity\Portail;
 use App\Repository\PortailRepository;
 
@@ -43,6 +44,39 @@ class PortailController extends AbstractController
 
 
     /**
+     * Retrieves one portail
+     * @Route("/oneportail/{id}", methods={"GET", "POST"})
+     */
+    public function getOnePortail(int $id)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        /** @var Portail $portail */
+        $portail = $entityManager->getRepository(Portail::class)->findOneByPortailId($id);
+
+        if($portail) {
+
+            $encoders = [new JsonEncoder()]; // If no need for XmlEncoder
+            $normalizers = [new ObjectNormalizer()];
+            $serializer = new Serializer($normalizers, $encoders);
+
+            // Serialize your object in Json
+            $jsonObject = $serializer->serialize($portail, 'json', [
+                'circular_reference_handler' => function ($object) {
+                    return $object->getJardinId();
+                }
+            ]);
+
+            return new Response($jsonObject);
+
+        }else{
+            $this->logger->debug("Pas de portail trouvé !");
+            //return View::create(null, Response::HTTP_NO_CONTENT);
+            return new Response('Pas de portail trouvé');
+        }
+
+    }
+
+    /**
      * Retrieves all portails
      * @Route("/allportails", methods={"GET", "POST"})
      *
@@ -77,4 +111,5 @@ class PortailController extends AbstractController
         }
 
     }
+
 }

@@ -2,6 +2,8 @@
 namespace App\Controller\Entities;
 
 use App\Entity\Equipement;
+use App\Entity\Jardin;
+use App\Entity\User;
 use App\Repository\EquipementRepository;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -45,8 +47,6 @@ class EquipementController extends AbstractController
     /**
      * Retrieves all equipements
      * @Route("/allequipements", methods={"GET", "POST"})
-     *
-     *
      */
     public function getAllEquipement()
     {
@@ -64,7 +64,12 @@ class EquipementController extends AbstractController
             // Serialize your object in Json
             $jsonObject = $serializer->serialize($equipements, 'json', [
                 'circular_reference_handler' => function ($object) {
-                    return $object->getBassinId();
+                    if($object instanceof Jardin){
+                        return $object->getJardinId();
+                    }elseif($object instanceof Bassin){
+                        return $object->getEquipements();
+                    }
+
                 }
             ]);
 
@@ -77,4 +82,41 @@ class EquipementController extends AbstractController
         }
 
     }
+
+    /**
+     * Retrieves one equipement
+     * @Route("/oneequipement/{id}", methods={"GET", "POST"})
+     */
+    public function getOneEquipement(int $id)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        /** @var Equipement $equipement */
+        $equipement = $entityManager->getRepository(Equipement::class)->findOneByEquipementId($id);
+
+        if($equipement) {
+
+            $encoders = [new JsonEncoder()]; // If no need for XmlEncoder
+            $normalizers = [new ObjectNormalizer()];
+            $serializer = new Serializer($normalizers, $encoders);
+
+            // Serialize your object in Json
+            $jsonObject = $serializer->serialize($equipement, 'json', [
+                'circular_reference_handler' => function ($object) {
+                    if($object instanceof Jardin){
+                        return $object->getJardinId();
+                    }
+
+                }
+            ]);
+
+            return new Response($jsonObject);
+
+        }else{
+            $this->logger->debug("Pas d'equipement trouvé !");
+            //return View::create(null, Response::HTTP_NO_CONTENT);
+            return new Response("Pas d'equipement trouvé !");
+        }
+
+    }
+
 }

@@ -1,5 +1,5 @@
 web_controller:
-    resource: ../../src/Controller/
+    resource: ../../src/Controller/Web/
     type: annotation
 
 
@@ -7,3 +7,8 @@ rest_controller:
     resource: ../../src/Controller/Rest/
     type: annotation
     prefix: /api
+
+
+entities_controller:
+    resource: ../../src/Controller/Entities/
+    type: annotation

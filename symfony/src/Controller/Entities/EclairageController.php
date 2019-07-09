@@ -43,6 +43,39 @@ class EclairageController extends AbstractController
 
 
     /**
+     * Retrieves one eclairage
+     * @Route("/oneeclairage/{id}", methods={"GET", "POST"})
+     */
+    public function getOneEclairage(int $id)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        /** @var Eclairage $eclairage */
+        $eclairage = $entityManager->getRepository(Eclairage::class)->findOneByEclairageId($id);
+
+        if($eclairage) {
+
+            $encoders = [new JsonEncoder()]; // If no need for XmlEncoder
+            $normalizers = [new ObjectNormalizer()];
+            $serializer = new Serializer($normalizers, $encoders);
+
+            // Serialize your object in Json
+            $jsonObject = $serializer->serialize($eclairage, 'json', [
+                'circular_reference_handler' => function ($object) {
+                    return $object->getJardinId();
+                }
+            ]);
+
+            return new Response($jsonObject);
+
+        }else{
+            $this->logger->debug("Pas de système d'eclairage trouvé !");
+            //return View::create(null, Response::HTTP_NO_CONTENT);
+            return new Response('Pas de système d\'eclairage trouvé');
+        }
+
+    }
+
+    /**
      * Retrieves all eclairages
      * @Route("/alleclairages", methods={"GET", "POST"})
      *
@@ -77,4 +110,5 @@ class EclairageController extends AbstractController
         }
 
     }
+
 }

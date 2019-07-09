@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller\Entities;
 
+use App\Entity\Arrosage;
 use App\Entity\Tondeuse;
 use App\Repository\TondeuseRepository;
 
@@ -43,6 +44,39 @@ class TondeuseController extends AbstractController
 
 
     /**
+     * Retrieves one tondeuse
+     * @Route("/onetondeuse/{id}", methods={"GET", "POST"})
+     */
+    public function getOneTondeuse(int $id)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        /** @var Tondeuse $tondeuse */
+        $tondeuse = $entityManager->getRepository(Tondeuse::class)->findOneByTondeuseId($id);
+
+        if($tondeuse) {
+
+            $encoders = [new JsonEncoder()]; // If no need for XmlEncoder
+            $normalizers = [new ObjectNormalizer()];
+            $serializer = new Serializer($normalizers, $encoders);
+
+            // Serialize your object in Json
+            $jsonObject = $serializer->serialize($tondeuse, 'json', [
+                'circular_reference_handler' => function ($object) {
+                    return $object->getJardinId();
+                }
+            ]);
+
+            return new Response($jsonObject);
+
+        }else{
+            $this->logger->debug("Pas de tondeuse trouvée !");
+            //return View::create(null, Response::HTTP_NO_CONTENT);
+            return new Response('Pas de tondeuse trouvée');
+        }
+
+    }
+
+    /**
      * Retrieves all tondeuses
      * @Route("/alltondeuses", methods={"GET", "POST"})
      *
@@ -77,4 +111,5 @@ class TondeuseController extends AbstractController
         }
 
     }
+
 }
