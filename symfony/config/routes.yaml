@@ -3,4 +3,4 @@ fos_user:
 
 #index:
 #    path: /
-#    controller: App\Controller\DefaultController::index
+#    controller: App\Controller\Rest\RestController::index

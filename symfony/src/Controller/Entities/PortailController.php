@@ -5,12 +5,12 @@ use App\Entity\Arrosage;
 use App\Entity\Portail;
 use App\Repository\PortailRepository;
 
+use FOS\RestBundle\View\View;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
-use Psr\Log\LoggerInterface;
-
 use Symfony\Component\HttpFoundation\Response;
+use Psr\Log\LoggerInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
@@ -45,13 +45,11 @@ class PortailController extends AbstractController
 
     /**
      * Retrieves one portail
-     * @Route("/oneportail/{id}", methods={"GET", "POST"})
      */
     public function getOnePortail(int $id)
     {
-        $entityManager = $this->getDoctrine()->getManager();
         /** @var Portail $portail */
-        $portail = $entityManager->getRepository(Portail::class)->findOneByPortailId($id);
+        $portail = $this->portailRepository->findOneByPortailId($id);
 
         if($portail) {
 
@@ -78,15 +76,11 @@ class PortailController extends AbstractController
 
     /**
      * Retrieves all portails
-     * @Route("/allportails", methods={"GET", "POST"})
-     *
-     *
      */
-    public function getAllPortail()
+    public function getAllPortails()
     {
-        $entityManager = $this->getDoctrine()->getManager();
         /** @var Portail $portails */
-        $portails = $entityManager->getRepository(Portail::class)->findAll();
+        $portails = $this->portailRepository->findAll();
 
         if($portails) {
             $this->logger->debug("Il y a " . count($portails) . "portail(s)." );

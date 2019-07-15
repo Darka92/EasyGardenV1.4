@@ -1,8 +1,10 @@
 <?php
 namespace App\Controller\Entities;
 
-use App\Entity\Arrosage;
-use App\Repository\ArrosageRepository;
+use App\Entity\User;
+use App\Entity\Jardin;
+use App\Repository\UserRepository;
+use App\Repository\JardinRepository;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,7 +17,7 @@ use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 
 
-class ArrosageController extends AbstractController
+class UserController extends AbstractController
 {
     /**
      * @var LoggerInterface
@@ -37,74 +39,84 @@ class ArrosageController extends AbstractController
 
         $this->em = $entityManager;
 
-        $this->arrosageRepository = $this->em->getRepository(Arrosage::class);
-    }
-
-
-    /**
-     * Retrieves one arrosage
-     */
-    public function getOneArrosage(int $id)
-    {
-        /** @var Arrosage $arrosage */
-        $arrosage = $this->arrosageRepository->findOneByArrosageId($id);
-
-        if($arrosage) {
-
-            $encoders = [new JsonEncoder()]; // If no need for XmlEncoder
-            $normalizers = [new ObjectNormalizer()];
-            $serializer = new Serializer($normalizers, $encoders);
-
-            // Serialize your object in Json
-            $jsonObject = $serializer->serialize($arrosage, 'json', [
-                'circular_reference_handler' => function ($object) {
-                    return $object->getJardinId();
-                }
-            ]);
-
-            return new Response($jsonObject);
-
-        }else{
-            $this->logger->debug("Pas de système d'arrosage trouvé !");
-            //return View::create(null, Response::HTTP_NO_CONTENT);
-            return new Response('Pas de système d\'arrosage trouvé');
-        }
-
+        $this->userRepository = $this->em->getRepository(User::class);
     }
 
 
 
     /**
-     * Retrieves all arrosages
+     * Retrieves one user
      */
-    public function getAllArrosages()
+    public function getOneUser(int $id)
     {
+        /** @var User $user */
+        $user = $this->userRepository->findOneById($id);
 
-        /** @var Arrosage $arrosages */
-        $arrosages = $this->arrosageRepository->findAll();
-
-        if($arrosages) {
-            $this->logger->debug("Il y a " . count($arrosages) . "réseaux d'arrosages." );
+        if($user) {
+            $this->logger->debug("User with id :" . $user->getId() );
 
             $encoders = [new JsonEncoder()];
             $normalizers = [new ObjectNormalizer()];
             $serializer = new Serializer($normalizers, $encoders);
 
             // Serialize your object in Json
-            $jsonObject = $serializer->serialize($arrosages, 'json', [
+            $jsonObject = $serializer->serialize($user, 'json', [
                 'circular_reference_handler' => function ($object) {
-                    return $object->getJardinId();
+                    if($object instanceof Jardin){
+                        return $object->getJardinId();
+                    }elseif($object instanceof User){
+                        return $object->getJardins();
+                    }
+
                 }
             ]);
 
             return new Response($jsonObject);
 
         }else{
-            $this->logger->debug("Pas de système d'arrosage trouvé !");
+            $this->logger->debug("Pas d'utilisateur trouvé !");
             //return View::create(null, Response::HTTP_NO_CONTENT);
-            return new Response('Pas de système d\'arrosage trouvé !');
+            return new Response('Pas d\'utilisateur trouvé !');
         }
 
     }
 
+
+
+    /**
+     * Retrieves all users
+     */
+    public function getAllUsers()
+    {
+        /** @var User $users */
+        $users = $this->userRepository->findAll();
+
+        if($users) {
+            $this->logger->debug("Il y a " . count($users) . "utilisateurs." );
+
+            $encoders = [new JsonEncoder()];
+            $normalizers = [new ObjectNormalizer()];
+            $serializer = new Serializer($normalizers, $encoders);
+
+            // Serialize your object in Json
+            $jsonObject = $serializer->serialize($users, 'json', [
+                'circular_reference_handler' => function ($object) {
+                    if($object instanceof Jardin){
+                        return $object->getJardinId();
+                    }elseif($object instanceof User){
+                        return $object->getJardins();
+                    }
+
+                }
+            ]);
+
+            return new Response($jsonObject);
+
+        }else{
+            $this->logger->debug("Pas d'utilisateur trouvé !");
+            //return View::create(null, Response::HTTP_NO_CONTENT);
+            return new Response('Pas d\'utilisateur trouvé !');
+        }
+
+    }
 }

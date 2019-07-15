@@ -1,23 +1,20 @@
 <?php
 namespace App\Controller\Entities;
 
-use App\Entity\Arrosage;
 use App\Entity\Bassin;
 use App\Entity\Jardin;
-use App\Entity\User;
 use App\Repository\BassinRepository;
 
+use FOS\RestBundle\View\View;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
-use Psr\Log\LoggerInterface;
-
 use Symfony\Component\HttpFoundation\Response;
+use Psr\Log\LoggerInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
-
 
 class BassinController extends AbstractController
 {
@@ -47,13 +44,11 @@ class BassinController extends AbstractController
 
     /**
      * Retrieves one bassin
-     * @Route("/onebassin/{id}", methods={"GET", "POST"})
      */
     public function getOneBassin(int $id)
     {
-        $entityManager = $this->getDoctrine()->getManager();
         /** @var Bassin $bassin */
-        $bassin = $entityManager->getRepository(Bassin::class)->findOneByBassinId($id);
+        $bassin = $this->bassinRepository->findOneByBassinId($id);
 
         if($bassin) {
 
@@ -85,19 +80,15 @@ class BassinController extends AbstractController
 
     /**
      * Retrieves all bassins
-     * @Route("/allbassins", methods={"GET", "POST"})
-     *
-     *
      */
     public function getAllBassins()
     {
-        $entityManager = $this->getDoctrine()->getManager();
         /** @var Bassin $bassins */
-        $bassins = $entityManager->getRepository(Bassin::class)->findAll();
+        $bassins = $this->bassinRepository->findAll();
 
         if($bassins) {
 
-            $encoders = [new JsonEncoder()]; // If no need for XmlEncoder
+            $encoders = [new JsonEncoder()];                // If no need for XmlEncoder
             $normalizers = [new ObjectNormalizer()];
             $serializer = new Serializer($normalizers, $encoders);
 

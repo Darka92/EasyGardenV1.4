@@ -1,8 +1,10 @@
 <?php
 namespace App\Controller\Entities;
 
-use App\Entity\Arrosage;
-use App\Repository\ArrosageRepository;
+use App\Entity\Jardin;
+use App\Entity\User;
+use App\Repository\JardinRepository;
+use App\Repository\UserRepository;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,7 +17,7 @@ use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 
 
-class ArrosageController extends AbstractController
+class JardinController extends AbstractController
 {
     /**
      * @var LoggerInterface
@@ -37,37 +39,44 @@ class ArrosageController extends AbstractController
 
         $this->em = $entityManager;
 
-        $this->arrosageRepository = $this->em->getRepository(Arrosage::class);
+        $this->jardinRepository = $this->em->getRepository(Jardin::class);
     }
 
 
+
     /**
-     * Retrieves one arrosage
+     * Retrieves one jardin
      */
-    public function getOneArrosage(int $id)
+    public function getOneJardin(int $id)
     {
-        /** @var Arrosage $arrosage */
-        $arrosage = $this->arrosageRepository->findOneByArrosageId($id);
+        /** @var Jardin $jardin */
+        $jardin = $this->jardinRepository->findOneByJardinId($id);
 
-        if($arrosage) {
+        if($jardin) {
+            $this->logger->debug("Jardin with id :" . $jardin->getJardinId() );
 
-            $encoders = [new JsonEncoder()]; // If no need for XmlEncoder
+            $encoders = [new JsonEncoder()];
             $normalizers = [new ObjectNormalizer()];
             $serializer = new Serializer($normalizers, $encoders);
 
             // Serialize your object in Json
-            $jsonObject = $serializer->serialize($arrosage, 'json', [
+            $jsonObject = $serializer->serialize($jardin, 'json', [
                 'circular_reference_handler' => function ($object) {
-                    return $object->getJardinId();
+                    if($object instanceof Jardin){
+                        return $object->getJardinId();
+                    }elseif($object instanceof User){
+                        return $object->getJardins();
+                    }
+
                 }
             ]);
 
             return new Response($jsonObject);
 
         }else{
-            $this->logger->debug("Pas de système d'arrosage trouvé !");
+            $this->logger->debug("Pas de jardin trouvé !");
             //return View::create(null, Response::HTTP_NO_CONTENT);
-            return new Response('Pas de système d\'arrosage trouvé');
+            return new Response('Pas de jardin trouvé !');
         }
 
     }
@@ -75,34 +84,38 @@ class ArrosageController extends AbstractController
 
 
     /**
-     * Retrieves all arrosages
+     * Retrieves all jardins
      */
-    public function getAllArrosages()
+    public function getAllJardins()
     {
+        /** @var Jardin $jardins */
+        $jardins = $this->jardinRepository->findAll();
 
-        /** @var Arrosage $arrosages */
-        $arrosages = $this->arrosageRepository->findAll();
-
-        if($arrosages) {
-            $this->logger->debug("Il y a " . count($arrosages) . "réseaux d'arrosages." );
+        if($jardins) {
+            $this->logger->debug("Il y a " . count($jardins) . "jardins." );
 
             $encoders = [new JsonEncoder()];
             $normalizers = [new ObjectNormalizer()];
             $serializer = new Serializer($normalizers, $encoders);
 
             // Serialize your object in Json
-            $jsonObject = $serializer->serialize($arrosages, 'json', [
+            $jsonObject = $serializer->serialize($jardins, 'json', [
                 'circular_reference_handler' => function ($object) {
-                    return $object->getJardinId();
+                    if($object instanceof Jardin){
+                        return $object->getJardinId();
+                    }elseif($object instanceof User){
+                        return $object->getJardins();
+                    }
+
                 }
             ]);
 
             return new Response($jsonObject);
 
         }else{
-            $this->logger->debug("Pas de système d'arrosage trouvé !");
+            $this->logger->debug("Pas de jardin trouvé !");
             //return View::create(null, Response::HTTP_NO_CONTENT);
-            return new Response('Pas de système d\'arrosage trouvé !');
+            return new Response('Pas de jardin trouvé !');
         }
 
     }

@@ -6,12 +6,12 @@ use App\Entity\Jardin;
 use App\Entity\User;
 use App\Repository\EquipementRepository;
 
+use FOS\RestBundle\View\View;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
-use Psr\Log\LoggerInterface;
-
 use Symfony\Component\HttpFoundation\Response;
+use Psr\Log\LoggerInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
@@ -45,29 +45,24 @@ class EquipementController extends AbstractController
 
 
     /**
-     * Retrieves all equipements
-     * @Route("/allequipements", methods={"GET", "POST"})
+     * Retrieves one equipement
      */
-    public function getAllEquipement()
+    public function getOneEquipement(int $id)
     {
-        $entityManager = $this->getDoctrine()->getManager();
-        /** @var Equipement $equipements */
-        $equipements = $entityManager->getRepository(Equipement::class)->findAll();
+        /** @var Equipement $equipement */
+        $equipement = $this->equipementRepository->findOneByEquipementId($id);
 
-        if($equipements) {
-            $this->logger->debug("Il y a " . count($equipements) . "equipement(s)." );
+        if($equipement) {
 
             $encoders = [new JsonEncoder()]; // If no need for XmlEncoder
             $normalizers = [new ObjectNormalizer()];
             $serializer = new Serializer($normalizers, $encoders);
 
             // Serialize your object in Json
-            $jsonObject = $serializer->serialize($equipements, 'json', [
+            $jsonObject = $serializer->serialize($equipement, 'json', [
                 'circular_reference_handler' => function ($object) {
                     if($object instanceof Jardin){
                         return $object->getJardinId();
-                    }elseif($object instanceof Bassin){
-                        return $object->getEquipements();
                     }
 
                 }
@@ -83,27 +78,30 @@ class EquipementController extends AbstractController
 
     }
 
-    /**
-     * Retrieves one equipement
-     * @Route("/oneequipement/{id}", methods={"GET", "POST"})
-     */
-    public function getOneEquipement(int $id)
-    {
-        $entityManager = $this->getDoctrine()->getManager();
-        /** @var Equipement $equipement */
-        $equipement = $entityManager->getRepository(Equipement::class)->findOneByEquipementId($id);
 
-        if($equipement) {
+
+    /**
+     * Retrieves all equipements
+     */
+    public function getAllEquipements()
+    {
+        /** @var Equipement $equipements */
+        $equipements = $this->equipementRepository->findAll();
+
+        if($equipements) {
+            $this->logger->debug("Il y a " . count($equipements) . "equipement(s)." );
 
             $encoders = [new JsonEncoder()]; // If no need for XmlEncoder
             $normalizers = [new ObjectNormalizer()];
             $serializer = new Serializer($normalizers, $encoders);
 
             // Serialize your object in Json
-            $jsonObject = $serializer->serialize($equipement, 'json', [
+            $jsonObject = $serializer->serialize($equipements, 'json', [
                 'circular_reference_handler' => function ($object) {
                     if($object instanceof Jardin){
                         return $object->getJardinId();
+                    }elseif($object instanceof Bassin){
+                        return $object->getEquipements();
                     }
 
                 }

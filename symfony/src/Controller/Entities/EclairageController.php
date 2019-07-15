@@ -4,12 +4,12 @@ namespace App\Controller\Entities;
 use App\Entity\Eclairage;
 use App\Repository\EclairageRepository;
 
+use FOS\RestBundle\View\View;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
-use Psr\Log\LoggerInterface;
-
 use Symfony\Component\HttpFoundation\Response;
+use Psr\Log\LoggerInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
@@ -44,13 +44,11 @@ class EclairageController extends AbstractController
 
     /**
      * Retrieves one eclairage
-     * @Route("/oneeclairage/{id}", methods={"GET", "POST"})
      */
     public function getOneEclairage(int $id)
     {
-        $entityManager = $this->getDoctrine()->getManager();
         /** @var Eclairage $eclairage */
-        $eclairage = $entityManager->getRepository(Eclairage::class)->findOneByEclairageId($id);
+        $eclairage = $this->eclairageRepository->findOneByEclairageId($id);
 
         if($eclairage) {
 
@@ -77,15 +75,11 @@ class EclairageController extends AbstractController
 
     /**
      * Retrieves all eclairages
-     * @Route("/alleclairages", methods={"GET", "POST"})
-     *
-     *
      */
-    public function getAllEclairage()
+    public function getAllEclairages()
     {
-        $entityManager = $this->getDoctrine()->getManager();
         /** @var Eclairage $eclairages */
-        $eclairages = $entityManager->getRepository(Eclairage::class)->findAll();
+        $eclairages = $this->eclairageRepository->findAll();
 
         if($eclairages) {
             $this->logger->debug("Il y a " . count($eclairages) . "réseaux d'eclairages." );

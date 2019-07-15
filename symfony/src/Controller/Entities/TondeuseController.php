@@ -5,12 +5,12 @@ use App\Entity\Arrosage;
 use App\Entity\Tondeuse;
 use App\Repository\TondeuseRepository;
 
+use FOS\RestBundle\View\View;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
-use Psr\Log\LoggerInterface;
-
 use Symfony\Component\HttpFoundation\Response;
+use Psr\Log\LoggerInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
@@ -45,13 +45,11 @@ class TondeuseController extends AbstractController
 
     /**
      * Retrieves one tondeuse
-     * @Route("/onetondeuse/{id}", methods={"GET", "POST"})
      */
     public function getOneTondeuse(int $id)
     {
-        $entityManager = $this->getDoctrine()->getManager();
         /** @var Tondeuse $tondeuse */
-        $tondeuse = $entityManager->getRepository(Tondeuse::class)->findOneByTondeuseId($id);
+        $tondeuse = $this->tondeuseRepository->findOneByTondeuseId($id);
 
         if($tondeuse) {
 
@@ -78,15 +76,11 @@ class TondeuseController extends AbstractController
 
     /**
      * Retrieves all tondeuses
-     * @Route("/alltondeuses", methods={"GET", "POST"})
-     *
-     *
      */
-    public function getAllTondeuse()
+    public function getAllTondeuses()
     {
-        $entityManager = $this->getDoctrine()->getManager();
         /** @var Tondeuse $tondeuses */
-        $tondeuses = $entityManager->getRepository(Tondeuse::class)->findAll();
+        $tondeuses = $this->tondeuseRepository->findAll();
 
         if($tondeuses) {
             $this->logger->debug("Il y a " . count($tondeuses) . "tondeuse(s)." );
