@@ -58,6 +58,8 @@ class BassinController extends AbstractController
 
             // Serialize your object in Json
             $jsonObject = $serializer->serialize($bassin, 'json', [
+                'attributes' => ['bassinId','nom'],
+
                 'circular_reference_handler' => function ($object) {
                     if ($object instanceof Jardin) {
                         return $object->getJardinId();
@@ -94,6 +96,8 @@ class BassinController extends AbstractController
 
             // Serialize your object in Json
             $jsonObject = $serializer->serialize($bassins, 'json', [
+                'attributes' => ['bassinId','nom'],
+
                 'circular_reference_handler' => function ($object) {
                     if ($object instanceof Jardin) {
                         return $object->getJardinId();

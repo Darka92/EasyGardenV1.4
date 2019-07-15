@@ -59,6 +59,8 @@ class TondeuseController extends AbstractController
 
             // Serialize your object in Json
             $jsonObject = $serializer->serialize($tondeuse, 'json', [
+                'attributes' => ['tondeuseId','nom','capteurBatterie','statut'],
+
                 'circular_reference_handler' => function ($object) {
                     return $object->getJardinId();
                 }
@@ -91,6 +93,8 @@ class TondeuseController extends AbstractController
 
             // Serialize your object in Json
             $jsonObject = $serializer->serialize($tondeuses, 'json', [
+                'attributes' => ['tondeuseId','nom','capteurBatterie','statut'],
+
                 'circular_reference_handler' => function ($object) {
                     return $object->getJardinId();
                 }

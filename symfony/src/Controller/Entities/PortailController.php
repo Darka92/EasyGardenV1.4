@@ -59,6 +59,8 @@ class PortailController extends AbstractController
 
             // Serialize your object in Json
             $jsonObject = $serializer->serialize($portail, 'json', [
+                'attributes' => ['portailId','nom','localisation','capteurPresence','statut'],
+
                 'circular_reference_handler' => function ($object) {
                     return $object->getJardinId();
                 }
@@ -91,6 +93,8 @@ class PortailController extends AbstractController
 
             // Serialize your object in Json
             $jsonObject = $serializer->serialize($portails, 'json', [
+                'attributes' => ['portailId','nom','localisation','capteurPresence','statut'],
+
                 'circular_reference_handler' => function ($object) {
                     return $object->getJardinId();
                 }

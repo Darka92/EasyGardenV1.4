@@ -57,6 +57,8 @@ class ArrosageController extends AbstractController
 
             // Serialize your object in Json
             $jsonObject = $serializer->serialize($arrosage, 'json', [
+                'attributes' => ['arrosageId','nom','localisation','capteurDebit','capteurPression','statut'],
+
                 'circular_reference_handler' => function ($object) {
                     return $object->getJardinId();
                 }
@@ -92,6 +94,8 @@ class ArrosageController extends AbstractController
 
             // Serialize your object in Json
             $jsonObject = $serializer->serialize($arrosages, 'json', [
+                'attributes' => ['arrosageId','nom','localisation','capteurDebit','capteurPression','statut'],
+
                 'circular_reference_handler' => function ($object) {
                     return $object->getJardinId();
                 }

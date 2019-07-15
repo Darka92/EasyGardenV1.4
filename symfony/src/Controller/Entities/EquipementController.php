@@ -60,6 +60,8 @@ class EquipementController extends AbstractController
 
             // Serialize your object in Json
             $jsonObject = $serializer->serialize($equipement, 'json', [
+                'attributes' => ['equipementId','nom','statut'],
+
                 'circular_reference_handler' => function ($object) {
                     if($object instanceof Jardin){
                         return $object->getJardinId();
@@ -97,6 +99,8 @@ class EquipementController extends AbstractController
 
             // Serialize your object in Json
             $jsonObject = $serializer->serialize($equipements, 'json', [
+                'attributes' => ['equipementId','nom','statut'],
+
                 'circular_reference_handler' => function ($object) {
                     if($object instanceof Jardin){
                         return $object->getJardinId();

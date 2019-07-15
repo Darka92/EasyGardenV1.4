@@ -61,6 +61,8 @@ class UserController extends AbstractController
 
             // Serialize your object in Json
             $jsonObject = $serializer->serialize($user, 'json', [
+                'attributes' => ['id','username'],
+
                 'circular_reference_handler' => function ($object) {
                     if($object instanceof Jardin){
                         return $object->getJardinId();
@@ -100,6 +102,10 @@ class UserController extends AbstractController
 
             // Serialize your object in Json
             $jsonObject = $serializer->serialize($users, 'json', [
+                'ignored_attributes' => ['email','emailCanonical','usernameCanonical','password','passwordRequestedAt',
+                    'plainPassword','salt','lastLogin','confirmationToken','roles','superAdmin','groups','credentialsNonExpired',
+                    'accountNonLocked','accountNonExpired','groupNames','createTime','enabled','__initializer__','__cloner__','__isInitialized__'],
+
                 'circular_reference_handler' => function ($object) {
                     if($object instanceof Jardin){
                         return $object->getJardinId();

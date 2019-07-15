@@ -58,6 +58,8 @@ class EclairageController extends AbstractController
 
             // Serialize your object in Json
             $jsonObject = $serializer->serialize($eclairage, 'json', [
+                'attributes' => ['eclairageId','nom','localisation','capteurDefautAmpoule','capteurLuminosite','statut'],
+
                 'circular_reference_handler' => function ($object) {
                     return $object->getJardinId();
                 }
@@ -90,6 +92,8 @@ class EclairageController extends AbstractController
 
             // Serialize your object in Json
             $jsonObject = $serializer->serialize($eclairages, 'json', [
+                'attributes' => ['eclairageId','nom','localisation','capteurDefautAmpoule','capteurLuminosite','statut'],
+
                 'circular_reference_handler' => function ($object) {
                     return $object->getJardinId();
                 }
