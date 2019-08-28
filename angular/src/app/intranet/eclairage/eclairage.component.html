@@ -15,6 +15,7 @@
                           <th>Capteur Défaut Ampoule</th>
                           <th>Capteur Luminosité (Lux)</th>
                           <th>Action</th>
+                          <th>C.R.U.D</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -35,13 +36,21 @@
                               *ngIf="eclairage.statut === 'On'"
                               (click)="onSwitch(i, eclairage.statut)">Eteindre</button>
                           </td>
+                          <td>
+                            <button class="btn btn-custom-crud" href="">
+                              <img src="assets/images/change.png" alt="Modifier" title="Modifier">
+                            </button>
+                            <button class="btn btn-custom-crud" href="">
+                              <img src="assets/images/delete.png" alt="Supprimer" title="Supprimer">
+                            </button>
+                          </td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
 
               <div class="row justify-content-center">
-                <button id="submit" class="btn btn-add-equipement" routerLink="equipement">C.R.U.D</button>
+                <button id="submit" class="btn btn-add-equipement" routerLink="equipement">Ajouter</button>
               </div>
 
             </div>
