@@ -7,7 +7,7 @@ import { BassinService } from 'src/app/services/bassin.service';
   styleUrls: ['./bassin.component.css']
 })
 
-export class BassinComponent implements OnInit,OnDestroy {
+export class BassinComponent implements OnInit, OnDestroy {
 
   data;
 
@@ -25,21 +25,20 @@ export class BassinComponent implements OnInit,OnDestroy {
   }
 
   ngOnDestroy() {
-    
   }
 
-  getColor(statut) {
-    if (statut === 'On') {
+  getColor( statut) {
+    if ( statut === 'On') {
       return 'green';
-    } else if (statut === 'Off') {
+    } else if ( statut === 'Off') {
       return 'red';
     }
   }
 
-  onSwitch(i,statut) {
-    if(statut === 'On') {
+  onSwitch(i, statut) {
+    if (statut === 'On') {
       this.bassinService.switchOffOne(i);
-    } else if(statut === 'Off') {
+    } else if (statut === 'Off') {
       this.bassinService.switchOnOne(i);
     }
   }

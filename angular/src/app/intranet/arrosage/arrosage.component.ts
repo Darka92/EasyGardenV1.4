@@ -7,7 +7,7 @@ import { ArrosageService } from 'src/app/services/arrosage.service';
   styleUrls: ['./arrosage.component.css']
 })
 
-export class ArrosageComponent implements OnInit,OnDestroy {
+export class ArrosageComponent implements OnInit, OnDestroy {
 
   data;
 
@@ -18,15 +18,12 @@ export class ArrosageComponent implements OnInit,OnDestroy {
     /*console.log(this.data);*/
 
     this.data = this.arrosageService.arrosage;
-    
   }
 
   ngOnInit() {
-  
   }
 
   ngOnDestroy() {
-    
   }
 
   getColor(statut) {
@@ -37,10 +34,10 @@ export class ArrosageComponent implements OnInit,OnDestroy {
     }
   }
 
-  onSwitch(i,statut) {
-    if(statut === 'On') {
+  onSwitch(i, statut) {
+    if (statut === 'On') {
       this.arrosageService.switchOffOne(i);
-    } else if(statut === 'Off') {
+    } else if (statut === 'Off') {
       this.arrosageService.switchOnOne(i);
     }
   }

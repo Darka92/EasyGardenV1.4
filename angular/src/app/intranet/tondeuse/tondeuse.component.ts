@@ -7,13 +7,13 @@ import { TondeuseService } from 'src/app/services/tondeuse.service';
   styleUrls: ['./tondeuse.component.css']
 })
 
-export class TondeuseComponent implements OnInit,OnDestroy {
+export class TondeuseComponent implements OnInit, OnDestroy {
 
   data;
 
   index: number;
 
-  constructor(private tondeuseService: TondeuseService) { 
+  constructor(private tondeuseService: TondeuseService) {
 
     /*console.log(this.data);*/
 
@@ -22,11 +22,9 @@ export class TondeuseComponent implements OnInit,OnDestroy {
   }
 
   ngOnInit() {
-
   }
 
   ngOnDestroy() {
-
   }
 
   getColor(statut) {
@@ -37,10 +35,10 @@ export class TondeuseComponent implements OnInit,OnDestroy {
     }
   }
 
-  onSwitch(i,statut) {
-    if(statut === 'On') {
+  onSwitch(i, statut) {
+    if (statut === 'On') {
       this.tondeuseService.switchOffOne(i);
-    } else if(statut === 'Off') {
+    } else if (statut === 'Off') {
       this.tondeuseService.switchOnOne(i);
     }
   }

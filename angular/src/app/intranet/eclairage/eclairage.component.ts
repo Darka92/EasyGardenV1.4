@@ -7,13 +7,13 @@ import { EclairageService } from 'src/app/services/eclairage.service';
   styleUrls: ['./eclairage.component.css']
 })
 
-export class EclairageComponent implements OnInit,OnDestroy {
+export class EclairageComponent implements OnInit, OnDestroy {
 
   data;
 
   index: number;
 
-  constructor(private eclairageService: EclairageService) { 
+  constructor(private eclairageService: EclairageService) {
 
     console.log(this.eclairageService.eclairage);
 
@@ -22,11 +22,9 @@ export class EclairageComponent implements OnInit,OnDestroy {
   }
 
   ngOnInit() {
-
   }
 
   ngOnDestroy() {
-    
   }
 
   getColor(statut) {
@@ -37,10 +35,10 @@ export class EclairageComponent implements OnInit,OnDestroy {
     }
   }
 
-  onSwitch(i,statut) {
-    if(statut === 'On') {
+  onSwitch(i, statut) {
+    if (statut === 'On') {
       this.eclairageService.switchOffOne(i);
-    } else if(statut === 'Off') {
+    } else if (statut === 'Off') {
       this.eclairageService.switchOnOne(i);
     }
   }

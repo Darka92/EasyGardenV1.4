@@ -9,7 +9,7 @@ export class ArrosageService {
 
 arrosage;
 
-  constructor(private maRequeteAjax: HttpClient) { 
+  constructor(private maRequeteAjax: HttpClient) {
     this.maRequeteAjax.get('/assets/json/arrosage.json').subscribe(
       data => this.arrosage = data
     );
@@ -24,3 +24,6 @@ arrosage;
   }
 
 }
+
+
+

@@ -1,4 +1,5 @@
 import { Component, OnInit  } from '@angular/core';
+import { HttpClient} from '@angular/common/http';
 import { EclairageService } from './services/eclairage.service';
 import { ArrosageService } from './services/arrosage.service';
 import { BassinService } from './services/bassin.service';
@@ -21,9 +22,9 @@ export class AppComponent implements OnInit {
   tondeuse: any[];
   portail: any[];
 
-  constructor(private eclairageService: EclairageService, private arrosageService: ArrosageService,
-    private bassinService: BassinService, private tondeuseService: TondeuseService,
-    private portailService: PortailService) {
+  constructor(private httpClient: HttpClient, private eclairageService: EclairageService,
+              private arrosageService: ArrosageService, private bassinService: BassinService,
+              private tondeuseService: TondeuseService, private portailService: PortailService) {
 
     setTimeout(
       () => {

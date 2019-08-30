@@ -2,17 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fbdef407-edd5-4e6a-b1ff-083f3212773b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/symfony/src/Security/TokenAuthenticator.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular/src/app/intranet/arrosage/arrosage.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/intranet/arrosage/arrosage.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular/src/app/intranet/bassin/bassin.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/intranet/bassin/bassin.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular/src/app/intranet/eclairage/eclairage.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/intranet/eclairage/eclairage.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular/src/app/intranet/portail/portail.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/intranet/portail/portail.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular/src/app/intranet/tondeuse/tondeuse.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/intranet/tondeuse/tondeuse.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/config/packages/routing.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/routing.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony/src/Controller/Entities/JardinController.php" beforeDir="false" afterPath="$PROJECT_DIR$/symfony/src/Controller/Entities/JardinController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/angular/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/angular/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/src/app/intranet/arrosage/arrosage.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/intranet/arrosage/arrosage.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/src/app/intranet/bassin/bassin.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/intranet/bassin/bassin.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/src/app/intranet/eclairage/eclairage.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/intranet/eclairage/eclairage.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/src/app/intranet/portail/portail.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/intranet/portail/portail.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/src/app/intranet/tondeuse/tondeuse.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/intranet/tondeuse/tondeuse.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/src/app/services/arrosage.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/services/arrosage.service.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -223,7 +223,10 @@
       <workItem from="1564473174670" duration="696000" />
       <workItem from="1566807893499" duration="1794000" />
       <workItem from="1566889723668" duration="5392000" />
-      <workItem from="1566975845807" duration="3214000" />
+      <workItem from="1566975845807" duration="3813000" />
+      <workItem from="1567062585733" duration="8202000" />
+      <workItem from="1567148862439" duration="4502000" />
+      <workItem from="1567155096914" duration="1229000" />
     </task>
     <servers />
   </component>
