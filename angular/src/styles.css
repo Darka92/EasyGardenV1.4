@@ -190,6 +190,65 @@ a:hover {
   color: #95cb11;
 }
 
+/*------Pagination------*/
+ul.ngx-pagination {
+  background-color: #f7f7f7;
+  border: 2px solid #95cb11;
+  border-radius: 4px !important;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  margin-right: 2rem;
+  margin-left: 2rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  position: relative;
+}
+.ngx-pagination a {
+  background-color: #E0E2E5;
+  color: #666666 !important;
+  border: 2px solid #999999;
+  border-radius: 4px !important;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+.ngx-pagination a:hover {
+  background: #e7f9b9 !important;
+  border: 2px solid #95cb11 !important;
+  border-radius: 4px;
+  text-decoration: none;
+}
+.ngx-pagination .disabled {
+  color: #999999 !important;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  /*width: 8rem;*/
+}
+.ngx-pagination .current {
+  background: #95cb11 !important;
+  border: 2px solid #999999;
+  border-radius: 4px;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+li.pagination-next>a, li.pagination-previous>a {
+  background: none !important;
+  border: none !important;
+}
+li.pagination-next>a {
+  width: 5rem;
+}
+li.pagination-previous>a {
+  width: 7rem;
+}
+ul>li>a>.show-for-sr {
+  display: none !important;
+}
+li.pagination-next {
+  display: none;
+}
+
 /*------Animations------*/
 
 .fadeInDown {
@@ -274,6 +333,10 @@ a:hover {
     margin-top: 1.7rem;
     width: 6rem;
     height: 2.5rem;
-    font-size: 16px;
+    font-size: 12px;
+  }
+  .pagination-custom {
+    margin-left: unset !important;
+    font-size: 12px;
   }
 }

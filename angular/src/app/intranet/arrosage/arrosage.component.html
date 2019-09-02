@@ -19,7 +19,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor="let arrosage of data; let i = index">
+                      <tr *ngFor="let arrosage of data | paginate: { itemsPerPage: 6, currentPage: p } ; let i = index">
                           <td>
                               <div [ngClass]="{'btn-statut-off': arrosage.statut === 'Off', 'btn-statut-on': arrosage.statut === 'On'}">
                               </div>
@@ -47,6 +47,14 @@
                       </tr>
                     </tbody>
                   </table>
+                </div>
+                <!--Including the pagination control.-->
+              <div class="container">
+                <div class="row justify-content-center">
+                  <div class="text-center ml-auto pagination-custom">
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                  </div>
+                </div>
               </div>
 
               <div class="row justify-content-center">

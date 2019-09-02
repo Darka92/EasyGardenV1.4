@@ -13,6 +13,7 @@ import { ImgaccComponent } from './imgacc/imgacc.component';
 import { EclairageComponent } from './eclairage/eclairage.component';
 import { ProfilComponent } from './profil/profil.component';
 import { EquipementComponent } from './equipement/equipement.component';
+import {NgxPaginationModule} from "ngx-pagination";
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { EquipementComponent } from './equipement/equipement.component';
     ImgaccComponent, EclairageComponent, ProfilComponent, EquipementComponent],
   imports: [
     CommonModule,
-    IntranetRoutingModule
+    IntranetRoutingModule,
+    NgxPaginationModule
   ]
 })
 export class IntranetModule { }

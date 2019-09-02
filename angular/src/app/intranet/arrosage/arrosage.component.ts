@@ -4,7 +4,7 @@ import { ArrosageService } from 'src/app/services/arrosage.service';
 @Component({
   selector: 'app-arrosage',
   templateUrl: './arrosage.component.html',
-  styleUrls: ['./arrosage.component.css']
+  styleUrls: ['./arrosage.component.css'],
 })
 
 export class ArrosageComponent implements OnInit, OnDestroy {

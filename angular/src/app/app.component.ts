@@ -21,6 +21,10 @@ export class AppComponent implements OnInit {
   bassin: any[];
   tondeuse: any[];
   portail: any[];
+  someArrayOfThings: any[];
+
+  p: number = 1;
+  collection: any[] = this.someArrayOfThings;
 
   constructor(private httpClient: HttpClient, private eclairageService: EclairageService,
               private arrosageService: ArrosageService, private bassinService: BassinService,
