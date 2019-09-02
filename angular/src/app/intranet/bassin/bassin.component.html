@@ -16,7 +16,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let bassin of data; let i = index">
+                    <tr *ngFor="let bassin of data | paginate: { itemsPerPage: 4, currentPage: p } ; let i = index">
                         <td>
                             <div [ngClass]="{'btn-statut-off': bassin.statut === 'Off', 'btn-statut-on': bassin.statut === 'On'}">
                             </div>
@@ -41,6 +41,14 @@
                     </tr>
                   </tbody>
                 </table>
+              </div>
+              <!--Including the pagination control.-->
+              <div class="container">
+                <div class="row justify-content-center">
+                  <div class="text-center ml-auto pagination-custom">
+                    <pagination-controls (pageChange)="p = $event" autoHide="true"></pagination-controls>
+                  </div>
+                </div>
               </div>
 
               <div class="row justify-content-center">

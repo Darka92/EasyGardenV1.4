@@ -5,6 +5,7 @@
                 <hr class="separation-contenu">
                     <h1 class="titre-tableau">Panneau Arrosage</h1>
                 <hr class="separation-contenu-bottom">
+
                 <div class="table-fix-head">
                   <table class="table-light table-fixed">
                     <thead>
@@ -19,7 +20,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor="let arrosage of data | paginate: { itemsPerPage: 6, currentPage: p } ; let i = index">
+                      <tr *ngFor="let arrosage of data | paginate: { itemsPerPage: 4, currentPage: p } ; let i = index">
                           <td>
                               <div [ngClass]="{'btn-statut-off': arrosage.statut === 'Off', 'btn-statut-on': arrosage.statut === 'On'}">
                               </div>
@@ -48,11 +49,11 @@
                     </tbody>
                   </table>
                 </div>
-                <!--Including the pagination control.-->
+              <!--Including the pagination control.-->
               <div class="container">
                 <div class="row justify-content-center">
                   <div class="text-center ml-auto pagination-custom">
-                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                    <pagination-controls (pageChange)="p = $event" autoHide="true"></pagination-controls>
                   </div>
                 </div>
               </div>

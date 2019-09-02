@@ -3,11 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="fbdef407-edd5-4e6a-b1ff-083f3212773b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/angular/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/angular/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/angular/src/app/intranet/arrosage/arrosage.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/intranet/arrosage/arrosage.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular/src/app/intranet/arrosage/arrosage.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/intranet/arrosage/arrosage.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular/src/app/intranet/intranet.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/intranet/intranet.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/src/app/intranet/bassin/bassin.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/intranet/bassin/bassin.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/src/app/intranet/eclairage/eclairage.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/intranet/eclairage/eclairage.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/src/app/intranet/portail/portail.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/intranet/portail/portail.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/src/app/intranet/tondeuse/tondeuse.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/intranet/tondeuse/tondeuse.component.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -158,12 +160,13 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../BProcess" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.zend.framework.tool" />
     <property name="ts.external.directory.path" value="C:\wamp64\www\EasyGardenV1.2\angular\node_modules\typescript\lib" />
   </component>
@@ -222,7 +225,7 @@
       <workItem from="1567062585733" duration="8202000" />
       <workItem from="1567148862439" duration="4502000" />
       <workItem from="1567155096914" duration="16771000" />
-      <workItem from="1567408874946" duration="3464000" />
+      <workItem from="1567408874946" duration="11844000" />
     </task>
     <servers />
   </component>
