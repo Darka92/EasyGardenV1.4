@@ -10,8 +10,9 @@
   height: 35rem;
 }
 .container {
-  padding-left: 0px !important;
-  padding-right: 0px !important;
+  padding-top: 10px !important;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
 }
 .row {
   display: block !important;
@@ -22,6 +23,11 @@
 @media all and (max-width: 992px) {
   .container {
     margin-bottom: 5rem;
+    padding-left: -10px !important;
+    padding-right: -10px !important;
+  }
+  .responsive {
+    height: 15rem;
   }
 }
 
