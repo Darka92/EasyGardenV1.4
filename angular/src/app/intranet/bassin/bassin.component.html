@@ -6,7 +6,7 @@
                     <h1 class="titre-tableau">Panneau Bassin</h1>
               <hr class="separation-contenu-bottom">
               <div class="table-fix-head">
-                <table class="table-light table-fixed">
+                <table class="table-light table-fixed table-hover">
                   <thead>
                     <tr>
                         <th>Statut</th>
@@ -46,7 +46,7 @@
               <div class="container">
                 <div class="row justify-content-center">
                   <div class="text-center ml-auto pagination-custom">
-                    <pagination-controls (pageChange)="p = $event" autoHide="true"></pagination-controls>
+                    <pagination-controls (pageChange)="p = $event" autoHide="true" previousLabel="" nextLabel=""></pagination-controls>
                   </div>
                 </div>
               </div>

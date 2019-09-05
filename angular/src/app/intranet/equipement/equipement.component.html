@@ -1,3 +1,22 @@
-<p>
-  equipement works!
-</p>
+<div class="wrapper">
+  <h2 class="h2-titre-appli shadows">Ajouter Equipement</h2>
+  <div id="formContent">
+    <form ng-submit="submit()">
+      <input type="text" id="nom" placeholder="Equipement" required>
+      <input type="text" id="localisation" class="input-custom" placeholder="Localisation" required>
+      <input *ngIf="router.url==='/intranet/easy-garden/arrosage/equipement'" type="text" id="capteur-debit" class="input-custom" placeholder="Capteur Débit" required>
+      <input *ngIf="router.url==='/intranet/easy-garden/arrosage/equipement'" type="text" id="capteur-pression" class="input-custom" placeholder="Capteur Pression" required>
+      <input *ngIf="router.url==='/intranet/easy-garden/eclairage/equipement'" type="text" id="capteur-defaut-ampoule" class="input-custom" placeholder="Capteur Défaut Ampoule" required>
+      <input *ngIf="router.url==='/intranet/easy-garden/eclairage/equipement'" type="text" id="capteur-luminosite" class="input-custom" placeholder="Capteur Luminosité" required>
+      <input *ngIf="router.url==='/intranet/easy-garden/portail/equipement'" type="text" id="capteur-presence" class="input-custom" placeholder="Capteur Présence" required>
+      <input *ngIf="router.url==='/intranet/easy-garden/tondeuse/equipement'" type="text" id="charge-batterie" class="input-custom" placeholder="Charge Batterie" required>
+      <input type="text" id="statut" class="input-custom-end" placeholder="Statut" required>
+      <button id="submit" class="btn btn-secondary btn-log" *ngIf="!authStatus" (click)=href routerLink="/intranet/easy-garden">Ajouter</button>
+    </form>
+
+    <div id="formFooter">
+      <a class="underlineHover" *ngIf="!authStatus" (click)=href routerLink="/intranet/easy-garden">Retour</a><br>
+    </div>
+
+  </div>
+</div>

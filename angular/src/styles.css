@@ -77,6 +77,9 @@ tr:nth-child(even){
   color: #666666;
   background-color: #f7f7f7;
 }
+.table-hover {
+  background-color: #f7fde7;
+}
 .table-fix-head {
   overflow-y: auto;
   overflow-x: auto;
@@ -223,7 +226,6 @@ ul.ngx-pagination {
   color: #999999 !important;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
-  /*width: 8rem;*/
 }
 .ngx-pagination .current {
   background: #95cb11 !important;
@@ -232,15 +234,17 @@ ul.ngx-pagination {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
 }
+.ngx-pagination .pagination-next a::after, .ngx-pagination .pagination-previous a::after,
+.ngx-pagination .pagination-next a::before, .ngx-pagination .pagination-previous a::before,
+.ngx-pagination .pagination-previous.disabled::before, .ngx-pagination .pagination-next.disabled::before{
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding: 0;
+}
 li.pagination-next>a, li.pagination-previous>a {
   background: none !important;
   border: none !important;
-}
-li.pagination-next>a {
-  width: 5rem;
-}
-li.pagination-previous>a {
-  width: 7rem;
+  width: 2rem;
 }
 ul>li>a>.show-for-sr {
   display: none !important;
