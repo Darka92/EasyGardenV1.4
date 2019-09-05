@@ -5,9 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/angular/src/app/intranet/footer/footer.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/intranet/footer/footer.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/angular/src/app/intranet/footer/footer.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/intranet/footer/footer.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular/src/app/intranet/intranet.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/intranet/intranet.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/angular/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/styles.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -229,7 +227,7 @@
       <workItem from="1567517915918" duration="3943000" />
       <workItem from="1567588214141" duration="8534000" />
       <workItem from="1567666727372" duration="2740000" />
-      <workItem from="1567671371986" duration="5031000" />
+      <workItem from="1567671371986" duration="5990000" />
     </task>
     <servers />
   </component>

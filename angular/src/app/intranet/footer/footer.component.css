@@ -17,6 +17,7 @@ footer {
   border-radius: 4px !important;
   margin-bottom: 1.5rem;
   padding-top: 1rem;
+  box-shadow: 0 8px 10px -6px rgba(0,0,0,0.5);
 }
 .name-color {
   color: #95cb11 !important;
