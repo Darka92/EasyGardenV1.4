@@ -3,19 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="fbdef407-edd5-4e6a-b1ff-083f3212773b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/angular/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/angular/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular/src/app/intranet/arrosage/arrosage.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/intranet/arrosage/arrosage.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular/src/app/intranet/bassin/bassin.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/intranet/bassin/bassin.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular/src/app/intranet/eclairage/eclairage.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/intranet/eclairage/eclairage.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular/src/app/intranet/equipement/equipement.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/intranet/equipement/equipement.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/angular/src/app/intranet/equipement/equipement.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/intranet/equipement/equipement.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/angular/src/app/intranet/equipement/equipement.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/intranet/equipement/equipement.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular/src/app/intranet/imgacc/imgacc.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/intranet/imgacc/imgacc.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular/src/app/intranet/portail/portail.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/intranet/portail/portail.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular/src/app/intranet/tondeuse/tondeuse.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/intranet/tondeuse/tondeuse.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/styles.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -236,7 +225,7 @@
       <workItem from="1567493575287" duration="2314000" />
       <workItem from="1567517915918" duration="3943000" />
       <workItem from="1567588214141" duration="8534000" />
-      <workItem from="1567666727372" duration="1424000" />
+      <workItem from="1567666727372" duration="2740000" />
     </task>
     <servers />
   </component>
