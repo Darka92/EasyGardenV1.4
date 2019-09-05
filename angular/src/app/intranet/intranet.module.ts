@@ -13,7 +13,7 @@ import { ImgaccComponent } from './imgacc/imgacc.component';
 import { EclairageComponent } from './eclairage/eclairage.component';
 import { ProfilComponent } from './profil/profil.component';
 import { EquipementComponent } from './equipement/equipement.component';
-import {NgxPaginationModule} from "ngx-pagination";
+import { NgxPaginationModule } from "ngx-pagination";
 
 
 @NgModule({

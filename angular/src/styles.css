@@ -207,6 +207,7 @@ ul.ngx-pagination {
   padding-right: 0.5rem;
   padding-left: 0.5rem;
   position: relative;
+  box-shadow: 0 8px 10px -6px rgba(0,0,0,0.5);
 }
 .ngx-pagination a {
   background-color: #E0E2E5;

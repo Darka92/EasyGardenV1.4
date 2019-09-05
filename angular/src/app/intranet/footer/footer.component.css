@@ -1,24 +1,41 @@
 footer {
-    background-color: #f2f2f2;
-    margin-top: 7.5rem;
-    padding-top: 16px;
-    padding-bottom: 16px;
-    bottom : 0px;
-    left: 0;
-    right: 0;
-    text-align: center;
-    color: #666666;
+  background-color: #f2f2f2;
+  margin-top: 7.5rem;
+  padding-top: 16px;
+  bottom : 0px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #666666;
 }
-
+.container-footer-custom {
+  max-width: 9rem;
+  margin-top: 0.5rem;
+}
+.border-custom {
+  border: 2px solid #95cb11;
+  border-radius: 4px !important;
+  margin-bottom: 1.5rem;
+  padding-top: 1rem;
+}
 .name-color {
-    color: #95cb11;
-}
-.name-color:hover {
-    text-decoration: underline;
-    color:  #33ccff;
+  color: #95cb11 !important;
 }
 .text-custom {
-    font-size: 16px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 16px;
+}
+.list-inline-item {
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+}
+ul.social li a i {
+  color: #95c11b;
+  font-size:25px;
+}
+ul.social li:hover a i {
+  color: #666666;
 }
 
 /*------Responsive Footer------*/
