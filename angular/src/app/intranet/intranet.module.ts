@@ -13,12 +13,13 @@ import { ImgaccComponent } from './imgacc/imgacc.component';
 import { EclairageComponent } from './eclairage/eclairage.component';
 import { ProfilComponent } from './profil/profil.component';
 import { EquipementComponent } from './equipement/equipement.component';
+import { UpdateEquipementComponent } from './update-equipement/update-equipement.component';
 import { NgxPaginationModule } from "ngx-pagination";
 
 
 @NgModule({
   declarations: [AccueilComponent, NavComponent, FooterComponent, ArrosageComponent, BassinComponent, TondeuseComponent, PortailComponent,
-    ImgaccComponent, EclairageComponent, ProfilComponent, EquipementComponent],
+    ImgaccComponent, EclairageComponent, ProfilComponent, EquipementComponent, UpdateEquipementComponent],
   imports: [
     CommonModule,
     IntranetRoutingModule,

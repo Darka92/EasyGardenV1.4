@@ -10,7 +10,7 @@ import { Location } from '@angular/common';
 
 export class EquipementComponent implements OnInit {
 
-    constructor(private router: Router, private location: Location) {}
+  constructor(private router: Router, private location: Location) {}
 
   goBack() {
     this.location.back();

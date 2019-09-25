@@ -24,6 +24,11 @@ use App\Controller\Entities\TondeuseController;
 use Doctrine\ORM\EntityManagerInterface;
 
 
+/**
+ * Class RestController
+ * @package App\Controller\Rest
+ * @Route("/user")
+ */
 class RestController extends AbstractFOSRestController
 {
 

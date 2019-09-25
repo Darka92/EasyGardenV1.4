@@ -1,7 +1,7 @@
 <section>
     <div class="container">
         <div class="row">
-            <div class="col- center-block">
+            <div class="col center-block">
                 <hr class="separation-contenu">
                     <h1 class="titre-tableau">Panneau Eclairage</h1>
                 <hr class="separation-contenu-bottom">
@@ -38,7 +38,9 @@
                           </td>
                           <td>
                             <button class="btn btn-custom-crud" href="">
-                              <img src="assets/images/change.png" alt="Modifier" title="Modifier">
+                              <img src="assets/images/change.png" (click)="update(eclairage.statut, eclairage.nom,
+                               eclairage.localisation, eclairage.capteurampoule, eclairage.capteurluminosite)"
+                               routerLink="modifierequipement" alt="Modifier" title="Modifier">
                             </button>
                             <button class="btn btn-custom-crud" href="">
                               <img src="assets/images/delete.png" alt="Supprimer" title="Supprimer">

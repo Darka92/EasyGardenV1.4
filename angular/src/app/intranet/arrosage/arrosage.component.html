@@ -1,7 +1,7 @@
 <section>
     <div class="container">
         <div class="row">
-            <div class="col- center-block">
+            <div class="col center-block">
                 <hr class="separation-contenu">
                     <h1 class="titre-tableau">Panneau Arrosage</h1>
                 <hr class="separation-contenu-bottom">
@@ -39,7 +39,9 @@
                           </td>
                           <td>
                               <button class="btn btn-custom-crud" href="">
-                                <img src="assets/images/change.png" alt="Modifier" title="Modifier">
+                                <img src="assets/images/change.png" (click)="update(arrosage.statut, arrosage.nom,
+                                arrosage.localisation, arrosage.capteurdebit, arrosage.capteurpression)"
+                                routerLink="modifierequipement" alt="Modifier" title="Modifier">
                               </button>
                               <button class="btn btn-custom-crud" href="">
                                 <img src="assets/images/delete.png" alt="Supprimer" title="Supprimer">

@@ -48,19 +48,19 @@ hr.separation-contenu-bottom {
 /*------Tableau+Titre------*/
 table {
   width: 100%;
-  padding-top:4px;
+  padding-top: 4px;
 }
 tbody {
-  overflow:auto;
+  overflow: auto;
 }
 th {
-  width: 13rem;
-  max-width: 15rem;
   height: 4em;
   background-color: #95cb11;
   color: white;
 }
 th, td {
+  width: 10rem !important;
+  max-width: 15rem;
   text-align: center;
 }
 th {
@@ -78,11 +78,11 @@ tr:nth-child(even){
   background-color: #f7f7f7;
 }
 .table-hover {
-  background-color: #f7fde7;
+  background-color: #e0f7a1;
 }
 .table-fix-head {
   overflow-y: auto;
-  overflow-x: auto;
+  overflow-x: visible;
   max-height: 400px;
 }
 .table-fix-head th {
@@ -99,15 +99,15 @@ h1.titre-tableau {
 }
 
 .btn-statut-off {
-  width:20px;
-  height:20px;
+  width: 20px;
+  height: 20px;
   background-color:red;
   margin-left: auto;
   margin-right: auto;
 }
 .btn-statut-on {
-  width:20px;
-  height:20px;
+  width: 20px;
+  height: 20px;
   background-color: green;
   margin-left: auto;
   margin-right: auto;
@@ -305,10 +305,6 @@ li.pagination-next {
 }
 
 /*------RESPONSIVE------*/
-
-@media all and (max-width: 992px) {
-
-}
 
 @media all and (max-width: 650px) {
   .wrapper {
