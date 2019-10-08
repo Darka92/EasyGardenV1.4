@@ -107,7 +107,20 @@ class PortailController extends AbstractController
             //return View::create(null, Response::HTTP_NO_CONTENT);
             return new Response('Pas de portail trouvé');
         }
+    }
 
+    /**
+     * Delete one portail
+     */
+    public function getDeletePortail(int $id)
+    {
+        /** @var Portail $portail */
+        $portail = $this->portailRepository->findOneByPortailId($id);
+        $this->em->remove($portail);
+        $this->em->flush();
+        $response = new Response(); 
+        $response->setStatusCode(200);
+        return $response;        
     }
 
 }

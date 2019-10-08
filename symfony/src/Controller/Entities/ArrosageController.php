@@ -4,6 +4,7 @@ namespace App\Controller\Entities;
 use App\Entity\Arrosage;
 use App\Repository\ArrosageRepository;
 
+use FOS\RestBundle\View\View;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,6 +14,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
+use AppBundle\Form\Type\YourEntityFormType;
 
 
 class ArrosageController extends AbstractController
@@ -75,7 +77,6 @@ class ArrosageController extends AbstractController
     }
 
 
-
     /**
      * Retrieves all arrosages
      */
@@ -110,5 +111,42 @@ class ArrosageController extends AbstractController
         }
 
     }
+
+
+    /**
+     * Delete one arrosage
+     */
+    public function getDeleteArrosage(int $id)
+    {
+        /** @var Arrosage $arrosage */
+        $arrosage = $this->arrosageRepository->findOneByArrosageId($id);
+        $this->em->remove($arrosage);
+        $this->em->flush();
+        $response = new Response(); 
+        $response->setStatusCode(200);
+        return $response;       
+    }
+
+
+    /**
+     * Update one arrosage
+     */
+    public function getUpdateArrosage(int $id)
+    {
+        /** @var Arrosage $arrosage */
+        $arrosage = $this->arrosageRepository->findOneByArrosageId($id);
+        /*$arrosage->setStatut('On');
+        $arrosage->setNom('Yes');
+        $arrosage->setLocalisation('Yes');
+        $arrosage->setCapteurDebit('0.02');
+        $arrosage->setCapteurPression('8.5');*/
+        $this->em->persist($arrosage);
+        $this->em->flush();
+        $response = new Response(); 
+        $response->setStatusCode(200);
+        return $response;  
+    }
+    
+
 
 }

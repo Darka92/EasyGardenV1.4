@@ -6,6 +6,7 @@ use App\Entity\Jardin;
 use App\Repository\UserRepository;
 use App\Repository\JardinRepository;
 
+use FOS\RestBundle\View\View;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -125,4 +126,19 @@ class UserController extends AbstractController
         }
 
     }
+
+    /**
+     * Delete one user
+     */
+    public function getDeleteUser(int $id)
+    {
+        /** @var User $user */
+        $user = $this->userRepository->findOneByUserId($id);
+        $this->em->remove($user);
+        $this->em->flush();
+        $response = new Response(); 
+        $response->setStatusCode(200);
+        return $response;        
+    }
+
 }

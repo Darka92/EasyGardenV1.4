@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ArrosageService } from 'src/app/services/arrosage.service';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+
 
 @Component({
   selector: 'app-arrosage',
@@ -25,6 +25,7 @@ export class ArrosageComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    // Appeler méthode de service
   }
 
   ngOnDestroy() {

@@ -118,4 +118,20 @@ class BassinController extends AbstractController
 
     }
 
+
+    /**
+     * Delete one Bassin
+     */
+    public function getDeleteBassin(int $id)
+    {
+        /** @var Bassin $bassin */
+        $bassin = $this->bassinRepository->findOneByBassinId($id);
+        $this->em->remove($bassin);
+        $this->em->flush();
+        $response = new Response(); 
+        $response->setStatusCode(200);
+        return $response;        
+    }
+
+
 }

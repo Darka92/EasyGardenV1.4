@@ -6,6 +6,7 @@ use App\Entity\User;
 use App\Repository\JardinRepository;
 use App\Repository\UserRepository;
 
+use FOS\RestBundle\View\View;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -122,6 +123,20 @@ class JardinController extends AbstractController
             return new Response('Pas de jardin trouvé !');
         }
 
+    }
+
+    /**
+     * Delete one jardin
+     */
+    public function getDeleteJardin(int $id)
+    {
+        /** @var Jardin $jardin */
+        $jardin = $this->jardinRepository->findOneByJardinId($id);
+        $this->em->remove($jardin);
+        $this->em->flush();
+        $response = new Response(); 
+        $response->setStatusCode(200);
+        return $response;        
     }
 
 }

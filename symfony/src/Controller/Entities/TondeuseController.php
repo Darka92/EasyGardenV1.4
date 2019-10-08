@@ -110,4 +110,18 @@ class TondeuseController extends AbstractController
 
     }
 
+    /**
+     * Delete one tondeuse
+     */
+    public function getDeleteTondeuse(int $id)
+    {
+        /** @var Tondeuse $tondeuse */
+        $tondeuse = $this->tondeuseRepository->findOneByTondeuseId($id);
+        $this->em->remove($tondeuse);
+        $this->em->flush();
+        $response = new Response(); 
+        $response->setStatusCode(200);
+        return $response;        
+    }
+
 }

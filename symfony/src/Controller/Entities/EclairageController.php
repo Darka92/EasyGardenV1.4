@@ -75,6 +75,7 @@ class EclairageController extends AbstractController
 
     }
 
+    
     /**
      * Retrieves all eclairages
      */
@@ -108,5 +109,21 @@ class EclairageController extends AbstractController
         }
 
     }
+
+
+    /**
+     * Delete one eclairage
+     */
+    public function getDeleteEclairage(int $id)
+    {
+        /** @var Eclairage $eclairage */
+        $eclairage = $this->eclairageRepository->findOneByEclairageId($id);
+        $this->em->remove($eclairage);
+        $this->em->flush();
+        $response = new Response(); 
+        $response->setStatusCode(200);
+        return $response;        
+    }
+
 
 }

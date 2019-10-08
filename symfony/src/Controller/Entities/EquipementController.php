@@ -81,7 +81,6 @@ class EquipementController extends AbstractController
     }
 
 
-
     /**
      * Retrieves all equipements
      */
@@ -119,6 +118,20 @@ class EquipementController extends AbstractController
             return new Response("Pas d'equipement trouvé !");
         }
 
+    }
+
+    /**
+     * Delete one equipement
+     */
+    public function getDeleteEquipement(int $id)
+    {
+        /** @var Equipement $equipement */
+        $equipement = $this->equipementRepository->findOneByEquipementId($id);
+        $this->em->remove($equipement);
+        $this->em->flush();
+        $response = new Response(); 
+        $response->setStatusCode(200);
+        return $response;        
     }
 
 }
