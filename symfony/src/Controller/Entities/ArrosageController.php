@@ -15,6 +15,10 @@ use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 use AppBundle\Form\Type\YourEntityFormType;
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 
 
 class ArrosageController extends AbstractController
@@ -135,18 +139,24 @@ class ArrosageController extends AbstractController
     {
         /** @var Arrosage $arrosage */
         $arrosage = $this->arrosageRepository->findOneByArrosageId($id);
+<<<<<<< Updated upstream
         /*$arrosage->setStatut('On');
         $arrosage->setNom('Yes');
         $arrosage->setLocalisation('Yes');
         $arrosage->setCapteurDebit('0.02');
         $arrosage->setCapteurPression('8.5');*/
+=======
+>>>>>>> Stashed changes
         $this->em->persist($arrosage);
         $this->em->flush();
         $response = new Response(); 
         $response->setStatusCode(200);
         return $response;  
     }
+<<<<<<< Updated upstream
     
+=======
+>>>>>>> Stashed changes
 
 
 }
