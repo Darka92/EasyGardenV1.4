@@ -23,7 +23,7 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(name="create_time", type="datetime")
      */
     private $createTime;
 

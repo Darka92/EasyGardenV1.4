@@ -44,6 +44,9 @@ class EquipementController extends AbstractController
     }
 
 
+    /*------*/
+    /* READ */
+    /*------*/
     /**
      * Retrieves one equipement
      */

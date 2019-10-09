@@ -17,7 +17,7 @@ class Jardin
     private $jardinId;
 
     /**
-     * @ORM\Column(type="string", length=45)
+     * @ORM\Column(name="nom", type="string", length=45)
      */
     private $nom;
 
@@ -26,7 +26,6 @@ class Jardin
      * @ORM\JoinColumn(name="user", referencedColumnName="id", nullable=false)
      */
     private $user;
-
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Bassin")

@@ -5,6 +5,7 @@ use App\Entity\Arrosage;
 use App\Entity\Tondeuse;
 use App\Repository\TondeuseRepository;
 
+use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\View\View;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -43,6 +44,12 @@ class TondeuseController extends AbstractController
     }
 
 
+
+                /*------*/
+                /* READ */
+                /*------*/
+
+
     /**
      * Retrieves one tondeuse
      */
@@ -53,7 +60,7 @@ class TondeuseController extends AbstractController
 
         if($tondeuse) {
 
-            $encoders = [new JsonEncoder()]; // If no need for XmlEncoder
+            $encoders = [new JsonEncoder()];
             $normalizers = [new ObjectNormalizer()];
             $serializer = new Serializer($normalizers, $encoders);
 
@@ -76,6 +83,7 @@ class TondeuseController extends AbstractController
 
     }
 
+
     /**
      * Retrieves all tondeuses
      */
@@ -87,7 +95,7 @@ class TondeuseController extends AbstractController
         if($tondeuses) {
             $this->logger->debug("Il y a " . count($tondeuses) . "tondeuse(s)." );
 
-            $encoders = [new JsonEncoder()]; // If no need for XmlEncoder
+            $encoders = [new JsonEncoder()];
             $normalizers = [new ObjectNormalizer()];
             $serializer = new Serializer($normalizers, $encoders);
 
@@ -109,6 +117,58 @@ class TondeuseController extends AbstractController
         }
 
     }
+
+
+
+                /*----------------------*/
+                /* CREATE/UPDATE/DELETE */
+                /*----------------------*/
+
+    /**
+     * Add one tondeuse
+     */
+    public function getAddTondeuse(Request $request)
+    {
+        /** @var Tondeuse $tondeuse */
+
+        /*echo $request;*/
+
+        $tondeuse = new Tondeuse();
+
+        $tondeuse->setNom($request->get('nom'))
+                ->setCapteurBatterie($request->get('capteurbatterie'))
+                ->setStatut($request->get('statut'));
+        
+        $this->em->persist($tondeuse);
+        $this->em->flush();
+        $response = new Response(); 
+        $response->setStatusCode(200);
+        return $response;
+    }
+
+
+    /**
+     * Update one tondeuse
+     */
+    public function getUpdateTondeuse(Request $request, int $id)
+    {
+        /** @var Tondeuse $tondeuse */
+        $tondeuse = $this->tondeuseRepository->findOneByTondeuseId($id);
+
+        /*echo $request;*/
+        /*echo $id;*/
+
+        $tondeuse->setNom($request->get('nom'))
+                ->setCapteurBatterie($request->get('capteurbatterie'))
+                ->setStatut($request->get('statut'));
+
+        $this->em->persist($tondeuse);
+        $this->em->flush();
+        $response = new Response(); 
+        $response->setStatusCode(200);
+        return $response;  
+    }
+
 
     /**
      * Delete one tondeuse

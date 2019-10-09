@@ -4,6 +4,7 @@ namespace App\Controller\Entities;
 use App\Entity\Eclairage;
 use App\Repository\EclairageRepository;
 
+use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\View\View;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -42,6 +43,11 @@ class EclairageController extends AbstractController
     }
 
 
+
+            /*------*/
+            /* READ */
+            /*------*/
+        
     /**
      * Retrieves one eclairage
      */
@@ -52,7 +58,7 @@ class EclairageController extends AbstractController
 
         if($eclairage) {
 
-            $encoders = [new JsonEncoder()]; // If no need for XmlEncoder
+            $encoders = [new JsonEncoder()];
             $normalizers = [new ObjectNormalizer()];
             $serializer = new Serializer($normalizers, $encoders);
 
@@ -87,7 +93,7 @@ class EclairageController extends AbstractController
         if($eclairages) {
             $this->logger->debug("Il y a " . count($eclairages) . "réseaux d'eclairages." );
 
-            $encoders = [new JsonEncoder()]; // If no need for XmlEncoder
+            $encoders = [new JsonEncoder()];
             $normalizers = [new ObjectNormalizer()];
             $serializer = new Serializer($normalizers, $encoders);
 
@@ -108,6 +114,60 @@ class EclairageController extends AbstractController
             return new Response('Pas de système d\'eclairage trouvé');
         }
 
+    }
+
+
+                /*----------------------*/
+                /* CREATE/UPDATE/DELETE */
+                /*----------------------*/
+
+    /**
+     * Add one eclairage
+     */
+    public function getAddEclairage(Request $request)
+    {
+        /** @var Eclairage $eclairage */
+
+        /*echo $request;*/
+
+        $eclairage = new Eclairage();
+
+        $eclairage->setNom($request->get('nom'))
+                ->setLocalisation($request->get('localisation'))
+                ->setCapteurDefautAmpoule($request->get('capteurdefautampoule'))
+                ->setCapteurLuminosite($request->get('capteurluminosite'))
+                ->setStatut($request->get('statut'));
+        
+        $this->em->persist($eclairage);
+        $this->em->flush();
+        $response = new Response(); 
+        $response->setStatusCode(200);
+        return $response;
+    }
+
+
+    /**
+     * Update one eclairage
+     */
+    public function getUpdateEclairage(Request $request, int $id)
+    {
+        /** @var Eclairage $eclairage */
+        $eclairage = $this->eclairageRepository->findOneByEclairageId($id);
+
+        /*echo $request;*/
+        /*echo $id;*/
+
+        $eclairage->setNom($request->get('nom'))
+                ->setLocalisation($request->get('localisation'))
+                ->setCapteurDefautAmpoule($request->get('capteurdefautampoule'))
+                ->setCapteurLuminosite($request->get('capteurluminosite'))
+                ->setStatut($request->get('statut'));
+
+        $this->em->persist($eclairage);
+        $this->em->flush();
+        $response = new Response(); 
+        $response->setStatusCode(200);
+        return $response;  
     }
 
 

@@ -4,6 +4,7 @@ namespace App\Controller\Entities;
 use App\Entity\Arrosage;
 use App\Repository\ArrosageRepository;
 
+use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\View\View;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,7 +15,6 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
-use AppBundle\Form\Type\YourEntityFormType;
 
 
 class ArrosageController extends AbstractController
@@ -43,6 +43,11 @@ class ArrosageController extends AbstractController
     }
 
 
+    
+                /*------*/
+                /* READ */
+                /*------*/
+
     /**
      * Retrieves one arrosage
      */
@@ -53,7 +58,7 @@ class ArrosageController extends AbstractController
 
         if($arrosage) {
 
-            $encoders = [new JsonEncoder()]; // If no need for XmlEncoder
+            $encoders = [new JsonEncoder()]; 
             $normalizers = [new ObjectNormalizer()];
             $serializer = new Serializer($normalizers, $encoders);
 
@@ -113,6 +118,61 @@ class ArrosageController extends AbstractController
     }
 
 
+
+                /*----------------------*/
+                /* CREATE/UPDATE/DELETE */
+                /*----------------------*/
+
+    /**
+     * Add one arrosage
+     */
+    public function getAddArrosage(Request $request)
+    {
+        /** @var Arrosage $arrosage */
+
+        /*echo $request;*/
+
+        $arrosage = new Arrosage();
+
+        $arrosage->setNom($request->get('nom'))
+                ->setLocalisation($request->get('localisation'))
+                ->setCapteurDebit($request->get('capteurdebit'))
+                ->setCapteurPression($request->get('capteurpression'))
+                ->setStatut($request->get('statut'));
+        
+        $this->em->persist($arrosage);
+        $this->em->flush();
+        $response = new Response(); 
+        $response->setStatusCode(200);
+        return $response;
+    }
+
+
+    /**
+     * Update one arrosage
+     */
+    public function getUpdateArrosage(Request $request, int $id)
+    {
+        /** @var Arrosage $arrosage */
+        $arrosage = $this->arrosageRepository->findOneByArrosageId($id);
+
+        /*echo $request;*/
+        /*echo $id;*/
+
+        $arrosage->setNom($request->get('nom'))
+                ->setLocalisation($request->get('localisation'))
+                ->setCapteurDebit($request->get('capteurdebit'))
+                ->setCapteurPression($request->get('capteurpression'))
+                ->setStatut($request->get('statut'));
+
+        $this->em->persist($arrosage);
+        $this->em->flush();
+        $response = new Response(); 
+        $response->setStatusCode(200);
+        return $response;  
+    }
+
+
     /**
      * Delete one arrosage
      */
@@ -126,27 +186,6 @@ class ArrosageController extends AbstractController
         $response->setStatusCode(200);
         return $response;       
     }
-
-
-    /**
-     * Update one arrosage
-     */
-    public function getUpdateArrosage(int $id)
-    {
-        /** @var Arrosage $arrosage */
-        $arrosage = $this->arrosageRepository->findOneByArrosageId($id);
-        /*$arrosage->setStatut('On');
-        $arrosage->setNom('Yes');
-        $arrosage->setLocalisation('Yes');
-        $arrosage->setCapteurDebit('0.02');
-        $arrosage->setCapteurPression('8.5');*/
-        $this->em->persist($arrosage);
-        $this->em->flush();
-        $response = new Response(); 
-        $response->setStatusCode(200);
-        return $response;  
-    }
-    
 
 
 }

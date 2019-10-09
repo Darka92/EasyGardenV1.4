@@ -5,6 +5,7 @@ use App\Entity\Bassin;
 use App\Entity\Jardin;
 use App\Repository\BassinRepository;
 
+use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\View\View;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,6 +16,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
+
 
 class BassinController extends AbstractController
 {
@@ -42,6 +44,12 @@ class BassinController extends AbstractController
     }
 
 
+
+                /*------*/
+                /* READ */
+                /*------*/
+
+
     /**
      * Retrieves one bassin
      */
@@ -52,22 +60,17 @@ class BassinController extends AbstractController
 
         if($bassin) {
 
-            $encoders = [new JsonEncoder()]; // If no need for XmlEncoder
+            $encoders = [new JsonEncoder()];
             $normalizers = [new ObjectNormalizer()];
             $serializer = new Serializer($normalizers, $encoders);
 
             // Serialize your object in Json
             $jsonObject = $serializer->serialize($bassin, 'json', [
-                'attributes' => ['bassinId','nom'],
+                'attributes' => ['bassinId','nom','localisation','statut'],
 
                 'circular_reference_handler' => function ($object) {
-                    if ($object instanceof Jardin) {
                         return $object->getJardinId();
-                    } elseif ($object instanceof Equipement) {
-                        return $object->getEquipementId();
                     }
-
-                }
             ]);
 
             return new Response($jsonObject);
@@ -80,6 +83,7 @@ class BassinController extends AbstractController
 
     }
 
+
     /**
      * Retrieves all bassins
      */
@@ -90,23 +94,18 @@ class BassinController extends AbstractController
 
         if($bassins) {
 
-            $encoders = [new JsonEncoder()];                // If no need for XmlEncoder
+            $encoders = [new JsonEncoder()];
             $normalizers = [new ObjectNormalizer()];
             $serializer = new Serializer($normalizers, $encoders);
 
             // Serialize your object in Json
             $jsonObject = $serializer->serialize($bassins, 'json', [
-                'attributes' => ['bassinId','nom'],
+                'attributes' => ['bassinId','nom','localisation','statut'],
 
                 'circular_reference_handler' => function ($object) {
-                    if ($object instanceof Jardin) {
-                        return $object->getJardinId();
-                    } elseif ($object instanceof Equipement) {
-                        return $object->getEquipementId();
-                    }
-
+                    return $object->getJardinId();
                 }
-            ]);
+        ]);
 
             return new Response($jsonObject);
 
@@ -116,6 +115,55 @@ class BassinController extends AbstractController
             return new Response('Pas de bassin trouvé');
         }
 
+    }
+
+
+
+                /*----------------------*/
+                /* CREATE/UPDATE/DELETE */
+                /*----------------------*/
+       
+    /**
+     * Add one bassin
+     */
+    public function getAddbassin(Request $request)
+    {
+        /** @var bassin $bassin */
+
+        /*echo $request;*/
+
+        $bassin = new bassin();
+
+        $bassin->setNom($request->get('nom'))
+                ->setStatut($request->get('statut'));
+        
+        $this->em->persist($bassin);
+        $this->em->flush();
+        $response = new Response(); 
+        $response->setStatusCode(200);
+        return $response;
+    }
+    
+    
+    /**
+     * Update one bassin
+     */
+    public function getUpdateBassin(Request $request, int $id)
+    {
+        /** @var Bassin $bassin */
+        $bassin = $this->bassinRepository->findOneByBassinId($id);
+
+        /*echo $request;*/
+        /*echo $id;*/
+
+        $bassin->setNom($request->get('nom'))
+                ->setStatut($request->get('statut'));
+
+        $this->em->persist($bassin);
+        $this->em->flush();
+        $response = new Response(); 
+        $response->setStatusCode(200);
+        return $response;  
     }
 
 

@@ -6,6 +6,7 @@ use App\Entity\User;
 use App\Repository\JardinRepository;
 use App\Repository\UserRepository;
 
+use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\View\View;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -43,6 +44,11 @@ class JardinController extends AbstractController
         $this->jardinRepository = $this->em->getRepository(Jardin::class);
     }
 
+
+
+                /*------*/
+                /* READ */
+                /*------*/
 
 
     /**
@@ -85,7 +91,6 @@ class JardinController extends AbstractController
     }
 
 
-
     /**
      * Retrieves all jardins
      */
@@ -125,6 +130,54 @@ class JardinController extends AbstractController
 
     }
 
+
+
+                /*----------------------*/
+                /* CREATE/UPDATE/DELETE */
+                /*----------------------*/
+
+    /**
+     * Add one jardin
+     */
+    public function getAddJardin(Request $request)
+    {
+        /** @var Jardin $jardin */
+
+        /*echo $request;*/
+
+        $jardin = new Jardin();
+
+        $jardin->setNom($request->get('nom'));
+        
+        $this->em->persist($jardin);
+        $this->em->flush();
+        $response = new Response(); 
+        $response->setStatusCode(200);
+        return $response;
+    }
+
+
+    /**
+     * Update one jardin
+     */
+    public function getUpdateJardin(Request $request, int $id)
+    {
+        /** @var Arrosage $arrosage */
+        $jardin = $this->jardinRepository->findOneByJardinId($id);
+
+        /*echo $request;*/
+        /*echo $id;*/
+
+        $jardin->setNom($request->get('nom'));
+
+        $this->em->persist($jardin);
+        $this->em->flush();
+        $response = new Response(); 
+        $response->setStatusCode(200);
+        return $response;  
+    }
+
+
     /**
      * Delete one jardin
      */
@@ -138,5 +191,6 @@ class JardinController extends AbstractController
         $response->setStatusCode(200);
         return $response;        
     }
+
 
 }

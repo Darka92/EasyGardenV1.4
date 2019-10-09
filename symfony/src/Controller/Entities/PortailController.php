@@ -5,6 +5,7 @@ use App\Entity\Arrosage;
 use App\Entity\Portail;
 use App\Repository\PortailRepository;
 
+use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\View\View;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -43,6 +44,12 @@ class PortailController extends AbstractController
     }
 
 
+
+                /*------*/
+                /* READ */
+                /*------*/
+
+
     /**
      * Retrieves one portail
      */
@@ -53,7 +60,7 @@ class PortailController extends AbstractController
 
         if($portail) {
 
-            $encoders = [new JsonEncoder()]; // If no need for XmlEncoder
+            $encoders = [new JsonEncoder()];
             $normalizers = [new ObjectNormalizer()];
             $serializer = new Serializer($normalizers, $encoders);
 
@@ -76,6 +83,7 @@ class PortailController extends AbstractController
 
     }
 
+
     /**
      * Retrieves all portails
      */
@@ -87,7 +95,7 @@ class PortailController extends AbstractController
         if($portails) {
             $this->logger->debug("Il y a " . count($portails) . "portail(s)." );
 
-            $encoders = [new JsonEncoder()]; // If no need for XmlEncoder
+            $encoders = [new JsonEncoder()];
             $normalizers = [new ObjectNormalizer()];
             $serializer = new Serializer($normalizers, $encoders);
 
@@ -108,6 +116,60 @@ class PortailController extends AbstractController
             return new Response('Pas de portail trouvé');
         }
     }
+
+
+
+                /*----------------------*/
+                /* CREATE/UPDATE/DELETE */
+                /*----------------------*/
+   
+    /**
+     * Add one portail
+     */
+    public function getAddPortail(Request $request)
+    {
+        /** @var Portail $portail */
+
+        /*echo $request;*/
+
+        $portail = new Portail();
+
+        $portail->setNom($request->get('nom'))
+                ->setLocalisation($request->get('localisation'))
+                ->setCapteurPresence($request->get('capteurpresence'))
+                ->setStatut($request->get('statut'));
+        
+        $this->em->persist($portail);
+        $this->em->flush();
+        $response = new Response(); 
+        $response->setStatusCode(200);
+        return $response;
+    }
+
+
+    /**
+     * Update one portail
+     */
+    public function getUpdatePortail(Request $request, int $id)
+    {
+        /** @var Portail $portail */
+        $portail = $this->portailRepository->findOneByPortailId($id);
+
+        /*echo $request;*/
+        /*echo $id;*/
+
+        $portail->setNom($request->get('nom'))
+                ->setLocalisation($request->get('localisation'))
+                ->setCapteurPresence($request->get('capteurpresence'))
+                ->setStatut($request->get('statut'));
+
+        $this->em->persist($portail);
+        $this->em->flush();
+        $response = new Response(); 
+        $response->setStatusCode(200);
+        return $response;  
+    } 
+                
 
     /**
      * Delete one portail
