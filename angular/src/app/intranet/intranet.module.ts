@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { IntranetRoutingModule } from './intranet-routing.module';
+
+/*  MES IMPORTS  */
+
+/*  COMPONENT  */
 import { AccueilComponent } from './accueil/accueil.component';
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
@@ -12,18 +15,24 @@ import { PortailComponent } from './portail/portail.component';
 import { ImgaccComponent } from './imgacc/imgacc.component';
 import { EclairageComponent } from './eclairage/eclairage.component';
 import { ProfilComponent } from './profil/profil.component';
-import { EquipementComponent } from './equipement/equipement.component';
+import { AddEquipementComponent } from './add-equipement/add-equipement.component';
 import { UpdateEquipementComponent } from './update-equipement/update-equipement.component';
+
+/*  MODULES  */
+import { IntranetRoutingModule } from './intranet-routing.module';
 import { NgxPaginationModule } from "ngx-pagination";
+
 
 
 @NgModule({
   declarations: [AccueilComponent, NavComponent, FooterComponent, ArrosageComponent, BassinComponent, TondeuseComponent, PortailComponent,
-    ImgaccComponent, EclairageComponent, ProfilComponent, EquipementComponent, UpdateEquipementComponent],
+    ImgaccComponent, EclairageComponent, ProfilComponent, AddEquipementComponent, UpdateEquipementComponent],
   imports: [
     CommonModule,
     IntranetRoutingModule,
     NgxPaginationModule
   ]
 })
+
+
 export class IntranetModule { }

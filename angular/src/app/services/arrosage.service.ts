@@ -1,9 +1,17 @@
 import { Injectable } from '@angular/core';
+
+
+/*  MES IMPORTS  */
+
+/* HTTP  */
 import { HttpClient } from '@angular/common/http';
+
+
 
 @Injectable({
   providedIn: 'root'
 })
+
 
 export class ArrosageService {
 
@@ -22,6 +30,7 @@ arrosage;
   switchOffOne(i: number) {
     this.arrosage[i].statut = 'Off';
   }
+
 
 }
 

@@ -1,23 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { NgxPaginationModule } from 'ngx-pagination';
 
-import { FormsModule } from '@angular/forms';
+/*  MES IMPORTS  */
+
+/*  COMPONENTS  */
+import { InscriptionComponent } from './inscription/inscription.component';
+import { FpasswordComponent } from './fpassword/fpassword.component';
 import { Erreur404Component } from './erreur404/erreur404.component';
 import { ConnexionComponent } from './connexion/connexion.component';
+/* MODULES  */
+import { NgxPaginationModule } from 'ngx-pagination';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+/*  SERVICES  */
 import { ArrosageService } from './services/arrosage.service';
 import { EclairageService } from './services/eclairage.service';
 import { BassinService } from './services/bassin.service';
 import { TondeuseService } from './services/tondeuse.service';
 import { PortailService } from './services/portail.service';
-import { InscriptionComponent } from './inscription/inscription.component';
-import { FpasswordComponent } from './fpassword/fpassword.component';
+
 
 
 @NgModule({
@@ -45,4 +51,6 @@ import { FpasswordComponent } from './fpassword/fpassword.component';
   ],
   bootstrap: [AppComponent]
 })
+
+
 export class AppModule { }

@@ -1,11 +1,20 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+
+
+/*  MES IMPORTS */
+
+/*  SERVICES  */
 import { EclairageService } from 'src/app/services/eclairage.service';
+
+
 
 @Component({
   selector: 'app-eclairage',
   templateUrl: './eclairage.component.html',
   styleUrls: ['./eclairage.component.css']
 })
+
+
 
 export class EclairageComponent implements OnInit, OnDestroy {
 
@@ -15,9 +24,9 @@ export class EclairageComponent implements OnInit, OnDestroy {
 
   constructor(private eclairageService: EclairageService) {
 
-    console.log(this.eclairageService.eclairage);
-
     this.data = this.eclairageService.eclairage;
+
+    /*console.log(this.data);*/
 
   }
 
@@ -43,13 +52,5 @@ export class EclairageComponent implements OnInit, OnDestroy {
     }
   }
 
-  update(d1, d2, d3 , d4, d5) {
-    let statut = d1;
-    let nom = d2;
-    let localisation = d3;
-    let capteurAmpoule = d4;
-    let capteurLuminosite = d5;
-    console.log(statut, nom, localisation, capteurAmpoule, capteurLuminosite);
-  }
-
+  
 }

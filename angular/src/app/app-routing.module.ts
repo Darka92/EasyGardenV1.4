@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 
-/* MES IMPORTS */
+/*  MES IMPORTS */
 import { Erreur404Component } from './erreur404/erreur404.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
@@ -10,7 +10,7 @@ import { FpasswordComponent } from './fpassword/fpassword.component';
 
 
 const routes: Routes = [
-  {path:'', component:ConnexionComponent},
+  {path:'', redirectTo:'', component:ConnexionComponent, pathMatch:'full'},
   {path:'connexion', component:ConnexionComponent},
   {path:'inscription', component:InscriptionComponent},
   {path:'fpassword', component:FpasswordComponent},

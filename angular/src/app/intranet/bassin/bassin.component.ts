@@ -1,11 +1,21 @@
 import { Component, OnInit , OnDestroy } from '@angular/core';
+
+
+/*  MES IMPORTS */
+
+/*  SERVICES  */
+
 import { BassinService } from 'src/app/services/bassin.service';
+
+
 
 @Component({
   selector: 'app-bassin',
   templateUrl: './bassin.component.html',
   styleUrls: ['./bassin.component.css']
 })
+
+
 
 export class BassinComponent implements OnInit, OnDestroy {
 
@@ -15,9 +25,8 @@ export class BassinComponent implements OnInit, OnDestroy {
 
   constructor(private bassinService: BassinService) {
 
-  /*console.log(this.data);*/
-
-  this.data = this.bassinService.bassin;
+    this.data = this.bassinService.bassin;
+    /*console.log(this.data);*/
 
   }
 
@@ -43,4 +52,5 @@ export class BassinComponent implements OnInit, OnDestroy {
     }
   }
 
+  
 }

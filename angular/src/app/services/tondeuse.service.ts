@@ -1,9 +1,18 @@
 import { Injectable } from '@angular/core';
+
+
+/*  MES IMPORTS  */
+
+/* HTTP  */
 import { HttpClient } from '@angular/common/http';
+
+
 
 @Injectable({
   providedIn: 'root'
 })
+
+
 
 export class TondeuseService {
 
@@ -23,4 +32,5 @@ export class TondeuseService {
     this.tondeuse[i].statut = 'Off';
   }
 
+  
 }

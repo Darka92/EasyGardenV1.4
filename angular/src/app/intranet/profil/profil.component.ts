@@ -1,10 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 
+
+/*  MES IMPORTS */
+
+
+
 @Component({
   selector: 'app-profil',
   templateUrl: './profil.component.html',
   styleUrls: ['./profil.component.css']
 })
+
+
+
 export class ProfilComponent implements OnInit {
 
   constructor() { }
@@ -12,4 +20,5 @@ export class ProfilComponent implements OnInit {
   ngOnInit() {
   }
 
+  
 }
