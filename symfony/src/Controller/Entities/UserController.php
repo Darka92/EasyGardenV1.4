@@ -145,8 +145,6 @@ class UserController extends AbstractController
     {
         /** @var User $user */
 
-        /*echo $request;*/
-
         $user = new User();
 
         $user->setUsername($request->get('username'))
@@ -156,7 +154,7 @@ class UserController extends AbstractController
         $this->em->persist($user);
         $this->em->flush();
         $response = new Response(); 
-        $response->setStatusCode(200);
+        $response->setStatusCode(201);
         return $response;
     }
 
@@ -168,9 +166,6 @@ class UserController extends AbstractController
     {
         /** @var User $user */
         $user = $this->userRepository->findOneByUserId($id);
-
-        /*echo $request;*/
-        /*echo $id;*/
 
         $user->setUsername($request->get('username'))
             ->setEmail($request->get('email'))
@@ -194,7 +189,7 @@ class UserController extends AbstractController
         $this->em->remove($user);
         $this->em->flush();
         $response = new Response(); 
-        $response->setStatusCode(200);
+        $response->setStatusCode(204);
         return $response;        
     }
 

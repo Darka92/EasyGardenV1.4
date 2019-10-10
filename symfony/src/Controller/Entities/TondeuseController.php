@@ -131,8 +131,6 @@ class TondeuseController extends AbstractController
     {
         /** @var Tondeuse $tondeuse */
 
-        /*echo $request;*/
-
         $tondeuse = new Tondeuse();
 
         $tondeuse->setNom($request->get('nom'))
@@ -142,7 +140,7 @@ class TondeuseController extends AbstractController
         $this->em->persist($tondeuse);
         $this->em->flush();
         $response = new Response(); 
-        $response->setStatusCode(200);
+        $response->setStatusCode(201);
         return $response;
     }
 
@@ -154,9 +152,6 @@ class TondeuseController extends AbstractController
     {
         /** @var Tondeuse $tondeuse */
         $tondeuse = $this->tondeuseRepository->findOneByTondeuseId($id);
-
-        /*echo $request;*/
-        /*echo $id;*/
 
         $tondeuse->setNom($request->get('nom'))
                 ->setCapteurBatterie($request->get('capteurbatterie'))
@@ -180,7 +175,7 @@ class TondeuseController extends AbstractController
         $this->em->remove($tondeuse);
         $this->em->flush();
         $response = new Response(); 
-        $response->setStatusCode(200);
+        $response->setStatusCode(204);
         return $response;        
     }
 

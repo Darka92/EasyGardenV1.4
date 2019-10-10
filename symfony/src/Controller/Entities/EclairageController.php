@@ -128,8 +128,6 @@ class EclairageController extends AbstractController
     {
         /** @var Eclairage $eclairage */
 
-        /*echo $request;*/
-
         $eclairage = new Eclairage();
 
         $eclairage->setNom($request->get('nom'))
@@ -153,9 +151,6 @@ class EclairageController extends AbstractController
     {
         /** @var Eclairage $eclairage */
         $eclairage = $this->eclairageRepository->findOneByEclairageId($id);
-
-        /*echo $request;*/
-        /*echo $id;*/
 
         $eclairage->setNom($request->get('nom'))
                 ->setLocalisation($request->get('localisation'))

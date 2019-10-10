@@ -130,8 +130,6 @@ class PortailController extends AbstractController
     {
         /** @var Portail $portail */
 
-        /*echo $request;*/
-
         $portail = new Portail();
 
         $portail->setNom($request->get('nom'))
@@ -142,7 +140,7 @@ class PortailController extends AbstractController
         $this->em->persist($portail);
         $this->em->flush();
         $response = new Response(); 
-        $response->setStatusCode(200);
+        $response->setStatusCode(201);
         return $response;
     }
 
@@ -154,9 +152,6 @@ class PortailController extends AbstractController
     {
         /** @var Portail $portail */
         $portail = $this->portailRepository->findOneByPortailId($id);
-
-        /*echo $request;*/
-        /*echo $id;*/
 
         $portail->setNom($request->get('nom'))
                 ->setLocalisation($request->get('localisation'))
@@ -181,7 +176,7 @@ class PortailController extends AbstractController
         $this->em->remove($portail);
         $this->em->flush();
         $response = new Response(); 
-        $response->setStatusCode(200);
+        $response->setStatusCode(204);
         return $response;        
     }
 

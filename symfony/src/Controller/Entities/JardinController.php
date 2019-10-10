@@ -143,8 +143,6 @@ class JardinController extends AbstractController
     {
         /** @var Jardin $jardin */
 
-        /*echo $request;*/
-
         $jardin = new Jardin();
 
         $jardin->setNom($request->get('nom'));
@@ -152,7 +150,7 @@ class JardinController extends AbstractController
         $this->em->persist($jardin);
         $this->em->flush();
         $response = new Response(); 
-        $response->setStatusCode(200);
+        $response->setStatusCode(201);
         return $response;
     }
 
@@ -164,9 +162,6 @@ class JardinController extends AbstractController
     {
         /** @var Arrosage $arrosage */
         $jardin = $this->jardinRepository->findOneByJardinId($id);
-
-        /*echo $request;*/
-        /*echo $id;*/
 
         $jardin->setNom($request->get('nom'));
 
@@ -188,7 +183,7 @@ class JardinController extends AbstractController
         $this->em->remove($jardin);
         $this->em->flush();
         $response = new Response(); 
-        $response->setStatusCode(200);
+        $response->setStatusCode(204);
         return $response;        
     }
 

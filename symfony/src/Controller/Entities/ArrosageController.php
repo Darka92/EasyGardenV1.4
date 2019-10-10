@@ -130,8 +130,6 @@ class ArrosageController extends AbstractController
     {
         /** @var Arrosage $arrosage */
 
-        /*echo $request;*/
-
         $arrosage = new Arrosage();
 
         $arrosage->setNom($request->get('nom'))
@@ -143,7 +141,7 @@ class ArrosageController extends AbstractController
         $this->em->persist($arrosage);
         $this->em->flush();
         $response = new Response(); 
-        $response->setStatusCode(200);
+        $response->setStatusCode(201);
         return $response;
     }
 
@@ -155,9 +153,6 @@ class ArrosageController extends AbstractController
     {
         /** @var Arrosage $arrosage */
         $arrosage = $this->arrosageRepository->findOneByArrosageId($id);
-
-        /*echo $request;*/
-        /*echo $id;*/
 
         $arrosage->setNom($request->get('nom'))
                 ->setLocalisation($request->get('localisation'))
@@ -183,8 +178,9 @@ class ArrosageController extends AbstractController
         $this->em->remove($arrosage);
         $this->em->flush();
         $response = new Response(); 
-        $response->setStatusCode(200);
-        return $response;       
+        $response->setStatusCode(204);
+        return $response; 
+        /*return new Response(HTTP_NO_CONTENT);*/    
     }
 
 

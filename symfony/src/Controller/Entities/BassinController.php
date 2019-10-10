@@ -130,8 +130,6 @@ class BassinController extends AbstractController
     {
         /** @var bassin $bassin */
 
-        /*echo $request;*/
-
         $bassin = new bassin();
 
         $bassin->setNom($request->get('nom'))
@@ -140,7 +138,7 @@ class BassinController extends AbstractController
         $this->em->persist($bassin);
         $this->em->flush();
         $response = new Response(); 
-        $response->setStatusCode(200);
+        $response->setStatusCode(201);
         return $response;
     }
     
@@ -152,9 +150,6 @@ class BassinController extends AbstractController
     {
         /** @var Bassin $bassin */
         $bassin = $this->bassinRepository->findOneByBassinId($id);
-
-        /*echo $request;*/
-        /*echo $id;*/
 
         $bassin->setNom($request->get('nom'))
                 ->setStatut($request->get('statut'));
@@ -177,7 +172,7 @@ class BassinController extends AbstractController
         $this->em->remove($bassin);
         $this->em->flush();
         $response = new Response(); 
-        $response->setStatusCode(200);
+        $response->setStatusCode(204);
         return $response;        
     }
 
