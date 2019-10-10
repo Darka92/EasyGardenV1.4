@@ -37,7 +37,7 @@ const routes: Routes = [
       { path:'tondeuse/addequipement', component: AddEquipementComponent},
       { path:'tondeuse/updateequipement', component: UpdateEquipementComponent},
       { path:'portail/addequipement', component: AddEquipementComponent},
-      { path:'portail/update/equipement', component: UpdateEquipementComponent}
+      { path:'portail/updateequipement', component: UpdateEquipementComponent}
     ]}
 ];
 
