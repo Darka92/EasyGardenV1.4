@@ -15,14 +15,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
-<<<<<<< HEAD
-use AppBundle\Form\Type\YourEntityFormType;
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
-=======
->>>>>>> master
 
 
 class ArrosageController extends AbstractController
@@ -161,36 +154,17 @@ class ArrosageController extends AbstractController
     {
         /** @var Arrosage $arrosage */
         $arrosage = $this->arrosageRepository->findOneByArrosageId($id);
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-        /*$arrosage->setStatut('On');
-        $arrosage->setNom('Yes');
-        $arrosage->setLocalisation('Yes');
-        $arrosage->setCapteurDebit('0.02');
-        $arrosage->setCapteurPression('8.5');*/
-=======
->>>>>>> Stashed changes
-=======
-
         $arrosage->setNom($request->get('nom'))
                 ->setLocalisation($request->get('localisation'))
                 ->setCapteurDebit($request->get('capteurdebit'))
                 ->setCapteurPression($request->get('capteurpression'))
                 ->setStatut($request->get('statut'));
-
->>>>>>> master
         $this->em->persist($arrosage);
         $this->em->flush();
         $response = new Response(); 
         $response->setStatusCode(200);
         return $response;  
     }
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-    
-=======
->>>>>>> Stashed changes
-=======
 
 
     /**
@@ -207,7 +181,5 @@ class ArrosageController extends AbstractController
         return $response; 
         /*return new Response(HTTP_NO_CONTENT);*/    
     }
->>>>>>> master
-
 
 }

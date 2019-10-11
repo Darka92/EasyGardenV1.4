@@ -197,15 +197,7 @@ class RestController extends AbstractFOSRestController
 
     /**
      * Retrieves updateArrosageController
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-     * @Route("/updatearrosagecontroller/{id}", methods={"PUT"})
-=======
-     * @Route("/updatearrosagecontroller/{id}", methods={"GET", "POST", "PUT"})
->>>>>>> Stashed changes
-=======
      * @Route("/updatearrosagecontroller/{id}", methods={"GET", "PUT"})
->>>>>>> master
      */
     public function updateArrosageController(Request $request, int $id) {
 
