@@ -17,17 +17,17 @@ class Tondeuse
     private $tondeuseId;
 
     /**
-     * @ORM\Column(type="string", length=45)
+     * @ORM\Column(name="nom", type="string", length=45)
      */
     private $nom;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(name="capteur_batterie", type="integer")
      */
     private $capteurBatterie;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(name="statut", type="boolean")
      */
     private $statut;
 

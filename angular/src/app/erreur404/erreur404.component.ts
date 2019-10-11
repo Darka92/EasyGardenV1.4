@@ -1,10 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 
+
+/*  MES IMPORTS */
+
+
+
 @Component({
   selector: 'app-erreur404',
   templateUrl: './erreur404.component.html',
   styleUrls: ['./erreur404.component.css']
 })
+
+
+
 export class Erreur404Component implements OnInit {
 
   constructor() { }
@@ -12,4 +20,5 @@ export class Erreur404Component implements OnInit {
   ngOnInit() {
   }
 
+  
 }

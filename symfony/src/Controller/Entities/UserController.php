@@ -6,6 +6,7 @@ use App\Entity\Jardin;
 use App\Repository\UserRepository;
 use App\Repository\JardinRepository;
 
+use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\View\View;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -43,6 +44,11 @@ class UserController extends AbstractController
         $this->userRepository = $this->em->getRepository(User::class);
     }
 
+
+
+                /*------*/
+                /* READ */
+                /*------*/
 
 
     /**
@@ -83,7 +89,6 @@ class UserController extends AbstractController
         }
 
     }
-
 
 
     /**
@@ -127,6 +132,53 @@ class UserController extends AbstractController
 
     }
 
+
+
+                /*----------------------*/
+                /* CREATE/UPDATE/DELETE */
+                /*----------------------*/
+
+    /**
+     * Add one user
+     */
+    public function getAddUser(Request $request)
+    {
+        /** @var User $user */
+
+        $user = new User();
+
+        $user->setUsername($request->get('username'))
+            ->setEmail($request->get('email'))
+            ->setPassword($request->get('password'));
+        
+        $this->em->persist($user);
+        $this->em->flush();
+        $response = new Response(); 
+        $response->setStatusCode(201);
+        return $response;
+    }
+
+
+    /**
+     * Update one user
+     */
+    public function getUpdateUser(Request $request, int $id)
+    {
+        /** @var User $user */
+        $user = $this->userRepository->findOneByUserId($id);
+
+        $user->setUsername($request->get('username'))
+            ->setEmail($request->get('email'))
+            ->setPassword($request->get('password'));
+
+        $this->em->persist($user);
+        $this->em->flush();
+        $response = new Response(); 
+        $response->setStatusCode(200);
+        return $response;  
+    }
+
+
     /**
      * Delete one user
      */
@@ -137,8 +189,9 @@ class UserController extends AbstractController
         $this->em->remove($user);
         $this->em->flush();
         $response = new Response(); 
-        $response->setStatusCode(200);
+        $response->setStatusCode(204);
         return $response;        
     }
+
 
 }

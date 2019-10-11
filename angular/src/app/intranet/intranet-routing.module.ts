@@ -1,5 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
+
+/*  MES IMPORTS  */
+
+/*  COMPONENT  */
 import { AccueilComponent } from './accueil/accueil.component';
 import { ArrosageComponent } from './arrosage/arrosage.component';
 import { EclairageComponent } from './eclairage/eclairage.component';
@@ -8,12 +13,12 @@ import { TondeuseComponent } from './tondeuse/tondeuse.component';
 import { PortailComponent } from './portail/portail.component';
 import { ImgaccComponent } from './imgacc/imgacc.component';
 import { ProfilComponent } from './profil/profil.component';
-import { EquipementComponent } from './equipement/equipement.component';
+import { AddEquipementComponent } from './add-equipement/add-equipement.component';
 import { UpdateEquipementComponent } from './update-equipement/update-equipement.component';
 
 
+
 const routes: Routes = [
-  /*{ path: '', component: AccueilComponent },*/
   { path: 'easy-garden', component: AccueilComponent,
     children:[
       { path:'', component: ImgaccComponent},
@@ -23,16 +28,16 @@ const routes: Routes = [
       { path:'tondeuse', component: TondeuseComponent},
       { path:'portail', component: PortailComponent},
       { path:'profil', component: ProfilComponent},
-      { path:'arrosage/equipement', component: EquipementComponent},
-      { path:'arrosage/modifierequipement', component: UpdateEquipementComponent},
-      { path:'eclairage/equipement', component: EquipementComponent},
-      { path:'eclairage/modifierequipement', component: UpdateEquipementComponent},
-      { path:'bassin/equipement', component: EquipementComponent},
-      { path:'bassin/modifierequipement', component: UpdateEquipementComponent},
-      { path:'tondeuse/equipement', component: EquipementComponent},
-      { path:'tondeuse/modifierequipement', component: UpdateEquipementComponent},
-      { path:'portail/equipement', component: EquipementComponent},
-      { path:'portail/modifierequipement', component: UpdateEquipementComponent}
+      { path:'arrosage/addequipement', component: AddEquipementComponent},
+      { path:'arrosage/updateequipement', component: UpdateEquipementComponent},
+      { path:'eclairage/addequipement', component: AddEquipementComponent},
+      { path:'eclairage/updateequipement', component: UpdateEquipementComponent},
+      { path:'bassin/addequipement', component: AddEquipementComponent},
+      { path:'bassin/updateequipement', component: UpdateEquipementComponent},
+      { path:'tondeuse/addequipement', component: AddEquipementComponent},
+      { path:'tondeuse/updateequipement', component: UpdateEquipementComponent},
+      { path:'portail/addequipement', component: AddEquipementComponent},
+      { path:'portail/updateequipement', component: UpdateEquipementComponent}
     ]}
 ];
 
@@ -41,5 +46,6 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
+
 
 export class IntranetRoutingModule { }

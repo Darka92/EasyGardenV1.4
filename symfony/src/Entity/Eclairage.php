@@ -17,27 +17,27 @@ class Eclairage
     private $eclairageId;
 
     /**
-     * @ORM\Column(type="string", length=45)
+     * @ORM\Column(name="nom", type="string", length=45)
      */
     private $nom;
 
     /**
-     * @ORM\Column(type="string", length=45)
+     * @ORM\Column(name="localisation", type="string", length=45)
      */
     private $localisation;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(name="capteur_defaut_ampoule", type="boolean")
      */
     private $capteurDefautAmpoule;
 
     /**
-     * @ORM\Column(type="float")
+     * @ORM\Column(name="capteur_luminosite", type="float")
      */
     private $capteurLuminosite;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(name="statut", type="boolean")
      */
     private $statut;
 

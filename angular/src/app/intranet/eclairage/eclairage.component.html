@@ -8,7 +8,7 @@
                 <div class="table-fix-head">
                   <table class="table-light table-fixed table-hover">
                     <thead>
-                      <tr>
+                      <tr class="fonts-tableau-custom">
                           <th>Statut</th>
                           <th>Nom</th>
                           <th>Localisation</th>
@@ -40,7 +40,7 @@
                             <button class="btn btn-custom-crud" href="">
                               <img src="assets/images/change.png" (click)="update(eclairage.statut, eclairage.nom,
                                eclairage.localisation, eclairage.capteurampoule, eclairage.capteurluminosite)"
-                               routerLink="modifierequipement" alt="Modifier" title="Modifier">
+                               routerLink="updateequipement" alt="Modifier" title="Modifier">
                             </button>
                             <button class="btn btn-custom-crud" href="">
                               <img src="assets/images/delete.png" alt="Supprimer" title="Supprimer">
@@ -60,7 +60,7 @@
               </div>
 
               <div class="row justify-content-center">
-                <button id="submit" class="btn btn-add-equipement" routerLink="equipement">Ajouter</button>
+                <button id="submit" class="btn btn-add-equipement" routerLink="addequipement">Ajouter</button>
               </div>
 
             </div>

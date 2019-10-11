@@ -29,7 +29,6 @@ use Doctrine\ORM\EntityManagerInterface;
 /**
  * Class RestController
  * @package App\Controller\Rest
- * @Route("/user")
  */
 class RestController extends AbstractFOSRestController
 {
@@ -75,7 +74,7 @@ class RestController extends AbstractFOSRestController
     /* ------USER------ */
     /**
      * Retrieves oneUserController
-     * @Route("/oneusercontroller/{id}", methods={"GET", "POST"})
+     * @Route("/oneusercontroller/{id}", methods={"GET"})
      */
     public function oneUserController(int $id) {
 
@@ -84,7 +83,7 @@ class RestController extends AbstractFOSRestController
 
     /**
      * Retrieves allUsersController
-     * @Route("/alluserscontroller/", methods={"GET", "POST"})
+     * @Route("/alluserscontroller", methods={"GET"})
      */
     public function allUsersController() {
 
@@ -92,12 +91,30 @@ class RestController extends AbstractFOSRestController
     }
 
     /**
+     * Retrieves addUserController
+     * @Route("/addusercontroller", methods={"GET", "POST"})
+     */
+    public function addUserController(Request $request) {
+
+        return $this->uc->getAddUser($request);
+    }
+
+    /**
+     * Retrieves updateUserController
+     * @Route("/updateusercontroller/{id}", methods={"GET", "PUT"})
+     */
+    public function updateUserController(Request $request, int $id) {
+
+        return $this->uc->getUpdateUser($request, $id);
+    }
+
+    /**
      * Retrieves deleteUserController
-     * @Route("/deleteusercontroller/{id}", methods={"GET", "POST"})
+     * @Route("/deleteusercontroller/{id}", methods={"DELETE"})
      */
     public function deleteUserController(int $id) {
 
-        return $this->jc->getDeleteUser($id);
+        return $this->uc->getDeleteUser($id);
     }
 
 
@@ -105,7 +122,7 @@ class RestController extends AbstractFOSRestController
     /* ------JARDIN------ */
     /**
      * Retrieves oneJardinController
-     * @Route("/onejardincontroller/{id}", methods={"GET", "POST"})
+     * @Route("/onejardincontroller/{id}", methods={"GET"})
      */
     public function oneJardinController(int $id) {
 
@@ -114,7 +131,7 @@ class RestController extends AbstractFOSRestController
 
     /**
      * Retrieves allJardinsController
-     * @Route("/alljardinscontroller/", methods={"GET", "POST"})
+     * @Route("/alljardinscontroller", methods={"GET"})
      */
     public function allJardinsController() {
 
@@ -122,8 +139,26 @@ class RestController extends AbstractFOSRestController
     }
 
     /**
+     * Retrieves addJardinController
+     * @Route("/addjardincontroller", methods={"GET", "POST"})
+     */
+    public function addJardinController(Request $request) {
+
+        return $this->jc->getAddJardin($request);
+    }
+
+    /**
+     * Retrieves updateJardinController
+     * @Route("/updatejardincontroller/{id}", methods={"GET", "PUT"})
+     */
+    public function updateJardinController(Request $request, int $id) {
+
+        return $this->jc->getUpdateJardin($request, $id);
+    }
+
+    /**
      * Retrieves deleteJardinController
-     * @Route("/deletejardincontroller/{id}", methods={"GET", "POST"})
+     * @Route("/deletejardincontroller/{id}", methods={"DELETE"})
      */
     public function deleteJardinController(int $id) {
 
@@ -135,7 +170,7 @@ class RestController extends AbstractFOSRestController
     /* ------ARROSAGE------ */
     /**
      * Retrieves oneArrosageController
-     * @Route("/onearrosagecontroller/{id}", methods={"GET", "POST"})
+     * @Route("/onearrosagecontroller/{id}", methods={"GET"})
      */
     public function oneArrosageController(int $id) {
 
@@ -144,7 +179,7 @@ class RestController extends AbstractFOSRestController
 
     /**
      * Retrieves allArrosagesController
-     * @Route("/allarrosagescontroller/", methods={"GET", "POST"})
+     * @Route("/allarrosagescontroller", methods={"GET"})
      */
     public function allArrosagesController() {
 
@@ -152,21 +187,34 @@ class RestController extends AbstractFOSRestController
     }
 
     /**
+     * Retrieves addArrosageController
+     * @Route("/addarrosagecontroller", methods={"GET", "POST"})
+     */
+    public function addArrosageController(Request $request) {
+
+        return $this->ac->getAddArrosage($request);
+    }
+
+    /**
      * Retrieves updateArrosageController
+<<<<<<< HEAD
 <<<<<<< Updated upstream
      * @Route("/updatearrosagecontroller/{id}", methods={"PUT"})
 =======
      * @Route("/updatearrosagecontroller/{id}", methods={"GET", "POST", "PUT"})
 >>>>>>> Stashed changes
+=======
+     * @Route("/updatearrosagecontroller/{id}", methods={"GET", "PUT"})
+>>>>>>> master
      */
-    public function updateArrosageController(int $id) {
+    public function updateArrosageController(Request $request, int $id) {
 
-        return $this->ac->getUpdateArrosage($id);
+        return $this->ac->getUpdateArrosage($request, $id);
     }
 
     /**
      * Retrieves deleteArrosageController
-     * @Route("/deletearrosagecontroller/{id}", methods={"GET", "POST"})
+     * @Route("/deletearrosagecontroller/{id}", methods={"DELETE"})
      */
     public function deleteArrosageController(int $id) {
 
@@ -178,7 +226,7 @@ class RestController extends AbstractFOSRestController
     /* ------ECLAIRAGE------ */
     /**
      * Retrieves oneEclairageController
-     * @Route("/oneeclairagecontroller/{id}", methods={"GET", "POST"})
+     * @Route("/oneeclairagecontroller/{id}", methods={"GET"})
      */
     public function oneEclairageController(int $id) {
 
@@ -187,7 +235,7 @@ class RestController extends AbstractFOSRestController
 
     /**
      * Retrieves allEclairagesController
-     * @Route("/alleclairagescontroller/", methods={"GET", "POST"})
+     * @Route("/alleclairagescontroller", methods={"GET"})
      */
     public function allEclairagesController() {
 
@@ -195,8 +243,26 @@ class RestController extends AbstractFOSRestController
     }
 
     /**
+     * Retrieves addEclairageController
+     * @Route("/addeclairagecontroller", methods={"GET", "POST"})
+     */
+    public function addEclairageController(Request $request) {
+
+        return $this->ec->getAddEclairage($request);
+    }
+
+    /**
+     * Retrieves updateEclairageController
+     * @Route("/updateeclairagecontroller/{id}", methods={"GET", "PUT"})
+     */
+    public function updateEclairageController(Request $request, int $id) {
+
+        return $this->ec->getUpdateEclairage($request, $id);
+    }
+
+    /**
      * Retrieves deleteEclairageController
-     * @Route("/deleteeclairagecontroller/{id}", methods={"GET", "POST"})
+     * @Route("/deleteeclairagecontroller/{id}", methods={"DELETE"})
      */
     public function deleteEclairageController(int $id) {
 
@@ -205,100 +271,10 @@ class RestController extends AbstractFOSRestController
 
 
 
-    /* ------BASSIN------ */
-    /**
-     * Retrieves oneBassinController
-     * @Route("/onebassincontroller/{id}", methods={"GET", "POST"})
-     */
-    public function oneBassinController(int $id) {
-
-        return $this->bc->getOneBassin($id);
-    }
-
-    /**
-     * Retrieves allBassinsController
-     * @Route("/allbassinscontroller/", methods={"GET", "POST"})
-     */
-    public function allBassinsController() {
-
-        return $this->bc->getAllBassins();
-    }
-
-    /**
-     * Retrieves deleteBassinController
-     * @Route("/deletebassincontroller/{id}", methods={"GET", "POST"})
-     */
-    public function deleteBassinController(int $id) {
-
-        return $this->bc->getDeleteBassin($id);
-    }
-
-
-
-    /* ------EQUIPEMENT------ */
-    /**
-     * Retrieves oneEquipementController
-     * @Route("/oneequipementcontroller/{id}", methods={"GET", "POST"})
-     */
-    public function oneEquipementController(int $id) {
-
-        return $this->eqc->getOneEquipement($id);
-    }
-
-    /**
-     * Retrieves allEquipementsController
-     * @Route("/allequipementscontroller/", methods={"GET", "POST"})
-     */
-    public function allEquipementsController() {
-
-        return $this->eqc->getAllEquipements();
-    }
-
-    /**
-     * Retrieves deleteEquipementController
-     * @Route("/deleteequipementcontroller/{id}", methods={"GET", "POST"})
-     */
-    public function deleteEquipementController(int $id) {
-
-        return $this->eqc->getDeleteEquipement($id);
-    }
-
-
-
-    /* ------TONDEUSE------ */
-    /**
-     * Retrieves oneTondeuseController
-     * @Route("/onetondeusecontroller/{id}", methods={"GET", "POST"})
-     */
-    public function oneTondeuseController(int $id) {
-
-        return $this->tc->getOneTondeuse($id);
-    }
-
-    /**
-     * Retrieves allTondeusesController
-     * @Route("/alltondeusescontroller/", methods={"GET", "POST"})
-     */
-    public function allTondeusesController() {
-
-        return $this->tc->getAllTondeuses();
-    }
-
-    /**
-     * Retrieves deleteTondeuseController
-     * @Route("/deletetondeusecontroller/{id}", methods={"GET", "POST"})
-     */
-    public function deleteTondeuseController(int $id) {
-
-        return $this->tc->getDeleteTondeuse($id);
-    }
-
-
-
     /* ------PORTAIL------ */
     /**
      * Retrieves onePortailController
-     * @Route("/oneportailcontroller/{id}", methods={"GET", "POST"})
+     * @Route("/oneportailcontroller/{id}", methods={"GET"})
      */
     public function onePortailController(int $id) {
 
@@ -307,7 +283,7 @@ class RestController extends AbstractFOSRestController
 
     /**
      * Retrieves allPortailsController
-     * @Route("/allportailscontroller/", methods={"GET", "POST"})
+     * @Route("/allportailscontroller", methods={"GET"})
      */
     public function allPortailsController() {
 
@@ -315,12 +291,126 @@ class RestController extends AbstractFOSRestController
     }
 
     /**
+     * Retrieves addPortailController
+     * @Route("/addportailcontroller", methods={"GET", "POST"})
+     */
+    public function addPortailController(Request $request) {
+
+        return $this->pc->getAddPortail($request);
+    }
+
+    /**
+     * Retrieves updatePortailController
+     * @Route("/updateportailcontroller/{id}", methods={"GET", "PUT"})
+     */
+    public function updatePortailController(Request $request, int $id) {
+
+        return $this->pc->getUpdatePortail($request, $id);
+    }
+
+    /**
      * Retrieves deletePortailController
-     * @Route("/deleteportailcontroller/{id}", methods={"GET", "POST"})
+     * @Route("/deleteportailcontroller/{id}", methods={"DELETE"})
      */
     public function deletePortailController(int $id) {
 
         return $this->pc->getDeletePortail($id);
+    }
+
+
+
+    /* ------TONDEUSE------ */
+    /**
+     * Retrieves oneTondeuseController
+     * @Route("/onetondeusecontroller/{id}", methods={"GET"})
+     */
+    public function oneTondeuseController(int $id) {
+
+        return $this->tc->getOneTondeuse($id);
+    }
+
+    /**
+     * Retrieves allTondeusesController
+     * @Route("/alltondeusescontroller", methods={"GET"})
+     */
+    public function allTondeusesController() {
+
+        return $this->tc->getAllTondeuses();
+    }
+
+    /**
+     * Retrieves addTondeuseController
+     * @Route("/addtondeusecontroller", methods={"GET", "POST"})
+     */
+    public function addTondeuseController(Request $request) {
+
+        return $this->tc->getAddTondeuse($request);
+    }
+
+    /**
+     * Retrieves updateTondeuseController
+     * @Route("/updatetondeusecontroller/{id}", methods={"GET", "PUT"})
+     */
+    public function updateTondeuseController(Request $request, int $id) {
+
+        return $this->tc->getUpdateTondeuse($request, $id);
+    }
+
+    /**
+     * Retrieves deleteTondeuseController
+     * @Route("/deletetondeusecontroller/{id}", methods={"DELETE"})
+     */
+    public function deleteTondeuseController(int $id) {
+
+        return $this->tc->getDeleteTondeuse($id);
+    }
+
+
+
+    /* ------BASSIN------ */
+    /**
+     * Retrieves oneBassinController
+     * @Route("/onebassincontroller/{id}", methods={"GET"})
+     */
+    public function oneBassinController(int $id) {
+
+        return $this->bc->getOneBassin($id);
+    }
+
+    /**
+     * Retrieves allBassinsController
+     * @Route("/allbassinscontroller", methods={"GET"})
+     */
+    public function allBassinsController() {
+
+        return $this->bc->getAllBassins();
+    }
+
+    /**
+     * Retrieves addBassinController
+     * @Route("/addbassincontroller", methods={"GET", "POST"})
+     */
+    public function addBassinController(Request $request) {
+
+        return $this->bc->getAddBassin($request);
+    }
+
+    /**
+     * Retrieves updateBassinController
+     * @Route("/updatebassincontroller/{id}", methods={"GET", "PUT"})
+     */
+    public function updateBassinController(Request $request, int $id) {
+
+        return $this->bc->getUpdateBassin($request, $id);
+    }
+
+    /**
+     * Retrieves deleteBassinController
+     * @Route("/deletebassincontroller/{id}", methods={"DELETE"})
+     */
+    public function deleteBassinController(int $id) {
+
+        return $this->bc->getDeleteBassin($id);
     }
 
 

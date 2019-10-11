@@ -1,11 +1,20 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+
+
+/*  MES IMPORTS */
+
+/*  SERVICES */
 import { TondeuseService } from 'src/app/services/tondeuse.service';
+
+
 
 @Component({
   selector: 'app-tondeuse',
   templateUrl: './tondeuse.component.html',
   styleUrls: ['./tondeuse.component.css']
 })
+
+
 
 export class TondeuseComponent implements OnInit, OnDestroy {
 
@@ -15,9 +24,9 @@ export class TondeuseComponent implements OnInit, OnDestroy {
 
   constructor(private tondeuseService: TondeuseService) {
 
-    /*console.log(this.data);*/
-
     this.data = this.tondeuseService.tondeuse;
+
+    /*console.log(this.data);*/
 
   }
 
@@ -43,4 +52,5 @@ export class TondeuseComponent implements OnInit, OnDestroy {
     }
   }
 
+  
 }

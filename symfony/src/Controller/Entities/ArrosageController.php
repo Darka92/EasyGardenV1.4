@@ -4,6 +4,7 @@ namespace App\Controller\Entities;
 use App\Entity\Arrosage;
 use App\Repository\ArrosageRepository;
 
+use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\View\View;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,11 +15,14 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
+<<<<<<< HEAD
 use AppBundle\Form\Type\YourEntityFormType;
 <<<<<<< Updated upstream
 =======
 
 >>>>>>> Stashed changes
+=======
+>>>>>>> master
 
 
 class ArrosageController extends AbstractController
@@ -47,6 +51,11 @@ class ArrosageController extends AbstractController
     }
 
 
+    
+                /*------*/
+                /* READ */
+                /*------*/
+
     /**
      * Retrieves one arrosage
      */
@@ -57,7 +66,7 @@ class ArrosageController extends AbstractController
 
         if($arrosage) {
 
-            $encoders = [new JsonEncoder()]; // If no need for XmlEncoder
+            $encoders = [new JsonEncoder()]; 
             $normalizers = [new ObjectNormalizer()];
             $serializer = new Serializer($normalizers, $encoders);
 
@@ -117,6 +126,73 @@ class ArrosageController extends AbstractController
     }
 
 
+
+                /*----------------------*/
+                /* CREATE/UPDATE/DELETE */
+                /*----------------------*/
+
+    /**
+     * Add one arrosage
+     */
+    public function getAddArrosage(Request $request)
+    {
+        /** @var Arrosage $arrosage */
+
+        $arrosage = new Arrosage();
+
+        $arrosage->setNom($request->get('nom'))
+                ->setLocalisation($request->get('localisation'))
+                ->setCapteurDebit($request->get('capteurdebit'))
+                ->setCapteurPression($request->get('capteurpression'))
+                ->setStatut($request->get('statut'));
+        
+        $this->em->persist($arrosage);
+        $this->em->flush();
+        $response = new Response(); 
+        $response->setStatusCode(201);
+        return $response;
+    }
+
+
+    /**
+     * Update one arrosage
+     */
+    public function getUpdateArrosage(Request $request, int $id)
+    {
+        /** @var Arrosage $arrosage */
+        $arrosage = $this->arrosageRepository->findOneByArrosageId($id);
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+        /*$arrosage->setStatut('On');
+        $arrosage->setNom('Yes');
+        $arrosage->setLocalisation('Yes');
+        $arrosage->setCapteurDebit('0.02');
+        $arrosage->setCapteurPression('8.5');*/
+=======
+>>>>>>> Stashed changes
+=======
+
+        $arrosage->setNom($request->get('nom'))
+                ->setLocalisation($request->get('localisation'))
+                ->setCapteurDebit($request->get('capteurdebit'))
+                ->setCapteurPression($request->get('capteurpression'))
+                ->setStatut($request->get('statut'));
+
+>>>>>>> master
+        $this->em->persist($arrosage);
+        $this->em->flush();
+        $response = new Response(); 
+        $response->setStatusCode(200);
+        return $response;  
+    }
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+    
+=======
+>>>>>>> Stashed changes
+=======
+
+
     /**
      * Delete one arrosage
      */
@@ -127,36 +203,11 @@ class ArrosageController extends AbstractController
         $this->em->remove($arrosage);
         $this->em->flush();
         $response = new Response(); 
-        $response->setStatusCode(200);
-        return $response;       
+        $response->setStatusCode(204);
+        return $response; 
+        /*return new Response(HTTP_NO_CONTENT);*/    
     }
-
-
-    /**
-     * Update one arrosage
-     */
-    public function getUpdateArrosage(int $id)
-    {
-        /** @var Arrosage $arrosage */
-        $arrosage = $this->arrosageRepository->findOneByArrosageId($id);
-<<<<<<< Updated upstream
-        /*$arrosage->setStatut('On');
-        $arrosage->setNom('Yes');
-        $arrosage->setLocalisation('Yes');
-        $arrosage->setCapteurDebit('0.02');
-        $arrosage->setCapteurPression('8.5');*/
-=======
->>>>>>> Stashed changes
-        $this->em->persist($arrosage);
-        $this->em->flush();
-        $response = new Response(); 
-        $response->setStatusCode(200);
-        return $response;  
-    }
-<<<<<<< Updated upstream
-    
-=======
->>>>>>> Stashed changes
+>>>>>>> master
 
 
 }

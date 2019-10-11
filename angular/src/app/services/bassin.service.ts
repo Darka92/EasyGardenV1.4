@@ -1,9 +1,19 @@
 import { Injectable } from '@angular/core';
+
+
+/*  MES IMPORTS  */
+
+/* HTTP  */
 import { HttpClient } from '@angular/common/http';
+
+
 
 @Injectable({
   providedIn: 'root'
 })
+
+
+
 export class BassinService {
 
   bassin;
@@ -22,4 +32,5 @@ export class BassinService {
     this.bassin[i].statut = 'Off';
   }
 
+  
 }

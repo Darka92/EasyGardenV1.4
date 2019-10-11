@@ -17,22 +17,22 @@ class Portail
     private $portailId;
 
     /**
-     * @ORM\Column(type="string", length=45)
+     * @ORM\Column(name="nom", type="string", length=45)
      */
     private $nom;
 
     /**
-     * @ORM\Column(type="string", length=45)
+     * @ORM\Column(name="localisation", type="string", length=45)
      */
     private $localisation;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(name="capteur_presence", type="boolean")
      */
     private $capteurPresence;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(name="statut", type="boolean")
      */
     private $statut;
 

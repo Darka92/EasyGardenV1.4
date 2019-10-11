@@ -17,9 +17,14 @@ class Bassin
     private $bassinId;
 
     /**
-     * @ORM\Column(type="string", length=45)
+     * @ORM\Column(name="nom", type="string", length=45)
      */
     private $nom;
+
+    /**
+     * @ORM\Column(name="statut", type="boolean")
+     */
+    private $statut;
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Jardin")
@@ -42,6 +47,18 @@ class Bassin
     public function setNom(string $nom): self
     {
         $this->nom = $nom;
+
+        return $this;
+    }
+
+    public function getStatut(): ?bool
+    {
+        return $this->statut;
+    }
+
+    public function setStatut(bool $statut): self
+    {
+        $this->statut = $statut;
 
         return $this;
     }

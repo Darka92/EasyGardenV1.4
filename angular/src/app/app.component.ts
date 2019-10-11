@@ -1,16 +1,23 @@
 import { Component, OnInit  } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
+
+
+/*  MES IMPORTS  */
+
+/*  SERVICES  */
 import { EclairageService } from './services/eclairage.service';
 import { ArrosageService } from './services/arrosage.service';
 import { BassinService } from './services/bassin.service';
 import { TondeuseService } from './services/tondeuse.service';
 import { PortailService } from './services/portail.service';
 
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 
 export class AppComponent implements OnInit {
 
@@ -26,7 +33,7 @@ export class AppComponent implements OnInit {
   p: number = 1;
   collection: any[] = this.someArrayOfThings;
 
-  constructor(private httpClient: HttpClient, private eclairageService: EclairageService,
+  constructor(private eclairageService: EclairageService,
               private arrosageService: ArrosageService, private bassinService: BassinService,
               private tondeuseService: TondeuseService, private portailService: PortailService) {
 
