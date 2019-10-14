@@ -4,8 +4,8 @@ import { Component, OnInit  } from '@angular/core';
 /*  MES IMPORTS  */
 
 /*  SERVICES  */
-import { EclairageService } from './services/eclairage.service';
 import { ArrosagesService } from './services/arrosages.service';
+import { EclairagesService } from './services/eclairages.service';
 import { BassinService } from './services/bassin.service';
 import { TondeuseService } from './services/tondeuse.service';
 import { PortailService } from './services/portail.service';
@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
   p: number = 1;
   collection: any[] = this.someArrayOfThings;
 
-  constructor(private eclairageService: EclairageService,
+  constructor(private eclairageService: EclairagesService,
               private arrosagesService: ArrosagesService, private bassinService: BassinService,
               private tondeuseService: TondeuseService, private portailService: PortailService) {
 
@@ -45,7 +45,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.eclairage = this.eclairageService.eclairage;
+    this.eclairage = this.eclairageService.eclairages;
     this.arrosage = this.arrosagesService.arrosages;
     this.bassin = this.bassinService.bassin;
     this.tondeuse = this.tondeuseService.tondeuse;

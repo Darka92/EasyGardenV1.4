@@ -19,9 +19,9 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor="let eclairage of data | paginate: { itemsPerPage: 4, currentPage: p } ; let i = index">
+                      <tr *ngFor="let eclairage of eclairages | paginate: { itemsPerPage: 4, currentPage: p } ; let i = index">
                           <td>
-                              <div [ngClass]="{'btn-statut-off': eclairage.statut === 'Off', 'btn-statut-on': eclairage.statut === 'On'}">
+                              <div [ngClass]="{'btn-statut-off': eclairage.statut === '0', 'btn-statut-on': eclairage.statut === '1'}">
                               </div>
                           </td>
                           <td [ngStyle]="{color: getColor(eclairage.statut)}">{{ eclairage.nom }}</td>
@@ -30,17 +30,15 @@
                           <td>{{ eclairage.capteurluminosite }}</td>
                           <td>
                               <button class="btn btn-switch-on"
-                              *ngIf="eclairage.statut === 'Off'"
+                              *ngIf="eclairage.statut === '0'"
                               (click)="onSwitch(i, eclairage.statut)">Allumer</button>
                               <button class="btn btn-switch-off"
-                              *ngIf="eclairage.statut === 'On'"
+                              *ngIf="eclairage.statut === '1'"
                               (click)="onSwitch(i, eclairage.statut)">Eteindre</button>
                           </td>
                           <td>
                             <button class="btn btn-custom-crud" href="">
-                              <img src="assets/images/change.png" (click)="update(eclairage.statut, eclairage.nom,
-                               eclairage.localisation, eclairage.capteurampoule, eclairage.capteurluminosite)"
-                               routerLink="updateequipement" alt="Modifier" title="Modifier">
+                              <img src="assets/images/change.png" [routerLink]="['updateequipement', eclairage.id]" alt="Modifier" title="Modifier">
                             </button>
                             <button class="btn btn-custom-crud" href="">
                               <img src="assets/images/delete.png" alt="Supprimer" title="Supprimer">

@@ -19,7 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 /*  SERVICES  */
 import { ArrosagesService } from './services/arrosages.service';
-import { EclairageService } from './services/eclairage.service';
+import { EclairagesService } from './services/eclairages.service';
 import { BassinService } from './services/bassin.service';
 import { TondeuseService } from './services/tondeuse.service';
 import { PortailService } from './services/portail.service';
@@ -44,7 +44,7 @@ import { PortailService } from './services/portail.service';
   ],
   providers: [
     ArrosagesService,
-    EclairageService,
+    EclairagesService,
     BassinService,
     TondeuseService,
     PortailService

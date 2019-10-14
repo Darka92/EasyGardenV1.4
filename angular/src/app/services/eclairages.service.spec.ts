@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { EclairageService } from './eclairage.service';
+import { EclairagesService } from './eclairages.service';
 
-describe('EclairageService', () => {
+describe('EclairagesService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: EclairageService = TestBed.get(EclairageService);
+    const service: EclairagesService = TestBed.get(EclairagesService);
     expect(service).toBeTruthy();
   });
 });

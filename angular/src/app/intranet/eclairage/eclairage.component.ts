@@ -3,8 +3,11 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 
 /*  MES IMPORTS */
 
+/*  ANGULAR  */
+import { Router } from '@angular/router';
+
 /*  SERVICES  */
-import { EclairageService } from 'src/app/services/eclairage.service';
+import { EclairagesService } from 'src/app/services/eclairages.service';
 
 
 
@@ -18,36 +21,33 @@ import { EclairageService } from 'src/app/services/eclairage.service';
 
 export class EclairageComponent implements OnInit, OnDestroy {
 
-  data;
+  eclairages = [];
+
+  constructor(private eclairageService: EclairagesService, private router:Router) {}
 
   index: number;
 
-  constructor(private eclairageService: EclairageService) {
-
-    this.data = this.eclairageService.eclairage;
-
-    /*console.log(this.data);*/
-
-  }
-
   ngOnInit() {
+    // Appeler méthode de service
+    this.eclairages = this.eclairageService.eclairages;
+    /*console.log(this.arrosages);*/
   }
 
   ngOnDestroy() {
   }
 
   getColor(statut) {
-    if (statut === 'On') {
+    if (statut === '1') {
       return 'green';
-    } else if (statut === 'Off') {
+    } else if (statut === '0') {
       return 'red';
     }
   }
 
   onSwitch(i, statut) {
-    if (statut === 'On') {
+    if (statut === '1') {
       this.eclairageService.switchOffOne(i);
-    } else if (statut === 'Off') {
+    } else if (statut === '0') {
       this.eclairageService.switchOnOne(i);
     }
   }

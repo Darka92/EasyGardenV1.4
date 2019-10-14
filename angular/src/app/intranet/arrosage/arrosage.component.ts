@@ -23,7 +23,6 @@ export class ArrosageComponent implements OnInit, OnDestroy {
 
   arrosages = [];
 
-
   constructor(private arrosageService: ArrosagesService, private router:Router) {}
 
   index: number;
