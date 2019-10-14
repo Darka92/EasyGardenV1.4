@@ -3,9 +3,12 @@ import { Component, OnInit , OnDestroy } from '@angular/core';
 
 /*  MES IMPORTS */
 
+/*  ANGULAR  */
+import { Router } from '@angular/router';
+
 /*  SERVICES  */
 
-import { BassinService } from 'src/app/services/bassin.service';
+import { BassinsService } from 'src/app/services/bassins.service';
 
 
 
@@ -19,35 +22,33 @@ import { BassinService } from 'src/app/services/bassin.service';
 
 export class BassinComponent implements OnInit, OnDestroy {
 
-  data;
+  bassins = [];
+
+  constructor(private bassinService: BassinsService, private router:Router) {}
 
   index: number;
 
-  constructor(private bassinService: BassinService) {
-
-    this.data = this.bassinService.bassin;
-    /*console.log(this.data);*/
-
-  }
-
   ngOnInit() {
+    // Appeler méthode de service
+    this.bassins = this.bassinService.bassins;
+    /*console.log(this.bassins);*/
   }
 
   ngOnDestroy() {
   }
 
   getColor( statut) {
-    if ( statut === 'On') {
+    if ( statut === '1') {
       return 'green';
-    } else if ( statut === 'Off') {
+    } else if ( statut === '0') {
       return 'red';
     }
   }
 
   onSwitch(i, statut) {
-    if (statut === 'On') {
+    if (statut === '1') {
       this.bassinService.switchOffOne(i);
-    } else if (statut === 'Off') {
+    } else if (statut === '0') {
       this.bassinService.switchOnOne(i);
     }
   }

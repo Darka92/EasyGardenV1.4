@@ -3,11 +3,12 @@
         <div class="row">
             <div class="col center-block">
                 <hr class="separation-contenu">
-                    <h1 class="titre-tableau">Panneau Arrosage</h1>
+                  <h1 class="titre-tableau">Panneau Arrosage</h1>
                 <hr class="separation-contenu-bottom">
 
                 <div class="table-fix-head">
                   <table class="table-light table-fixed table-hover">
+
                     <thead>
                       <tr class="fonts-tableau-custom">
                           <th>Statut</th>
@@ -19,37 +20,47 @@
                           <th>C.R.U.D</th>
                       </tr>
                     </thead>
+                    
                     <tbody>
                       <tr *ngFor="let arrosage of arrosages | paginate: { itemsPerPage: 4, currentPage: p } ; let i = index">
-                          <td>
-                              <div [ngClass]="{'btn-statut-off': arrosage.statut === '0', 'btn-statut-on': arrosage.statut === '1'}">
-                              </div>
-                          </td>
-                          <td [ngStyle]="{color: getColor(arrosage.statut)}">{{ arrosage.nom }}</td>
-                          <td>{{ arrosage.localisation }}</td>
-                          <td [ngClass]="{'cellule-alert': arrosage.capteurdebit < 0.012}">{{ arrosage.capteurdebit }}</td>
-                          <td [ngClass]="{'cellule-alert': arrosage.capteurpression < 9}">{{ arrosage.capteurpression }}</td>
-                          <td>
-                              <button class="btn btn-switch-on"
-                              *ngIf="arrosage.statut === '0'"
-                              (click)="onSwitch(i, arrosage.statut)">Allumer</button>
-                              <button class="btn btn-switch-off"
-                              *ngIf="arrosage.statut === '1'"
-                              (click)="onSwitch(i, arrosage.statut)">Eteindre</button>
-                          </td>
-                          <td>
-                              <button class="btn btn-custom-crud" href="">
-                                <img src="assets/images/change.png" [routerLink]="['updateequipement', arrosage.id]" alt="Modifier" title="Modifier">
-                              </button>
-                              <button class="btn btn-custom-crud" href="">
-                                <img src="assets/images/delete.png" [routerLink]="['deleteequipement', arrosage.id]" alt="Supprimer" title="Supprimer">
-                              </button>
-                          </td>
+                        <td>
+                          <!--Including Statut-->
+                          <div [ngClass]="{'btn-statut-off': arrosage.statut === '0', 'btn-statut-on': arrosage.statut === '1'}"></div>
+                        </td>
+                        <!--Including Nom-->
+                        <td [ngStyle]="{color: getColor(arrosage.statut)}">{{ arrosage.nom }}</td>
+                        <!--Including Localisation-->
+                        <td>{{ arrosage.localisation }}</td>
+                        <!--Including CapteurDebit-->
+                        <td [ngClass]="{'cellule-alert': arrosage.capteurdebit < 0.012}">{{ arrosage.capteurDebit }}</td>
+                        <!--Including CapteurPression-->
+                        <td [ngClass]="{'cellule-alert': arrosage.capteurpression < 9}">{{ arrosage.capteurPression }}</td>
+                        <td>
+                          <!--Including Action-->
+                          <button class="btn btn-switch-on"
+                          *ngIf="arrosage.statut === '0'"
+                          (click)="onSwitch(i, arrosage.statut)">Allumer</button>
+                          <button class="btn btn-switch-off"
+                          *ngIf="arrosage.statut === '1'"
+                          (click)="onSwitch(i, arrosage.statut)">Eteindre</button>
+                        </td>
+                        <td>
+                          <!--Including button Modifier-->
+                          <button class="btn btn-custom-crud" href="">
+                            <img src="assets/images/change.png" [routerLink]="['updateequipement', arrosage.arrosageId]" alt="Modifier" title="Modifier">
+                          </button>
+                          <!--Including button Supprimer-->
+                          <button class="btn btn-custom-crud" href="">
+                            <img src="assets/images/delete.png" [routerLink]="['deleteequipement', arrosage.arrosageId]" alt="Supprimer" title="Supprimer">
+                          </button>
+                        </td>
                       </tr>
                     </tbody>
+
                   </table>
-                </div>
-              <!--Including the pagination control.-->
+                </div>  <!--Close div class="table-fix-head"-->
+
+              <!--Including pagination control-->
               <div class="container">
                 <div class="row justify-content-center">
                   <div class="text-center ml-auto pagination-custom">
@@ -58,11 +69,12 @@
                 </div>
               </div>
 
+              <!--Including button Ajouter-->
               <div class="row justify-content-center">
                 <button id="submit" class="btn btn-add-equipement" routerLink="addequipement">Ajouter</button>
               </div>
 
-            </div>
+            </div>  <!--Close div class="col center-block"-->
         </div>
     </div>
 </section>

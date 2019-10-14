@@ -26,12 +26,12 @@ export class UpdateEquipementComponent implements OnInit {
 
   constructor(private arrosagesServices: ArrosagesService, private router: Router, private location: Location, private route: ActivatedRoute) {}
 
-  id: number;
+  arrosageId: number;
 
   ngOnInit() {
-    this.id =+ this.route.snapshot.params['id'];
-    this.arrosages = this.arrosagesServices.getArrosage(this.id);
-    /*console.log(this.arrosages);*/
+    this.arrosageId =+ this.route.snapshot.params['id'];
+    this.arrosages = this.arrosagesServices.getArrosage(this.arrosageId);
+    /*console.log(this.arrosageId);*/
   }
   
   goBack() {

@@ -1,17 +1,20 @@
 /*  MES IMPORTS  */
-import {Deserializable} from './deserializable';
+/*import {Deserializable} from './deserializable';*/
 
 
-export class Bassin implements Deserializable {
-    public bassinId: number;
+export class Bassin {
+
+  constructor(public bassinId : number, public nom :string, public statut: string) {}
+
+    /*public bassinId: number;
     public nom: string;
-    public statut: boolean;
+    public statut: boolean;*/
 
     
-    deserialize(input: any) {
+    /*deserialize(input: any) {
         Object.assign(this, input);
         return this;
-      }
+      }*/
 
 
 }

@@ -20,7 +20,7 @@ import { RouterModule } from '@angular/router';
 /*  SERVICES  */
 import { ArrosagesService } from './services/arrosages.service';
 import { EclairagesService } from './services/eclairages.service';
-import { BassinService } from './services/bassin.service';
+import { BassinsService } from './services/bassins.service';
 import { TondeuseService } from './services/tondeuse.service';
 import { PortailService } from './services/portail.service';
 
@@ -45,7 +45,7 @@ import { PortailService } from './services/portail.service';
   providers: [
     ArrosagesService,
     EclairagesService,
-    BassinService,
+    BassinsService,
     TondeuseService,
     PortailService
   ],

@@ -1,5 +1,5 @@
 /*  MES IMPORTS  */
-import {Deserializable} from './deserializable';
+/*import {Deserializable} from './deserializable';*/
 
 /*  MODELS  */
 import {Arrosage} from "src/app/intranet/models/arrosage";
@@ -9,7 +9,7 @@ import {Tondeuse} from "src/app/intranet/models/tondeuse";
 import {Portail} from "src/app/intranet/models/portail";
 
 
-export class Jardin implements Deserializable {
+export class Jardin {
     public jardinId: number;
     public nom: string;
     public arrosages: Arrosage[];
@@ -19,7 +19,7 @@ export class Jardin implements Deserializable {
     public portails: Portail[];
 
 
-    deserialize(input: any): this {
+    /*deserialize(input: any): this {
 
         // Assign input to our object BEFORE deserialize our cars to prevent already deserialized Object from being overwritten.
         Object.assign(this, input);
@@ -32,7 +32,7 @@ export class Jardin implements Deserializable {
         this.portails = input.portails.map(portail => new Portail().deserialize(portail));
 
         return this;
-      }
+      }*/
 
       
 }

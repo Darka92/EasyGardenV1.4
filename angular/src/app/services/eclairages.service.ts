@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 
 /* MES IMPORTS  */
-import { Eclairages } from 'src/app/intranet/classe/eclairages';
+import { Eclairage } from 'src/app/intranet/models/eclairage';
 
 
 
@@ -14,18 +14,18 @@ import { Eclairages } from 'src/app/intranet/classe/eclairages';
 
 export class EclairagesService {
 
-  eclairages: Eclairages []=[];
+  eclairages: Eclairage []=[];
 
   constructor() {
 
-    let eclairages1: Eclairages = new Eclairages (1,'Réseau 1','Devant', '0.01', '9.2', '1');
-    let eclairages2: Eclairages = new Eclairages (2,'Réseau 2','Derrière', '0.05', '10.23', '0');
-    let eclairages3: Eclairages = new Eclairages (3,'Réseau 3','Côté G', '0.1', '8.7', '1');
-    let eclairages4: Eclairages = new Eclairages (4,'Réseau 4','Côté D', '0.013', '9.8', '1');
-    let eclairages5: Eclairages = new Eclairages (5,'Réseau 5','Tour bassin', '0.02', '8.9', '0');
-    let eclairages6: Eclairages = new Eclairages (6,'Réseau 6','Massif arrière', '0.017', '9.9', '0');
-    let eclairages7: Eclairages = new Eclairages (7,'Réseau 7','Massif avant', '0.4', '10', '1');
-    let eclairages8: Eclairages = new Eclairages (8,'Réseau 8','Portail', '0.6', '9.5', '1');
+    let eclairages1: Eclairage = new Eclairage (1,'Secteur 1','Allée', '0', '34205', '1');
+    let eclairages2: Eclairage = new Eclairage (2,'Secteur 2','Façade', '1', '30007', '0');
+    let eclairages3: Eclairage = new Eclairage (3,'Secteur 3','Perron', '0', '36548', '1');
+    let eclairages4: Eclairage = new Eclairage (4,'Secteur 4','Arbres', '0', '37841', '1');
+    let eclairages5: Eclairage = new Eclairage (5,'Secteur 5','Palmiers', '0', '39148', '0');
+    let eclairages6: Eclairage = new Eclairage (6,'Secteur 6','Massif bassin', '0', '36218', '0');
+    let eclairages7: Eclairage = new Eclairage (7,'Secteur 7','Massif avant', '1', '33210', '1');
+    let eclairages8: Eclairage = new Eclairage (8,'Secteur 8','Portail', '0', '35498', '1');
 
     this.eclairages.push(eclairages1);
     this.eclairages.push(eclairages2);
@@ -36,15 +36,16 @@ export class EclairagesService {
     this.eclairages.push(eclairages7);
     this.eclairages.push(eclairages8);
 
-   }
-
-   public getEclairages():Eclairages[] {
-    return this.eclairages;
   }
 
-  public getEclairage(id:number):Eclairages{
+  public getEclairages():Eclairage[] {
+    return this.eclairages;
+    /*console.log(this.eclairages);*/
+  }
+
+  public getEclairage(eclairageId:number):Eclairage{
     let tableaueclairage=this.getEclairages();
-    return tableaueclairage.find(i=>i.id===id);
+    return tableaueclairage.find(i=>i.eclairageId===eclairageId);
   };
 
   switchOnOne(i: number) {

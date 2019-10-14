@@ -1,20 +1,23 @@
 /*  MES IMPORTS  */
-import {Deserializable} from './deserializable';
+/*import {Deserializable} from './deserializable';*/
 
 
-export class Arrosage implements Deserializable {
-  public arrosageId: number;
+export class Arrosage {
+
+  constructor(public arrosageId : number, public nom :string, public localisation:string, public capteurDebit: string, public capteurPression: string, public statut: string) {}
+
+  /*public arrosageId: number;
   public nom: string;
   public localisation: string;
   public capteurDebit: number;
   public capteurPression: number;
-  public statut: boolean;
+  public statut: boolean;*/
 
 
-  deserialize(input: any) {
+  /*deserialize(input: any) {
       Object.assign(this, input);
       return this;
-    }
+    }*/
       
 
 }

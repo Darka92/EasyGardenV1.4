@@ -6,7 +6,7 @@ import { Component, OnInit  } from '@angular/core';
 /*  SERVICES  */
 import { ArrosagesService } from './services/arrosages.service';
 import { EclairagesService } from './services/eclairages.service';
-import { BassinService } from './services/bassin.service';
+import { BassinsService } from './services/bassins.service';
 import { TondeuseService } from './services/tondeuse.service';
 import { PortailService } from './services/portail.service';
 
@@ -34,7 +34,7 @@ export class AppComponent implements OnInit {
   collection: any[] = this.someArrayOfThings;
 
   constructor(private eclairageService: EclairagesService,
-              private arrosagesService: ArrosagesService, private bassinService: BassinService,
+              private arrosagesService: ArrosagesService, private bassinsService: BassinsService,
               private tondeuseService: TondeuseService, private portailService: PortailService) {
 
     setTimeout(
@@ -47,7 +47,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.eclairage = this.eclairageService.eclairages;
     this.arrosage = this.arrosagesService.arrosages;
-    this.bassin = this.bassinService.bassin;
+    this.bassin = this.bassinsService.bassins;
     this.tondeuse = this.tondeuseService.tondeuse;
     this.portail = this.portailService.portail;
   }

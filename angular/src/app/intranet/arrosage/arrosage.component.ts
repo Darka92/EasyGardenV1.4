@@ -30,7 +30,7 @@ export class ArrosageComponent implements OnInit, OnDestroy {
   ngOnInit() {
     // Appeler méthode de service
     this.arrosages = this.arrosageService.arrosages;
-    /*console.log(this.arrosages);*/
+    console.log(this.arrosages);
   }
 
   ngOnDestroy() {

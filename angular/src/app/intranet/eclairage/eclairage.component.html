@@ -3,10 +3,12 @@
         <div class="row">
             <div class="col center-block">
                 <hr class="separation-contenu">
-                    <h1 class="titre-tableau">Panneau Eclairage</h1>
+                  <h1 class="titre-tableau">Panneau Eclairage</h1>
                 <hr class="separation-contenu-bottom">
+
                 <div class="table-fix-head">
                   <table class="table-light table-fixed table-hover">
+
                     <thead>
                       <tr class="fonts-tableau-custom">
                           <th>Statut</th>
@@ -18,37 +20,47 @@
                           <th>C.R.U.D</th>
                       </tr>
                     </thead>
+                    
                     <tbody>
                       <tr *ngFor="let eclairage of eclairages | paginate: { itemsPerPage: 4, currentPage: p } ; let i = index">
-                          <td>
-                              <div [ngClass]="{'btn-statut-off': eclairage.statut === '0', 'btn-statut-on': eclairage.statut === '1'}">
-                              </div>
-                          </td>
-                          <td [ngStyle]="{color: getColor(eclairage.statut)}">{{ eclairage.nom }}</td>
-                          <td>{{ eclairage.localisation }}</td>
-                          <td [ngClass]="{'cellule-alert': eclairage.capteurampoule == 1}">{{ eclairage.capteurampoule }}</td>
-                          <td>{{ eclairage.capteurluminosite }}</td>
-                          <td>
-                              <button class="btn btn-switch-on"
-                              *ngIf="eclairage.statut === '0'"
-                              (click)="onSwitch(i, eclairage.statut)">Allumer</button>
-                              <button class="btn btn-switch-off"
-                              *ngIf="eclairage.statut === '1'"
-                              (click)="onSwitch(i, eclairage.statut)">Eteindre</button>
-                          </td>
-                          <td>
-                            <button class="btn btn-custom-crud" href="">
-                              <img src="assets/images/change.png" [routerLink]="['updateequipement', eclairage.id]" alt="Modifier" title="Modifier">
-                            </button>
-                            <button class="btn btn-custom-crud" href="">
-                              <img src="assets/images/delete.png" alt="Supprimer" title="Supprimer">
-                            </button>
-                          </td>
+                        <td>
+                          <!--Including Statut-->
+                          <div [ngClass]="{'btn-statut-off': eclairage.statut === '0', 'btn-statut-on': eclairage.statut === '1'}"></div>
+                        </td>
+                        <!--Including Nom-->
+                        <td [ngStyle]="{color: getColor(eclairage.statut)}">{{ eclairage.nom }}</td>
+                        <!--Including Localisation-->
+                        <td>{{ eclairage.localisation }}</td>
+                        <!--Including CapteurDefautAmpoule-->
+                        <td [ngClass]="{'cellule-alert': eclairage.capteurDefautAmpoule == 1}">{{ eclairage.capteurDefautAmpoule }}</td>
+                        <!--Including CapteurLuminosite-->
+                        <td>{{ eclairage.capteurLuminosite }}</td>
+                        <td>
+                          <!--Including Action-->
+                          <button class="btn btn-switch-on"
+                          *ngIf="eclairage.statut === '0'"
+                          (click)="onSwitch(i, eclairage.statut)">Allumer</button>
+                          <button class="btn btn-switch-off"
+                          *ngIf="eclairage.statut === '1'"
+                          (click)="onSwitch(i, eclairage.statut)">Eteindre</button>
+                        </td>
+                        <td>
+                          <!--Including button Modifier-->
+                          <button class="btn btn-custom-crud" href="">
+                            <img src="assets/images/change.png" [routerLink]="['updateequipement', eclairage.eclairageId]" alt="Modifier" title="Modifier">
+                          </button>
+                          <!--Including button Supprimer-->
+                          <button class="btn btn-custom-crud" href="">
+                            <img src="assets/images/delete.png" [routerLink]="['deleteequipement', eclairage.eclairageId]" alt="Supprimer" title="Supprimer">
+                          </button>
+                        </td>
                       </tr>
                     </tbody>
+
                   </table>
-                </div>
-              <!--Including the pagination control.-->
+                </div>  <!--Close div class="table-fix-head"-->
+
+              <!--Including pagination control-->
               <div class="container">
                 <div class="row justify-content-center">
                   <div class="text-center ml-auto pagination-custom">
@@ -57,11 +69,12 @@
                 </div>
               </div>
 
+              <!--Including button Ajouter-->
               <div class="row justify-content-center">
                 <button id="submit" class="btn btn-add-equipement" routerLink="addequipement">Ajouter</button>
               </div>
 
-            </div>
+            </div>  <!--Close div class="col center-block"-->
         </div>
     </div>
 </section>
