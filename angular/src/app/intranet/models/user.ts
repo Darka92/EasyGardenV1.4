@@ -17,7 +17,7 @@ export class User implements Deserializable {
         Object.assign(this, input);
 
         // Iterate over all jardins for our user and map them to a proper `Jardin` model
-        this.jardins = input.jardins.map(jardin => new Jardin().deserialize(jardin));
+        this.jardins = input.jardins.map((jardin: any) => new Jardin().deserialize(jardin));
 
         return this;
       }
