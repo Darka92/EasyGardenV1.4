@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';  /*  Nécessaire pour la fonction goBack()  */
 
+/*  SERVICES  */
+import { ArrosagesService } from 'src/app/services/arrosages.service';
+
 
 
 @Component({
@@ -19,17 +22,21 @@ import { Location } from '@angular/common';  /*  Nécessaire pour la fonction go
 
 export class UpdateEquipementComponent implements OnInit {
 
-  statut: string;
+  arrosages = {};
 
-  constructor(private router: Router, private location: Location, private route: ActivatedRoute) {
+  constructor(private arrosagesServices: ArrosagesService, private router: Router, private location: Location, private route: ActivatedRoute) {}
+
+  id: number;
+
+  ngOnInit() {
+    this.id =+ this.route.snapshot.params['id'];
+    this.arrosages = this.arrosagesServices.getArrosage(this.id);
+    /*console.log(this.arrosages);*/
   }
-
+  
   goBack() {
     this.location.back();
   }
 
-  ngOnInit() {
-  }
-  
 
 }

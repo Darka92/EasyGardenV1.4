@@ -29,15 +29,15 @@ const routes: Routes = [
       { path:'portail', component: PortailComponent},
       { path:'profil', component: ProfilComponent},
       { path:'arrosage/addequipement', component: AddEquipementComponent},
-      { path:'arrosage/updateequipement', component: UpdateEquipementComponent},
+      { path:'arrosage/updateequipement/:id', component: UpdateEquipementComponent},
       { path:'eclairage/addequipement', component: AddEquipementComponent},
-      { path:'eclairage/updateequipement', component: UpdateEquipementComponent},
+      { path:'eclairage/updateequipement/:id', component: UpdateEquipementComponent},
       { path:'bassin/addequipement', component: AddEquipementComponent},
-      { path:'bassin/updateequipement', component: UpdateEquipementComponent},
+      { path:'bassin/updateequipement/:id', component: UpdateEquipementComponent},
       { path:'tondeuse/addequipement', component: AddEquipementComponent},
-      { path:'tondeuse/updateequipement', component: UpdateEquipementComponent},
+      { path:'tondeuse/updateequipement/:id', component: UpdateEquipementComponent},
       { path:'portail/addequipement', component: AddEquipementComponent},
-      { path:'portail/updateequipement', component: UpdateEquipementComponent}
+      { path:'portail/updateequipement/:id', component: UpdateEquipementComponent}
     ]}
 ];
 

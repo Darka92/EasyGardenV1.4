@@ -20,9 +20,9 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor="let arrosage of data | paginate: { itemsPerPage: 4, currentPage: p } ; let i = index">
+                      <tr *ngFor="let arrosage of arrosages | paginate: { itemsPerPage: 4, currentPage: p } ; let i = index">
                           <td>
-                              <div [ngClass]="{'btn-statut-off': arrosage.statut === 'Off', 'btn-statut-on': arrosage.statut === 'On'}">
+                              <div [ngClass]="{'btn-statut-off': arrosage.statut === '0', 'btn-statut-on': arrosage.statut === '1'}">
                               </div>
                           </td>
                           <td [ngStyle]="{color: getColor(arrosage.statut)}">{{ arrosage.nom }}</td>
@@ -31,20 +31,18 @@
                           <td [ngClass]="{'cellule-alert': arrosage.capteurpression < 9}">{{ arrosage.capteurpression }}</td>
                           <td>
                               <button class="btn btn-switch-on"
-                              *ngIf="arrosage.statut === 'Off'"
+                              *ngIf="arrosage.statut === '0'"
                               (click)="onSwitch(i, arrosage.statut)">Allumer</button>
                               <button class="btn btn-switch-off"
-                              *ngIf="arrosage.statut === 'On'"
+                              *ngIf="arrosage.statut === '1'"
                               (click)="onSwitch(i, arrosage.statut)">Eteindre</button>
                           </td>
                           <td>
                               <button class="btn btn-custom-crud" href="">
-                                <img src="assets/images/change.png" (click)="update(arrosage.statut, arrosage.nom,
-                                arrosage.localisation, arrosage.capteurdebit, arrosage.capteurpression)"
-                                routerLink="updateequipement" alt="Modifier" title="Modifier">
+                                <img src="assets/images/change.png" [routerLink]="['updateequipement', arrosage.id]" alt="Modifier" title="Modifier">
                               </button>
                               <button class="btn btn-custom-crud" href="">
-                                <img src="assets/images/delete.png" alt="Supprimer" title="Supprimer">
+                                <img src="assets/images/delete.png" [routerLink]="['deleteequipement', arrosage.id]" alt="Supprimer" title="Supprimer">
                               </button>
                           </td>
                       </tr>

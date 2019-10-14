@@ -3,8 +3,11 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 
 /*  MES IMPORTS */
 
+/*  ANGULAR  */
+import { Router } from '@angular/router';
+
 /*  SERVICES  */
-import { ArrosageService } from 'src/app/services/arrosage.service';
+import { ArrosagesService } from 'src/app/services/arrosages.service';
 
 
 
@@ -18,37 +21,34 @@ import { ArrosageService } from 'src/app/services/arrosage.service';
 
 export class ArrosageComponent implements OnInit, OnDestroy {
 
-  data;
+  arrosages = [];
+
+
+  constructor(private arrosageService: ArrosagesService, private router:Router) {}
 
   index: number;
 
-  constructor(private arrosageService: ArrosageService) {
-
-    this.data = this.arrosageService.arrosage;
-
-    /*console.log(this.data);*/
-
-  }
-
   ngOnInit() {
     // Appeler méthode de service
+    this.arrosages = this.arrosageService.arrosages;
+    /*console.log(this.arrosages);*/
   }
 
   ngOnDestroy() {
   }
 
   getColor(statut) {
-    if (statut === 'On') {
+    if (statut === '1') {
       return 'green';
-    } else if (statut === 'Off') {
+    } else if (statut === '0') {
       return 'red';
     }
   }
 
   onSwitch(i, statut) {
-    if (statut === 'On') {
+    if (statut === '1') {
       this.arrosageService.switchOffOne(i);
-    } else if (statut === 'Off') {
+    } else if (statut === '0') {
       this.arrosageService.switchOnOne(i);
     }
   }

@@ -18,7 +18,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 /*  SERVICES  */
-import { ArrosageService } from './services/arrosage.service';
+import { ArrosagesService } from './services/arrosages.service';
 import { EclairageService } from './services/eclairage.service';
 import { BassinService } from './services/bassin.service';
 import { TondeuseService } from './services/tondeuse.service';
@@ -43,7 +43,7 @@ import { PortailService } from './services/portail.service';
     NgxPaginationModule
   ],
   providers: [
-    ArrosageService,
+    ArrosagesService,
     EclairageService,
     BassinService,
     TondeuseService,

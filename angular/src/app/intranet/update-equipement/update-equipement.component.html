@@ -2,17 +2,12 @@
   <h2 class="h2-titre-appli shadows">Modifier Equipement</h2>
   <div id="formContent">
     <form ng-submit="submit()">
-     <!--<input type="text" id="nom" placeholder="Nom" required>
-      <input type="text" id="localisation" class="input-custom" placeholder="Localisation" required>
-      <input type="text" id="capteur-debit" class="input-custom" placeholder="Capteur Débit" required *ngIf=" router.url==='/intranet/easy-garden/arrosage/modifierequipement'">
-      <input type="text" id="capteur-pression" class="input-custom" placeholder="Capteur Pression" required *ngIf="router.url==='/intranet/easy-garden/arrosage/modifierequipement'">
-      <input type="text" id="capteur-defaut-ampoule" class="input-custom" placeholder="Capteur Défaut Ampoule" required *ngIf="router.url==='/intranet/easy-garden/eclairage/modifierequipement'">
-      <input type="text" id="capteur-luminosite" class="input-custom" placeholder="Capteur Luminosité" required *ngIf="router.url==='/intranet/easy-garden/eclairage/modifierequipement'">
-      <input type="text" id="capteur-presence" class="input-custom" placeholder="Capteur Présence" required *ngIf="router.url==='/intranet/easy-garden/portail/modifierequipement'">
-      <input type="text" id="charge-batterie" class="input-custom" placeholder="Charge Batterie" required *ngIf="router.url==='/intranet/easy-garden/tondeuse/modifierequipement'">
-      -->
-      <input type="text" id="statut" name="statut" class="input-custom-end" placeholder="" required />
-      <button id="submit" class="btn btn-secondary btn-log" *ngIf="!authStatus" (click)=href routerLink="/intranet/easy-garden">Modifier</button>
+      <input type="text" id="nom" placeholder="Nom" value="{{arrosages.nom}}" required>
+      <input type="text" id="localisation" class="input-custom" placeholder="Localisation" value="{{arrosages.localisation}}" required>
+      <!--<input type="text" id="capteurdebit" class="input-custom" placeholder="Capteur Débit" required *ngIf=" router.url==='/intranet/easy-garden/arrosage/updateequipement/:id'">-->
+      
+
+      <button id="submit" class="btn btn-secondary btn-log btn-modifier" *ngIf="!authStatus" (click)=href routerLink="/intranet/easy-garden">Modifier</button>
     </form>
 
     <div id="formFooter">

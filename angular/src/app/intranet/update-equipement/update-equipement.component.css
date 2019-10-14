@@ -46,13 +46,12 @@
   margin-top: 20px !important;
   margin-bottom: 20px !important;
 }
-.input-custom-end {
-  margin-top: 20px !important;
-  margin-bottom: 40px !important;
-}
 #logo {
   margin-top: 25px;
   margin-bottom: 10px;
+}
+.btn-modifier {
+  margin-top: 20px;
 }
 
 /*------Form Typo------*/
@@ -94,7 +93,8 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
 input[type=text], input[type=password], input[type=email] {
   background-color: #f6f6f6;
   border: none;
-  color: #0d0d0d;
+  color: #666666 !important;
+  font-family: 'Roboto300', sans-serif;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
@@ -118,7 +118,8 @@ input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
 }
 
 input[type=text]:placeholder, input[type=password]:placeholder, input[type=email]:placeholder {
-  color: #cccccc;
+  color: #666666 !important;
+  font-family: 'Roboto300', sans-serif;
 }
 
 /*------Responsive------*/
