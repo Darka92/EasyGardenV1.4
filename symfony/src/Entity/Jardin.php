@@ -22,6 +22,11 @@ class Jardin
     private $nom;
 
     /**
+     * @ORM\Column(name="statut", type="boolean")
+     */
+    private $statut;
+
+    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="jardins")
      * @ORM\JoinColumn(name="user", referencedColumnName="id", nullable=false)
      */

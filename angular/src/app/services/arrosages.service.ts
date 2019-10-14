@@ -36,9 +36,9 @@ export class ArrosagesService {
     this.arrosages.push(arrosages7);
     this.arrosages.push(arrosages8);
 
-   }
+  }
 
-   public getArrosages():Arrosages[] {
+  public getArrosages():Arrosages[] {
     return this.arrosages;
   }
 
