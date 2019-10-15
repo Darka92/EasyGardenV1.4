@@ -4,7 +4,7 @@
 
 export class Tondeuse {
 
-  constructor(public tondeuseId : number, public nom :string, public capteurBatterie:string, public statut: string) {}
+  constructor(public tondeuseId: number, public nom: string, public capteurBatterie: number, public statut: boolean) {}
 
   /*public tondeuseId: number;
   public nom: string;

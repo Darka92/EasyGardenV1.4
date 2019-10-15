@@ -18,8 +18,8 @@ export class TondeusesService {
 
   constructor() { 
 
-    let tondeuses1: Tondeuse = new Tondeuse (1,'Tondeuse avant', '10', '1');
-    let tondeuses2: Tondeuse = new Tondeuse (2,'Tondeuse arrière', '50', '0');
+    let tondeuses1: Tondeuse = new Tondeuse (1,'Tondeuse avant', 10, true);
+    let tondeuses2: Tondeuse = new Tondeuse (2,'Tondeuse arrière', 50, false);
 
     this.tondeuses.push(tondeuses1);
     this.tondeuses.push(tondeuses2);
@@ -37,11 +37,11 @@ export class TondeusesService {
   };
 
   switchOnOne(i: number) {
-    this.tondeuses[i].statut = '1';
+    this.tondeuses[i].statut = true;
   }
 
   switchOffOne(i: number) {
-    this.tondeuses[i].statut = '0';
+    this.tondeuses[i].statut = false;
   }
 
 }

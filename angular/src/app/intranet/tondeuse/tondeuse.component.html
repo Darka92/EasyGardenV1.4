@@ -23,7 +23,7 @@
                   <tr *ngFor="let tondeuse of tondeuses | paginate: { itemsPerPage: 4, currentPage: p } ; let i = index">
                     <td>
                       <!--Including Statut-->
-                      <div [ngClass]="{'btn-statut-off': tondeuse.statut === '0', 'btn-statut-on': tondeuse.statut === '1'}"></div>
+                      <div [ngClass]="{'btn-statut-off': tondeuse.statut === false, 'btn-statut-on': tondeuse.statut === true}"></div>
                     </td>
                     <!--Including Nom-->
                     <td [ngStyle]="{color: getColor(tondeuse.statut)}">{{ tondeuse.nom }}</td>
@@ -32,10 +32,10 @@
                     <td>
                       <!--Including Action-->
                       <button class="btn btn-switch-on"
-                      *ngIf="tondeuse.statut === '0'"
+                      *ngIf="tondeuse.statut === false"
                       (click)="onSwitch(i, tondeuse.statut)">Allumer</button>
                       <button class="btn btn-switch-off"
-                      *ngIf="tondeuse.statut === '1'"
+                      *ngIf="tondeuse.statut === true"
                       (click)="onSwitch(i, tondeuse.statut)">Eteindre</button>
                     </td>
                     <td>
@@ -65,7 +65,7 @@
 
             <!--Including button Ajouter-->
             <div class="row justify-content-center">
-              <button id="submit" class="btn btn-add-equipement" routerLink="addequipement">Ajouter</button>
+              <button id="submit" class="btn btn-add-equipement" alt="Modifier" title="Modifier" routerLink="addequipement">Ajouter</button>
             </div>
 
           </div>  <!--Close div class="col center-block"-->
