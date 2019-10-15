@@ -36,7 +36,7 @@ export class ArrosageComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
   }
 
-  getColor(statut) {
+  getColor(statut: boolean) {
     if (statut === true) {
       return 'green';
     } else if (statut === false) {
@@ -44,7 +44,7 @@ export class ArrosageComponent implements OnInit, OnDestroy {
     }
   }
 
-  onSwitch(i, statut) {
+  onSwitch(i: number, statut: boolean) {
     if (statut === true) {
       this.arrosageService.switchOffOne(i);
     } else if (statut === false) {
