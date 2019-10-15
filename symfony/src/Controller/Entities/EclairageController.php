@@ -1,20 +1,29 @@
 <?php
 namespace App\Controller\Entities;
 
+/* Modèle */
 use App\Entity\Eclairage;
+
+/* Repository */
 use App\Repository\EclairageRepository;
 
+/* Bundles */
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\View\View;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
+/* Components */
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Psr\Log\LoggerInterface;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
+
+/* Interfaces */
+use Psr\Log\LoggerInterface;
+use Doctrine\ORM\EntityManagerInterface;
+
 
 
 class EclairageController extends AbstractController
