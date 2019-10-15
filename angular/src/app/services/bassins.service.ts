@@ -17,12 +17,12 @@ export class BassinsService {
 
   constructor() {
 
-    let bassins1: Bassin = new Bassin (1,'Pompe','1');
-    let bassins2: Bassin = new Bassin (2,'Cascade','0');
-    let bassins3: Bassin = new Bassin (3,'Jet 1','1');
-    let bassins4: Bassin = new Bassin (4,'Jet 2','0');
-    let bassins5: Bassin = new Bassin (5,'Skimmer','0');
-    let bassins6: Bassin = new Bassin (6,'Roue','1');
+    let bassins1: Bassin = new Bassin (1,'Pompe',true);
+    let bassins2: Bassin = new Bassin (2,'Cascade',false);
+    let bassins3: Bassin = new Bassin (3,'Jet 1',true);
+    let bassins4: Bassin = new Bassin (4,'Jet 2',false);
+    let bassins5: Bassin = new Bassin (5,'Skimmer',false);
+    let bassins6: Bassin = new Bassin (6,'Roue',true);
 
     this.bassins.push(bassins1);
     this.bassins.push(bassins2);
@@ -45,10 +45,10 @@ export class BassinsService {
   };
 
   switchOnOne(i: number) {
-    this.bassins[i].statut = '1';
+    this.bassins[i].statut = true;
   }
 
   switchOffOne(i: number) {
-    this.bassins[i].statut = '0';
+    this.bassins[i].statut = false;
   }
 }

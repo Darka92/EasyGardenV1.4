@@ -4,7 +4,7 @@
 
 export class Bassin {
 
-  constructor(public bassinId : number, public nom :string, public statut: string) {}
+  constructor(public bassinId : number, public nom :string, public statut: boolean) {}
 
     /*public bassinId: number;
     public nom: string;

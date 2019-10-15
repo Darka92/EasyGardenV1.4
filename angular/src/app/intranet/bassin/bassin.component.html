@@ -22,17 +22,17 @@
                     <tr *ngFor="let bassin of bassins | paginate: { itemsPerPage: 4, currentPage: p } ; let i = index">
                       <td>
                         <!--Including Statut-->
-                        <div [ngClass]="{'btn-statut-off': bassin.statut === '0', 'btn-statut-on': bassin.statut === '1'}"></div>
+                        <div [ngClass]="{'btn-statut-off': bassin.statut === false, 'btn-statut-on': bassin.statut === true}"></div>
                       </td>
                       <!--Including Nom-->
                       <td [ngStyle]="{color: getColor(bassin.statut)}">{{ bassin.nom }}</td>
                       <td>
                         <!--Including Action-->
                         <button class="btn btn-switch-on"
-                        *ngIf="bassin.statut === '0'"
+                        *ngIf="bassin.statut === false"
                         (click)="onSwitch(i, bassin.statut)">Allumer</button>
                         <button class="btn btn-switch-off"
-                        *ngIf="bassin.statut === '1'"
+                        *ngIf="bassin.statut === true"
                         (click)="onSwitch(i, bassin.statut)">Eteindre</button>
                       </td>
                       <td>
@@ -62,7 +62,7 @@
 
               <!--Including button Ajouter-->
               <div class="row justify-content-center">
-                <button id="submit" class="btn btn-add-equipement" routerLink="addequipement">Ajouter</button>
+                <button id="submit" class="btn btn-add-equipement" alt="Modifier" title="Modifier" routerLink="addequipement">Ajouter</button>
               </div>
 
             </div>  <!--Close div class="col center-block"-->
