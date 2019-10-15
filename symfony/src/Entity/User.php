@@ -1,11 +1,15 @@
 <?php
-
 namespace App\Entity;
 
+/* Doctrine */
+use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+
+/* Modèle */
 use FOS\UserBundle\Model\User as BaseUser;
-use Doctrine\ORM\Mapping as ORM;
+
+
 
 /**
  * @ORM\Entity
@@ -31,6 +35,7 @@ class User extends BaseUser
      * @ORM\OneToMany(targetEntity="App\Entity\Jardin", mappedBy="user")
      */
     private $jardins;
+
 
 
     /**

@@ -1,8 +1,12 @@
 <?php
-
 namespace App\Entity;
 
+/* Doctrine */
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\JardinRepository")
@@ -28,15 +32,9 @@ class Jardin
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="jardins")
-     * @ORM\JoinColumn(name="user", referencedColumnName="id", nullable=false)
+     * @ORM\JoinColumn(name="user", referencedColumnName="id", nullable=true)
      */
     private $user;
-
-    /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Bassin")
-     * @ORM\JoinColumn(name="bassin", referencedColumnName="bassin_id", nullable=true)
-     */
-    private $bassin;
 
 
 

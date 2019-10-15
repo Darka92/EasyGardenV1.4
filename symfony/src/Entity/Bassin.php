@@ -1,8 +1,10 @@
 <?php
-
 namespace App\Entity;
 
+/* Doctrine */
 use Doctrine\ORM\Mapping as ORM;
+
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\BassinRepository")
@@ -28,7 +30,7 @@ class Bassin
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Jardin")
-     * @ORM\JoinColumn(name="jardin", referencedColumnName="jardin_id", nullable=false)
+     * @ORM\JoinColumn(name="jardin", referencedColumnName="jardin_id", nullable=true)
      */
     private $jardin;
 

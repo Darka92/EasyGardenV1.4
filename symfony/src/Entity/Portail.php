@@ -1,8 +1,10 @@
 <?php
-
 namespace App\Entity;
 
+/* Doctrine */
 use Doctrine\ORM\Mapping as ORM;
+
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PortailRepository")
@@ -38,7 +40,7 @@ class Portail
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Jardin", inversedBy="")
-     * @ORM\JoinColumn(name="jardin", referencedColumnName="jardin_id", nullable=false)
+     * @ORM\JoinColumn(name="jardin", referencedColumnName="jardin_id", nullable=true)
      */
     private $jardin;
 
