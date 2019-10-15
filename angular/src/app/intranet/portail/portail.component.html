@@ -31,7 +31,7 @@
                     <!--Including Localisation-->
                     <td>{{ portail.localisation }}</td>
                     <!--Including CapteurPresence-->
-                    <td [ngClass]="{'cellule-alert': portail.capteurPresence > 0}">{{ portail.capteurPresence }}</td>
+                    <td [ngClass]="{'cellule-alert': portail.capteurPresence === 0}">{{ portail.capteurPresence }}</td>
                     <td>
                       <!--Including Action-->
                       <button class="btn btn-switch-on"
