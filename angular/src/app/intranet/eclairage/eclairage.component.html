@@ -25,23 +25,23 @@
                       <tr *ngFor="let eclairage of eclairages | paginate: { itemsPerPage: 4, currentPage: p } ; let i = index">
                         <td>
                           <!--Including Statut-->
-                          <div [ngClass]="{'btn-statut-off': eclairage.statut === '0', 'btn-statut-on': eclairage.statut === '1'}"></div>
+                          <div [ngClass]="{'btn-statut-off': eclairage.statut === false, 'btn-statut-on': eclairage.statut === true}"></div>
                         </td>
                         <!--Including Nom-->
                         <td [ngStyle]="{color: getColor(eclairage.statut)}">{{ eclairage.nom }}</td>
                         <!--Including Localisation-->
                         <td>{{ eclairage.localisation }}</td>
                         <!--Including CapteurDefautAmpoule-->
-                        <td [ngClass]="{'cellule-alert': eclairage.capteurDefautAmpoule == 1}">{{ eclairage.capteurDefautAmpoule }}</td>
+                        <td [ngClass]="{'cellule-alert': eclairage.capteurDefautAmpoule === true}">{{ eclairage.capteurDefautAmpoule }}</td>
                         <!--Including CapteurLuminosite-->
                         <td>{{ eclairage.capteurLuminosite }}</td>
                         <td>
                           <!--Including Action-->
                           <button class="btn btn-switch-on"
-                          *ngIf="eclairage.statut === '0'"
+                          *ngIf="eclairage.statut === false"
                           (click)="onSwitch(i, eclairage.statut)">Allumer</button>
                           <button class="btn btn-switch-off"
-                          *ngIf="eclairage.statut === '1'"
+                          *ngIf="eclairage.statut === true"
                           (click)="onSwitch(i, eclairage.statut)">Eteindre</button>
                         </td>
                         <td>
@@ -71,7 +71,7 @@
 
               <!--Including button Ajouter-->
               <div class="row justify-content-center">
-                <button id="submit" class="btn btn-add-equipement" routerLink="addequipement">Ajouter</button>
+                <button id="submit" class="btn btn-add-equipement" alt="Modifier" title="Modifier" routerLink="addequipement">Ajouter</button>
               </div>
 
             </div>  <!--Close div class="col center-block"-->
