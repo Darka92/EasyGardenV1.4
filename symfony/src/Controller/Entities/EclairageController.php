@@ -141,14 +141,14 @@ class EclairageController extends AbstractController
 
         $eclairage->setNom($request->get('nom'))
                 ->setLocalisation($request->get('localisation'))
-                ->setCapteurDefautAmpoule($request->get('capteurdefautampoule'))
-                ->setCapteurLuminosite($request->get('capteurluminosite'))
+                ->setCapteurDefautAmpoule($request->get('capteurDefautAmpoule'))
+                ->setCapteurLuminosite($request->get('capteurLuminosite'))
                 ->setStatut($request->get('statut'));
         
         $this->em->persist($eclairage);
         $this->em->flush();
         $response = new Response(); 
-        $response->setStatusCode(200);
+        $response->setStatusCode(201);
         return $response;
     }
 
@@ -163,8 +163,8 @@ class EclairageController extends AbstractController
 
         $eclairage->setNom($request->get('nom'))
                 ->setLocalisation($request->get('localisation'))
-                ->setCapteurDefautAmpoule($request->get('capteurdefautampoule'))
-                ->setCapteurLuminosite($request->get('capteurluminosite'))
+                ->setCapteurDefautAmpoule($request->get('capteurDefautAmpoule'))
+                ->setCapteurLuminosite($request->get('capteurLuminosite'))
                 ->setStatut($request->get('statut'));
 
         $this->em->persist($eclairage);
@@ -185,7 +185,7 @@ class EclairageController extends AbstractController
         $this->em->remove($eclairage);
         $this->em->flush();
         $response = new Response(); 
-        $response->setStatusCode(200);
+        $response->setStatusCode(204);
         return $response;        
     }
 

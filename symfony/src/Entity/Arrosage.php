@@ -80,24 +80,24 @@ class Arrosage
         return $this;
     }
 
-    public function getCapteurDebit(): ?int
+    public function getCapteurDebit(): ?float
     {
         return $this->capteurDebit;
     }
 
-    public function setCapteurDebit(int $capteurDebit): self
+    public function setCapteurDebit(float $capteurDebit): self
     {
         $this->capteurDebit = $capteurDebit;
 
         return $this;
     }
 
-    public function getCapteurPression(): ?int
+    public function getCapteurPression(): ?float
     {
         return $this->capteurPression;
     }
 
-    public function setCapteurPression(int $capteurPression): self
+    public function setCapteurPression(float $capteurPression): self
     {
         $this->capteurPression = $capteurPression;
 

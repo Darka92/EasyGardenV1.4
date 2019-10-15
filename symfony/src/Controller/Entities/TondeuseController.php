@@ -142,7 +142,7 @@ class TondeuseController extends AbstractController
         $tondeuse = new Tondeuse();
 
         $tondeuse->setNom($request->get('nom'))
-                ->setCapteurBatterie($request->get('capteurbatterie'))
+                ->setCapteurBatterie($request->get('capteurBatterie'))
                 ->setStatut($request->get('statut'));
         
         $this->em->persist($tondeuse);
@@ -162,7 +162,7 @@ class TondeuseController extends AbstractController
         $tondeuse = $this->tondeuseRepository->findOneByTondeuseId($id);
 
         $tondeuse->setNom($request->get('nom'))
-                ->setCapteurBatterie($request->get('capteurbatterie'))
+                ->setCapteurBatterie($request->get('capteurBatterie'))
                 ->setStatut($request->get('statut'));
 
         $this->em->persist($tondeuse);

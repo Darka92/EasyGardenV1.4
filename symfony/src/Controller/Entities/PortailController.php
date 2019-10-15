@@ -142,7 +142,7 @@ class PortailController extends AbstractController
 
         $portail->setNom($request->get('nom'))
                 ->setLocalisation($request->get('localisation'))
-                ->setCapteurPresence($request->get('capteurpresence'))
+                ->setCapteurPresence($request->get('capteurPresence'))
                 ->setStatut($request->get('statut'));
         
         $this->em->persist($portail);
@@ -163,7 +163,7 @@ class PortailController extends AbstractController
 
         $portail->setNom($request->get('nom'))
                 ->setLocalisation($request->get('localisation'))
-                ->setCapteurPresence($request->get('capteurpresence'))
+                ->setCapteurPresence($request->get('capteurPresence'))
                 ->setStatut($request->get('statut'));
 
         $this->em->persist($portail);
