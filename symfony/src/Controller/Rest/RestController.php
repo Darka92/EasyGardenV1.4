@@ -1,29 +1,29 @@
 <?php
 namespace App\Controller\Rest;
 
-use App\Entity\Jardin;
-use App\Entity\User;
-use App\Repository\UserRepository;
-use App\Repository\JardinRepository;
-use App\Repository\ArrosageRepository;
-
+/* Bundles */
 use FOS\RestBundle\Controller\AbstractFOSRestController;
-use Psr\Log\LoggerInterface;
-
 use FOS\RestBundle\Controller\Annotations as Rest;
+
+/* Components */
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+
+/* Controllers */
 use App\Controller\Entities\UserController;
 use App\Controller\Entities\JardinController;
 use App\Controller\Entities\ArrosageController;
 use App\Controller\Entities\EclairageController;
 use App\Controller\Entities\BassinController;
-use App\Controller\Entities\EquipementController;
 use App\Controller\Entities\PortailController;
 use App\Controller\Entities\TondeuseController;
+
+/* Interfaces */
 use Doctrine\ORM\EntityManagerInterface;
+use Psr\Log\LoggerInterface;
+
 
 
 /**
@@ -64,7 +64,6 @@ class RestController extends AbstractFOSRestController
         $this->ac = new ArrosageController($this->em, $this->logger);
         $this->ec = new EclairageController($this->em, $this->logger);
         $this->bc = new BassinController($this->em, $this->logger);
-        $this->eqc = new EquipementController($this->em, $this->logger);
         $this->tc = new TondeuseController($this->em, $this->logger);
         $this->pc = new PortailController($this->em, $this->logger);
     }
