@@ -46,12 +46,12 @@
                         </td>
                         <td>
                           <!--Including button Modifier-->
-                          <button class="btn btn-custom-crud" href="">
-                            <img src="assets/images/change.png" [routerLink]="['updateequipement', arrosage.arrosageId]" alt="Modifier" title="Modifier">
+                          <button class="btn btn-custom-crud" data-toggle="tooltip" data-placement="top" alt="Modifier" title="Modifier" [routerLink]="['updateequipement', arrosage.arrosageId]">
+                            <img src="assets/images/change.png">
                           </button>
                           <!--Including button Supprimer-->
-                          <button class="btn btn-custom-crud" href="">
-                            <img src="assets/images/delete.png" [routerLink]="['deleteequipement', arrosage.arrosageId]" alt="Supprimer" title="Supprimer">
+                          <button class="btn btn-custom-crud" data-toggle="tooltip" data-placement="top" alt="Modifier" title="Modifier" [routerLink]="['deleteequipement', arrosage.arrosageId]">
+                            <img src="assets/images/delete.png">
                           </button>
                         </td>
                       </tr>
