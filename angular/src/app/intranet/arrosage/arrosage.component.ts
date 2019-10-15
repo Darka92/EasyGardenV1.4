@@ -37,17 +37,17 @@ export class ArrosageComponent implements OnInit, OnDestroy {
   }
 
   getColor(statut) {
-    if (statut === '1') {
+    if (statut === true) {
       return 'green';
-    } else if (statut === '0') {
+    } else if (statut === false) {
       return 'red';
     }
   }
 
   onSwitch(i, statut) {
-    if (statut === '1') {
+    if (statut === true) {
       this.arrosageService.switchOffOne(i);
-    } else if (statut === '0') {
+    } else if (statut === false) {
       this.arrosageService.switchOnOne(i);
     }
   }
