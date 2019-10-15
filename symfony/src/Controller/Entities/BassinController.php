@@ -74,7 +74,7 @@ class BassinController extends AbstractController
 
             // Serialize your object in Json
             $jsonObject = $serializer->serialize($bassin, 'json', [
-                'attributes' => ['bassinId','nom','localisation','statut'],
+                'attributes' => ['bassinId','nom','statut'],
 
                 'circular_reference_handler' => function ($object) {
                         return $object->getJardinId();
@@ -101,6 +101,7 @@ class BassinController extends AbstractController
         $bassins = $this->bassinRepository->findAll();
 
         if($bassins) {
+            $this->logger->debug("Il y a " . count($bassins) . "bassins." );
 
             $encoders = [new JsonEncoder()];
             $normalizers = [new ObjectNormalizer()];
@@ -108,7 +109,7 @@ class BassinController extends AbstractController
 
             // Serialize your object in Json
             $jsonObject = $serializer->serialize($bassins, 'json', [
-                'attributes' => ['bassinId','nom','localisation','statut'],
+                'attributes' => ['bassinId','nom','statut'],
 
                 'circular_reference_handler' => function ($object) {
                     return $object->getJardinId();
