@@ -25,23 +25,23 @@
                       <tr *ngFor="let arrosage of arrosages | paginate: { itemsPerPage: 4, currentPage: p } ; let i = index">
                         <td>
                           <!--Including Statut-->
-                          <div [ngClass]="{'btn-statut-off': arrosage.statut === '0', 'btn-statut-on': arrosage.statut === '1'}"></div>
+                          <div [ngClass]="{'btn-statut-off': arrosage.statut === false, 'btn-statut-on': arrosage.statut === true}"></div>
                         </td>
                         <!--Including Nom-->
                         <td [ngStyle]="{color: getColor(arrosage.statut)}">{{ arrosage.nom }}</td>
                         <!--Including Localisation-->
                         <td>{{ arrosage.localisation }}</td>
                         <!--Including CapteurDebit-->
-                        <td [ngClass]="{'cellule-alert': arrosage.capteurdebit < 0.012}">{{ arrosage.capteurDebit }}</td>
+                        <td [ngClass]="{'cellule-alert': arrosage.capteurDebit < 0.012}">{{ arrosage.capteurDebit }}</td>
                         <!--Including CapteurPression-->
-                        <td [ngClass]="{'cellule-alert': arrosage.capteurpression < 9}">{{ arrosage.capteurPression }}</td>
+                        <td [ngClass]="{'cellule-alert': arrosage.capteurPression < 9}">{{ arrosage.capteurPression }}</td>
                         <td>
                           <!--Including Action-->
                           <button class="btn btn-switch-on"
-                          *ngIf="arrosage.statut === '0'"
+                          *ngIf="arrosage.statut === false"
                           (click)="onSwitch(i, arrosage.statut)">Allumer</button>
                           <button class="btn btn-switch-off"
-                          *ngIf="arrosage.statut === '1'"
+                          *ngIf="arrosage.statut === true"
                           (click)="onSwitch(i, arrosage.statut)">Eteindre</button>
                         </td>
                         <td>
