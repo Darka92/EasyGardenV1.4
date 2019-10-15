@@ -18,8 +18,8 @@ export class PortailsService {
 
   constructor() {
 
-    let portails1: Portail = new Portail (1,'Portail 1','Avant', '1', '1');
-    let portails2: Portail = new Portail (2,'Portail 2','Derrière', '0', '0');
+    let portails1: Portail = new Portail (1, 'Portail 1', 'Avant', true, true);
+    let portails2: Portail = new Portail (2, 'Portail 2', 'Derrière', false, false);
 
     this.portails.push(portails1);
     this.portails.push(portails2);
@@ -37,11 +37,11 @@ export class PortailsService {
   };
 
   switchOnOne(i: number) {
-    this.portails[i].statut = '1';
+    this.portails[i].statut = true;
   }
 
   switchOffOne(i: number) {
-    this.portails[i].statut = '0';
+    this.portails[i].statut = false;
   }
 
 }

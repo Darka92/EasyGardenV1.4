@@ -4,12 +4,12 @@
 
 export class Portail {
 
-  constructor(public portailId : number, public nom :string, public localisation:string, public capteurPresence: string, public statut: string) {}
+  constructor(public portailId: number, public nom: string, public localisation: string, public capteurPresence: boolean, public statut: boolean) {}
 
   /*public portailId: number;
   public nom: string;
   public localisation: string;
-  public capteurPresence: number;
+  public capteurPresence: boolean;
   public statut: boolean;*/
 
 

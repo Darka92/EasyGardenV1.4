@@ -36,18 +36,18 @@ export class PortailComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
   }
 
-  getColor(statut) {
-    if (statut === '1') {
+  getColor(statut: boolean) {
+    if (statut === true) {
       return 'green';
-    } else if (statut === '0') {
+    } else if (statut === false) {
       return 'red';
     }
   }
 
-  onSwitch(i, statut) {
-    if (statut === '1') {
+  onSwitch(i: number, statut: boolean) {
+    if (statut === true) {
       this.portailService.switchOffOne(i);
-    } else if (statut === '0') {
+    } else if (statut === false) {
       this.portailService.switchOnOne(i);
     }
   }

@@ -24,7 +24,7 @@
                   <tr *ngFor="let portail of portails | paginate: { itemsPerPage: 4, currentPage: p} ; let i = index">
                     <td>
                       <!--Including Statut-->
-                      <div [ngClass]="{'btn-statut-off': portail.statut === '0', 'btn-statut-on': portail.statut === '1'}"></div>
+                      <div [ngClass]="{'btn-statut-off': portail.statut === false, 'btn-statut-on': portail.statut === true}"></div>
                     </td>
                     <!--Including Nom-->
                     <td [ngStyle]="{color: getColor(portail.statut)}">{{ portail.nom }}</td>
@@ -35,10 +35,10 @@
                     <td>
                       <!--Including Action-->
                       <button class="btn btn-switch-on"
-                      *ngIf="portail.statut === '0'"
+                      *ngIf="portail.statut === false"
                       (click)="onSwitch(i, portail.statut)">Ouvrir</button>
                       <button class="btn btn-switch-off"
-                      *ngIf="portail.statut === '1'"
+                      *ngIf="portail.statut === true"
                       (click)="onSwitch(i, portail.statut)">Fermer</button>
                     </td>
                     <td>
@@ -68,7 +68,7 @@
 
             <!--Including button Ajouter-->
             <div class="row justify-content-center">
-              <button id="submit" class="btn btn-add-equipement" routerLink="addequipement">Ajouter</button>
+              <button id="submit" class="btn btn-add-equipement" alt="Ajouter" title="Ajouter" routerLink="addequipement">Ajouter</button>
             </div>
 
           </div>  <!--Close div class="col center-block"-->
