@@ -21,7 +21,7 @@ import { RouterModule } from '@angular/router';
 import { ArrosagesService } from './services/arrosages.service';
 import { EclairagesService } from './services/eclairages.service';
 import { BassinsService } from './services/bassins.service';
-import { TondeuseService } from './services/tondeuse.service';
+import { TondeusesService } from './services/tondeuses.service';
 import { PortailService } from './services/portail.service';
 
 
@@ -46,7 +46,7 @@ import { PortailService } from './services/portail.service';
     ArrosagesService,
     EclairagesService,
     BassinsService,
-    TondeuseService,
+    TondeusesService,
     PortailService
   ],
   bootstrap: [AppComponent]

@@ -2,49 +2,59 @@
   <div class="container">
       <div class="row">
           <div class="col center-block">
-              <hr class="separation-contenu">
-                  <h1 class="titre-tableau">Panneau Tondeuse</h1>
+            <hr class="separation-contenu">
+              <h1 class="titre-tableau">Panneau Tondeuse</h1>
             <hr class="separation-contenu-bottom">
+
             <div class="table-fix-head">
               <table class="table-light table-fixed table-hover">
+
                 <thead>
                   <tr class="fonts-tableau-custom">
-                      <th>Statut</th>
-                      <th>Nom</th>
-                      <th>Charge Batterie</th>
-                      <th>Action</th>
-                      <th>C.R.U.D</th>
+                    <th>Statut</th>
+                    <th>Nom</th>
+                    <th>Charge Batterie</th>
+                    <th>Action</th>
+                    <th>C.R.U.D</th>
                   </tr>
                 </thead>
+
                 <tbody>
-                  <tr *ngFor="let tondeuse of data | paginate: { itemsPerPage: 4, currentPage: p } ; let i = index">
-                      <td>
-                          <div [ngClass]="{'btn-statut-off': tondeuse.statut === 'Off', 'btn-statut-on': tondeuse.statut === 'On'}">
-                          </div>
-                      </td>
-                      <td [ngStyle]="{color: getColor(tondeuse.statut)}">{{ tondeuse.nom }}</td>
-                      <td [ngClass]="{'cellule-alert': tondeuse.capteurbatterie < 30}">{{ tondeuse.capteurbatterie }}%</td>
-                      <td>
-                        <button class="btn btn-switch-on"
-                        *ngIf="tondeuse.statut === 'Off'"
-                        (click)="onSwitch(i, tondeuse.statut)">Allumer</button>
-                        <button class="btn btn-switch-off"
-                        *ngIf="tondeuse.statut === 'On'"
-                        (click)="onSwitch(i, tondeuse.statut)">Eteindre</button>
-                      </td>
-                      <td>
-                        <button class="btn btn-custom-crud" href="">
-                          <img src="assets/images/change.png" routerLink="updateequipement" alt="Modifier" title="Modifier">
-                        </button>
-                        <button class="btn btn-custom-crud" href="">
-                          <img src="assets/images/delete.png" alt="Supprimer" title="Supprimer">
-                        </button>
-                      </td>
+                  <tr *ngFor="let tondeuse of tondeuses | paginate: { itemsPerPage: 4, currentPage: p } ; let i = index">
+                    <td>
+                      <!--Including Statut-->
+                      <div [ngClass]="{'btn-statut-off': tondeuse.statut === '0', 'btn-statut-on': tondeuse.statut === '1'}"></div>
+                    </td>
+                    <!--Including Nom-->
+                    <td [ngStyle]="{color: getColor(tondeuse.statut)}">{{ tondeuse.nom }}</td>
+                    <!--Including CapteurBatterie-->
+                    <td [ngClass]="{'cellule-alert': tondeuse.capteurbatterie < 30}">{{ tondeuse.capteurBatterie }}%</td>
+                    <td>
+                      <!--Including Action-->
+                      <button class="btn btn-switch-on"
+                      *ngIf="tondeuse.statut === '0'"
+                      (click)="onSwitch(i, tondeuse.statut)">Allumer</button>
+                      <button class="btn btn-switch-off"
+                      *ngIf="tondeuse.statut === '1'"
+                      (click)="onSwitch(i, tondeuse.statut)">Eteindre</button>
+                    </td>
+                    <td>
+                      <!--Including button Modifier-->
+                      <button class="btn btn-custom-crud" href="">
+                        <img src="assets/images/change.png" [routerLink]="['updateequipement', tondeuse.tondeuseId]" alt="Modifier" title="Modifier">
+                      </button>
+                      <!--Including button Supprimer-->
+                      <button class="btn btn-custom-crud" href="">
+                        <img src="assets/images/delete.png" [routerLink]="['deleteequipement', tondeuse.tondeuseId]" alt="Supprimer" title="Supprimer">
+                      </button>
+                    </td>
                   </tr>
                 </tbody>
+
               </table>
-            </div>
-            <!--Including the pagination control.-->
+            </div>  <!--Close div class="table-fix-head"-->
+
+            <!--Including pagination control-->
             <div class="container">
               <div class="row justify-content-center">
                 <div class="text-center ml-auto pagination-custom">
@@ -53,11 +63,12 @@
               </div>
             </div>
 
+            <!--Including button Ajouter-->
             <div class="row justify-content-center">
               <button id="submit" class="btn btn-add-equipement" routerLink="addequipement">Ajouter</button>
             </div>
 
-          </div>
+          </div>  <!--Close div class="col center-block"-->
       </div>
   </div>
 </section>

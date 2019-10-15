@@ -30,7 +30,7 @@ export class EclairageComponent implements OnInit, OnDestroy {
   ngOnInit() {
     // Appeler méthode de service
     this.eclairages = this.eclairageService.eclairages;
-    /*console.log(this.arrosages);*/
+    /*console.log(this.eclairages);*/
   }
 
   ngOnDestroy() {
