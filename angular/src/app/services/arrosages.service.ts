@@ -18,14 +18,14 @@ export class ArrosagesService {
 
   constructor() {
 
-    let arrosages1: Arrosage = new Arrosage (1,'Réseau 1','Devant', '0.01', '9.2', '1');
-    let arrosages2: Arrosage = new Arrosage (2,'Réseau 2','Derrière', '0.05', '10.23', '0');
-    let arrosages3: Arrosage = new Arrosage (3,'Réseau 3','Côté G', '0.1', '8.7', '1');
-    let arrosages4: Arrosage = new Arrosage (4,'Réseau 4','Côté D', '0.013', '9.8', '1');
-    let arrosages5: Arrosage = new Arrosage (5,'Réseau 5','Tour bassin', '0.02', '8.9', '0');
-    let arrosages6: Arrosage = new Arrosage (6,'Réseau 6','Massif arrière', '0.017', '9.9', '0');
-    let arrosages7: Arrosage = new Arrosage (7,'Réseau 7','Massif avant', '0.4', '10', '1');
-    let arrosages8: Arrosage = new Arrosage (8,'Réseau 8','Portail', '0.6', '9.5', '1');
+    let arrosages1: Arrosage = new Arrosage (1,'Réseau 1','Devant', 0.01, 9.2, true);
+    let arrosages2: Arrosage = new Arrosage (2,'Réseau 2','Derrière', 0.05, 10.23, false);
+    let arrosages3: Arrosage = new Arrosage (3,'Réseau 3','Côté G', 0.1, 8.7, true);
+    let arrosages4: Arrosage = new Arrosage (4,'Réseau 4','Côté D', 0.013, 9.8, true);
+    let arrosages5: Arrosage = new Arrosage (5,'Réseau 5','Tour bassin', 0.02, 8.9, false);
+    let arrosages6: Arrosage = new Arrosage (6,'Réseau 6','Massif arrière', 0.017, 9.9, false);
+    let arrosages7: Arrosage = new Arrosage (7,'Réseau 7','Massif avant', 0.4, 10, true);
+    let arrosages8: Arrosage = new Arrosage (8,'Réseau 8','Portail', 0.6, 9.5, true);
 
     this.arrosages.push(arrosages1);
     this.arrosages.push(arrosages2);
@@ -49,11 +49,11 @@ export class ArrosagesService {
   };
 
   switchOnOne(i: number) {
-    this.arrosages[i].statut = '1';
+    this.arrosages[i].statut = true;
   }
 
   switchOffOne(i: number) {
-    this.arrosages[i].statut = '0';
+    this.arrosages[i].statut = false;
   }
 
 
