@@ -22,7 +22,7 @@ import { ArrosagesService } from './services/arrosages.service';
 import { EclairagesService } from './services/eclairages.service';
 import { BassinsService } from './services/bassins.service';
 import { TondeusesService } from './services/tondeuses.service';
-import { PortailService } from './services/portail.service';
+import { PortailsService } from './services/portails.service';
 
 
 
@@ -47,7 +47,7 @@ import { PortailService } from './services/portail.service';
     EclairagesService,
     BassinsService,
     TondeusesService,
-    PortailService
+    PortailsService
   ],
   bootstrap: [AppComponent]
 })

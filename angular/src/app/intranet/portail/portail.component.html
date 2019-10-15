@@ -2,52 +2,62 @@
   <div class="container">
       <div class="row">
           <div class="col center-block">
-              <hr class="separation-contenu">
-                  <h1 class="titre-tableau">Panneau Portail</h1>
+            <hr class="separation-contenu">
+              <h1 class="titre-tableau">Panneau Portail</h1>
             <hr class="separation-contenu-bottom">
+
             <div class="table-fix-head">
               <table class="table-light table-fixed table-hover">
+
                 <thead>
                   <tr class="fonts-tableau-custom">
-                      <th>Statut</th>
-                      <th>Nom</th>
-                      <th>Localisation</th>
-                      <th>Capteur Présence</th>
-                      <th>Action</th>
-                      <th>C.R.U.D</th>
+                    <th>Statut</th>
+                    <th>Nom</th>
+                    <th>Localisation</th>
+                    <th>Capteur Présence</th>
+                    <th>Action</th>
+                    <th>C.R.U.D</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr *ngFor="let portail of data | paginate: { itemsPerPage: 4, currentPage: p} ; let i = index">
-                      <td>
-                          <div [ngClass]="{'btn-statut-off': portail.statut === 'Ferme', 'btn-statut-on': portail.statut === 'Ouvert'}">
-                          </div>
-                      </td>
-                      <td [ngStyle]="{color: getColor(portail.statut)}">{{ portail.nom }}</td>
-                      <td>{{ portail.localisation }}</td>
-                      <td [ngClass]="{'cellule-alert': portail.capteurpresence > 0}">{{ portail.capteurpresence }}</td>
-                      <td>
-                        <button class="btn btn-switch-on"
-                        *ngIf="portail.statut === 'Ferme'"
-                        (click)="onSwitch(i, portail.statut)">Ouvrir</button>
 
-                        <button class="btn btn-switch-off"
-                        *ngIf="portail.statut === 'Ouvert'"
-                        (click)="onSwitch(i, portail.statut)">Fermer</button>
-                      </td>
-                      <td>
-                        <button class="btn btn-custom-crud" href="">
-                          <img src="assets/images/change.png" routerLink="updateequipement" alt="Modifier" title="Modifier">
-                        </button>
-                        <button class="btn btn-custom-crud" href="">
-                          <img src="assets/images/delete.png" alt="Supprimer" title="Supprimer">
-                        </button>
-                      </td>
+                <tbody>
+                  <tr *ngFor="let portail of portails | paginate: { itemsPerPage: 4, currentPage: p} ; let i = index">
+                    <td>
+                      <!--Including Statut-->
+                      <div [ngClass]="{'btn-statut-off': portail.statut === '0', 'btn-statut-on': portail.statut === '1'}"></div>
+                    </td>
+                    <!--Including Nom-->
+                    <td [ngStyle]="{color: getColor(portail.statut)}">{{ portail.nom }}</td>
+                    <!--Including Localisation-->
+                    <td>{{ portail.localisation }}</td>
+                    <!--Including CapteurPresence-->
+                    <td [ngClass]="{'cellule-alert': portail.capteurPresence > 0}">{{ portail.capteurPresence }}</td>
+                    <td>
+                      <!--Including Action-->
+                      <button class="btn btn-switch-on"
+                      *ngIf="portail.statut === '0'"
+                      (click)="onSwitch(i, portail.statut)">Ouvrir</button>
+                      <button class="btn btn-switch-off"
+                      *ngIf="portail.statut === '1'"
+                      (click)="onSwitch(i, portail.statut)">Fermer</button>
+                    </td>
+                    <td>
+                      <!--Including button Modifier-->
+                      <button class="btn btn-custom-crud" href="">
+                        <img src="assets/images/change.png" [routerLink]="['updateequipement', portail.portailId]" alt="Modifier" title="Modifier">
+                      </button>
+                      <!--Including button Supprimer-->
+                      <button class="btn btn-custom-crud" href="">
+                        <img src="assets/images/delete.png" [routerLink]="['deleteequipement', portail.portailId]" alt="Supprimer" title="Supprimer">
+                      </button>
+                    </td>
                   </tr>
                 </tbody>
+
               </table>
-            </div>
-            <!--Including the pagination control.-->
+            </div>  <!--Close div class="table-fix-head"-->
+
+            <!--Including pagination control-->
             <div class="container">
               <div class="row justify-content-center">
                 <div class="text-center ml-auto pagination-custom">
@@ -56,11 +66,12 @@
               </div>
             </div>
 
+            <!--Including button Ajouter-->
             <div class="row justify-content-center">
               <button id="submit" class="btn btn-add-equipement" routerLink="addequipement">Ajouter</button>
             </div>
 
-          </div>
+          </div>  <!--Close div class="col center-block"-->
       </div>
   </div>
 </section>

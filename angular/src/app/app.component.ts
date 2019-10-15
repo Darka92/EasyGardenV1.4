@@ -8,7 +8,7 @@ import { ArrosagesService } from './services/arrosages.service';
 import { EclairagesService } from './services/eclairages.service';
 import { BassinsService } from './services/bassins.service';
 import { TondeusesService } from './services/tondeuses.service';
-import { PortailService } from './services/portail.service';
+import { PortailsService } from './services/portails.service';
 
 
 
@@ -35,7 +35,7 @@ export class AppComponent implements OnInit {
 
   constructor(private eclairageService: EclairagesService,
               private arrosagesService: ArrosagesService, private bassinsService: BassinsService,
-              private tondeusesService: TondeusesService, private portailService: PortailService) {
+              private tondeusesService: TondeusesService, private portailsService: PortailsService) {
 
     setTimeout(
       () => {
@@ -49,7 +49,7 @@ export class AppComponent implements OnInit {
     this.arrosage = this.arrosagesService.arrosages;
     this.bassin = this.bassinsService.bassins;
     this.tondeuse = this.tondeusesService.tondeuses;
-    this.portail = this.portailService.portail;
+    this.portail = this.portailsService.portails;
   }
 
 }

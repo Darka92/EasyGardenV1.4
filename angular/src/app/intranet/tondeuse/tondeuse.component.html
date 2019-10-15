@@ -28,7 +28,7 @@
                     <!--Including Nom-->
                     <td [ngStyle]="{color: getColor(tondeuse.statut)}">{{ tondeuse.nom }}</td>
                     <!--Including CapteurBatterie-->
-                    <td [ngClass]="{'cellule-alert': tondeuse.capteurbatterie < 30}">{{ tondeuse.capteurBatterie }}%</td>
+                    <td [ngClass]="{'cellule-alert': tondeuse.capteurBatterie < 30}">{{ tondeuse.capteurBatterie }}%</td>
                     <td>
                       <!--Including Action-->
                       <button class="btn btn-switch-on"
