@@ -21,11 +21,11 @@ export class Jardin {
 
     /*deserialize(input: any): this {
 
-        // Assign input to our object BEFORE deserialize our cars to prevent already deserialized Object from being overwritten.
+        // Assign input to our object BEFORE deserialize our jardins to prevent already deserialized Object from being overwritten.
         Object.assign(this, input);
 
         // Iterate over all Objects for our jardin and map them to a proper `Object` model
-        this.arrosages = input.arrosages.map(arrosage => new Arrosage().deserialize(arrosage));
+        this.arrosages = input.arrosages.map((arrosage: Arrosage) => arrosage.deserialize(arrosage));
         this.eclairages = input.eclairages.map(eclairage => new Eclairage().deserialize(eclairage));
         this.bassins = input.bassins.map(bassin => new Bassin().deserialize(bassin));
         this.tondeuses = input.tondeuses.map(tondeuse => new Tondeuse().deserialize(tondeuse));
