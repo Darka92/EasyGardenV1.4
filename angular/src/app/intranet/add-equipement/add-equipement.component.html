@@ -5,11 +5,11 @@
       <input type="text" id="nom" placeholder="Nom" required>
       <input type="text" id="localisation" class="input-custom" placeholder="Localisation" required>
 
-      <button id="submit" class="btn btn-secondary btn-log btn-ajouter" *ngIf="!authStatus" (click)=href routerLink="/intranet/easy-garden">Ajouter</button>
+      <button id="submit" class="btn btn-secondary btn-log btn-ajouter" alt="Ajouter" title="Ajouter" (click)="onSave()" routerLink="/intranet/easy-garden/arrosage">Ajouter</button>
     </form>
 
     <div id="formFooter">
-      <a class="underlineHover" *ngIf="!authStatus" (click)="goBack()" routerLink="">Retour</a><br>
+      <a class="underlineHover" (click)="goBack()" routerLink="">Retour</a><br>
     </div>
 
   </div>

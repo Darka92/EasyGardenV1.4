@@ -2,7 +2,12 @@ import { Injectable } from '@angular/core';
 
 
 /* MES IMPORTS  */
+
+/* Models */
 import { Arrosage } from 'src/app/intranet/models/arrosage';
+/* Autres */
+import { Subject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 
 
@@ -16,7 +21,9 @@ export class ArrosagesService {
 
   arrosages: Arrosage []=[];
 
-  constructor() {
+  arrosageSubject = new Subject<any[]>();
+
+  constructor(private httpClient: HttpClient) {
 
     let arrosages1: Arrosage = new Arrosage (1,'Réseau 1','Devant', 0.01, 9.2, true);
     let arrosages2: Arrosage = new Arrosage (2,'Réseau 2','Derrière', 0.05, 10.23, false);
@@ -38,20 +45,67 @@ export class ArrosagesService {
 
   }
 
+
+
+  /* Récupérer l'id de l'entrée sélectionnée et la passer en paramètre dans l'URL */
   public getArrosages():Arrosage[] {
     return this.arrosages;
     /*console.log(this.arrosages);*/
   }
-
   public getArrosage(arrosageId:number):Arrosage{
     let tableauarrosage=this.getArrosages();
     return tableauarrosage.find(i=>i.arrosageId===arrosageId);
   };
 
+
+
+  /* Méthodes CRUD */
+  /* Create */
+  addArrosageApi() {
+    this.httpClient
+      .put('http://127.0.0.1:8000/api/addarrosage', this.arrosages)
+      .subscribe(
+        () => {
+          console.log('Arrosage ajouté!');
+        },
+        (error) => {
+          console.log('Erreur ! : ' + error);
+        }
+      );
+  }
+  /* Update */
+  updateArrosageApi() {
+    this.httpClient
+      .put('http://127.0.0.1:8000/api/updatearrosage/{id}', this.arrosages)
+      .subscribe(
+        () => {
+          console.log('Modification effectuée !');
+        },
+        (error) => {
+          console.log('Erreur ! : ' + error);
+        }
+      );
+  }
+  /* Delete */
+  deleteArrosageApi() {
+    this.httpClient
+      .put('http://127.0.0.1:8000/api/deletearrosage/{id}', this.arrosages)
+      .subscribe(
+        () => {
+          console.log('Entrée supprimée !');
+        },
+        (error) => {
+          console.log('Erreur ! : ' + error);
+        }
+      );
+  }
+
+
+  /* Méthodes de style pour le HTML */ 
+  /* Méthodes pour les boutons Eteindre/Allumer */
   switchOnOne(i: number) {
     this.arrosages[i].statut = true;
   }
-
   switchOffOne(i: number) {
     this.arrosages[i].statut = false;
   }

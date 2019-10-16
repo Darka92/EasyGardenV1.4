@@ -6,11 +6,11 @@
       <input type="email" id="email" placeholder="Email" required>
       <input type="password" id="password" placeholder="Password" required>
       <input type="password" id="confirmpassword" placeholder="Confirm Password" required>
-      <button id="submit" class="btn btn-secondary btn-log" *ngIf="!authStatus" (click)=href routerLink="/intranet/easy-garden">Modifier</button>
+      <button id="submit" class="btn btn-secondary btn-log" alt="Modifier" title="Modifier" (click)=href routerLink="/intranet/easy-garden">Modifier</button>
     </form>
 
     <div id="formFooter">
-      <a class="underlineHover" *ngIf="!authStatus" (click)=href routerLink="/intranet/easy-garden">Retour</a><br>
+      <a class="underlineHover" routerLink="/intranet/easy-garden">Retour</a><br>
     </div>
 
   </div>

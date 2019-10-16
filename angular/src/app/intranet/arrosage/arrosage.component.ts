@@ -36,6 +36,14 @@ export class ArrosageComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
   }
 
+  onSave() {
+    this.arrosageService.deleteArrosageApi();
+    /*console.log(this.arrosages);*/
+  }
+
+
+  /* Méthodes de style pour le HTML */ 
+  /* Méthode pour changer la couleur du string de l'interpolation {{ arrosage.nom }} du champ "nom" */
   getColor(statut: boolean) {
     if (statut === true) {
       return 'green';
@@ -43,7 +51,7 @@ export class ArrosageComponent implements OnInit, OnDestroy {
       return 'red';
     }
   }
-
+  /* Méthode pour les boutons Eteindre/Allumer qui appellent les deux autres méthodes dans le service arrosages.service.ts */
   onSwitch(i: number, statut: boolean) {
     if (statut === true) {
       this.arrosageService.switchOffOne(i);

@@ -4,14 +4,12 @@
     <form ng-submit="submit()">
       <input type="text" id="nom" placeholder="Nom" value="{{arrosages.nom}}" required>
       <input type="text" id="localisation" class="input-custom" placeholder="Localisation" value="{{arrosages.localisation}}" required>
-      <!--<input type="text" id="capteurdebit" class="input-custom" placeholder="Capteur Débit" required *ngIf=" router.url==='/intranet/easy-garden/arrosage/updateequipement/:id'">-->
-      
 
-      <button id="submit" class="btn btn-secondary btn-log btn-modifier" *ngIf="!authStatus" (click)=href routerLink="/intranet/easy-garden">Modifier</button>
+      <button id="submit" class="btn btn-secondary btn-log btn-modifier" alt="Modifier" title="Modifier" (click)="onSave()" routerLink="/intranet/easy-garden/arrosage">Modifier</button>
     </form>
 
     <div id="formFooter">
-      <a class="underlineHover" *ngIf="!authStatus" (click)="goBack()" routerLink="">Retour</a><br>
+      <a class="underlineHover" (click)="goBack()" routerLink="">Retour</a><br>
     </div>
 
   </div>
