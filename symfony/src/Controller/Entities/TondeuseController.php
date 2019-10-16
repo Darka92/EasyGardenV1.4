@@ -161,9 +161,7 @@ class TondeuseController extends AbstractController
         /** @var Tondeuse $tondeuse */
         $tondeuse = $this->tondeuseRepository->findOneByTondeuseId($id);
 
-        $tondeuse->setNom($request->get('nom'))
-                ->setCapteurBatterie($request->get('capteurBatterie'))
-                ->setStatut($request->get('statut'));
+        $tondeuse->setNom($request->get('nom'));
 
         $this->em->persist($tondeuse);
         $this->em->flush();

@@ -163,10 +163,7 @@ class ArrosageController extends AbstractController
         /** @var Arrosage $arrosage */
         $arrosage = $this->arrosageRepository->findOneByArrosageId($id);
         $arrosage->setNom($request->get('nom'))
-                ->setLocalisation($request->get('localisation'))
-                ->setCapteurDebit($request->get('capteurDebit'))
-                ->setCapteurPression($request->get('capteurPression'))
-                ->setStatut($request->get('statut'));
+                ->setLocalisation($request->get('localisation'));
         $this->em->persist($arrosage);
         $this->em->flush();
         $response = new Response(); 

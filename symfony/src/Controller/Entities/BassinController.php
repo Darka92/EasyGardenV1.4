@@ -160,8 +160,7 @@ class BassinController extends AbstractController
         /** @var Bassin $bassin */
         $bassin = $this->bassinRepository->findOneByBassinId($id);
 
-        $bassin->setNom($request->get('nom'))
-                ->setStatut($request->get('statut'));
+        $bassin->setNom($request->get('nom'));
 
         $this->em->persist($bassin);
         $this->em->flush();
