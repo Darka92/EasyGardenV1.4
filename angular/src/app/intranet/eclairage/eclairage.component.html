@@ -32,7 +32,10 @@
                         <!--Including Localisation-->
                         <td>{{ eclairage.localisation }}</td>
                         <!--Including CapteurDefautAmpoule-->
-                        <td [ngClass]="{'cellule-alert': eclairage.capteurDefautAmpoule === true}">{{ eclairage.capteurDefautAmpoule }}</td>
+                        <td [ngClass]="{'cellule-alert': eclairage.capteurDefautAmpoule === true}">
+                          <div *ngIf="eclairage.capteurDefautAmpoule; else elseBlock">1</div>
+                          <ng-template #elseBlock>0</ng-template>
+                        </td>
                         <!--Including CapteurLuminosite-->
                         <td>{{ eclairage.capteurLuminosite }}</td>
                         <td>
