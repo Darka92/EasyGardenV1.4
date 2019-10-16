@@ -58,8 +58,8 @@ export class ArrosagesService {
 
 
   /* Méthodes CRUD */
-  /* Get */
-  getArrosagesApi() {
+  /* Read */
+  /*getArrosagesApi() {
     this.httpClient
       .get<any[]>('http://127.0.0.1:8000/api/allarrosages')
       .subscribe(
@@ -71,7 +71,7 @@ export class ArrosagesService {
           console.log('Erreur ! : ' + error);
         }
       );
-  }
+  }*/
   /* Create */
   addArrosageApi() {
     this.httpClient
