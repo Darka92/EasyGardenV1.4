@@ -21,7 +21,7 @@ export class ArrosagesService {
 
   arrosages: Arrosage []=[];
 
-  arrosageSubject = new Subject<any[]>();
+  arrosagesSubject = new Subject<any[]>();
 
   constructor(private httpClient: HttpClient) {
 
@@ -46,7 +46,6 @@ export class ArrosagesService {
   }
 
 
-
   /* Récupérer l'id de l'entrée sélectionnée et la passer en paramètre dans l'URL */
   public getArrosages():Arrosage[] {
     return this.arrosages;
@@ -58,12 +57,25 @@ export class ArrosagesService {
   };
 
 
-
   /* Méthodes CRUD */
+  /* Get */
+  getArrosagesApi() {
+    this.httpClient
+      .get<any[]>('http://127.0.0.1:8000/api/allarrosages')
+      .subscribe(
+        (response) => {
+          this.arrosages = response;
+          this.emitArrosageSubject();
+        },
+        (error) => {
+          console.log('Erreur ! : ' + error);
+        }
+      );
+  }
   /* Create */
   addArrosageApi() {
     this.httpClient
-      .put('http://127.0.0.1:8000/api/addarrosage', this.arrosages)
+      .post('http://127.0.0.1:8000/api/addarrosage', this.arrosages)
       .subscribe(
         () => {
           console.log('Arrosage ajouté!');
@@ -79,7 +91,7 @@ export class ArrosagesService {
       .put('http://127.0.0.1:8000/api/updatearrosage/{id}', this.arrosages)
       .subscribe(
         () => {
-          console.log('Modification effectuée !');
+          console.log('Arrosage modifié!');
         },
         (error) => {
           console.log('Erreur ! : ' + error);
@@ -89,10 +101,10 @@ export class ArrosagesService {
   /* Delete */
   deleteArrosageApi() {
     this.httpClient
-      .put('http://127.0.0.1:8000/api/deletearrosage/{id}', this.arrosages)
+      .delete('http://127.0.0.1:8000/api/deletearrosage/{id}')
       .subscribe(
         () => {
-          console.log('Entrée supprimée !');
+          console.log('Arrosage supprimé!');
         },
         (error) => {
           console.log('Erreur ! : ' + error);

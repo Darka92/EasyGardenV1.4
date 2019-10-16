@@ -29,6 +29,8 @@ export class ArrosageComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     // Appeler méthode de service
+    /*this.arrosageService.getArrosagesApi();*/ //Méthode pour hydrater le tableau via une requête à l'Api
+
     this.arrosages = this.arrosageService.arrosages;
     /*console.log(this.arrosages);*/
   }

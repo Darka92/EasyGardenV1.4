@@ -50,7 +50,7 @@
                             <img src="assets/images/change.png">
                           </button>
                           <!--Including button Supprimer-->
-                          <button type="button" class="btn btn-custom-crud" alt="Supprimer" title="Supprimer" (click)="onSave()" routerLink="'deleteequipement', arrosage.arrosageId">
+                          <button type="button" class="btn btn-custom-crud" alt="Supprimer" title="Supprimer" (click)="onSave()" [routerLink]="['deleteequipement', arrosage.arrosageId]">
                             <img src="assets/images/delete.png">
                           </button>
                         </td>
