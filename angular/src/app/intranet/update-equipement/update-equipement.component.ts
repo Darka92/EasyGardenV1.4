@@ -7,6 +7,8 @@ import { ArrosagesService } from 'src/app/services/arrosages.service';
 /*  ROUTES  */
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';  /*  Nécessaire pour la fonction goBack()  */
+/* Models */
+import { Arrosage } from 'src/app/intranet/models/arrosage';   /*  Nécessaire pour arrosage: Arrosage[]; check si l'objet reçu correspond au modèle de données  */
 
 
 
@@ -20,7 +22,8 @@ import { Location } from '@angular/common';  /*  Nécessaire pour la fonction go
 
 export class UpdateEquipementComponent implements OnInit {
 
-  arrosages = {};
+  /*arrosage: Arrosage[];*/
+  arrosage = {};
 
   constructor(private arrosageService: ArrosagesService, private router: Router, private location: Location, private route: ActivatedRoute) {}
 
@@ -28,12 +31,14 @@ export class UpdateEquipementComponent implements OnInit {
 
   ngOnInit() {
     this.arrosageId =+ this.route.snapshot.params['id'];
-    this.arrosages = this.arrosageService.getArrosage(this.arrosageId);
+    this.arrosage = this.arrosageService.getArrosage(this.arrosageId);
     /*console.log(this.arrosageId);*/
+    /*console.log(this.arrosage);*/
   }
 
-  onSave() {
-    this.arrosageService.updateArrosageApi();
+  onSubmit(evt) {
+    evt.preventDefault();
+    this.arrosageService.updateArrosageApi(this.arrosageId);
   }
   
   goBack() {
