@@ -30,7 +30,7 @@ export class PortailComponent implements OnInit, OnDestroy {
   ngOnInit() {
     // Appeler méthode de service
     this.portails = this.portailService.portails;
-    console.log(this.portails);
+    /*console.log(this.portails);*/
   }
 
   ngOnDestroy() {

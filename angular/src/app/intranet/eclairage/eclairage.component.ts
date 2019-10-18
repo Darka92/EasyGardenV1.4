@@ -51,6 +51,21 @@ export class EclairageComponent implements OnInit, OnDestroy {
       this.eclairageService.switchOnOne(i);
     }
   }
-
   
+
 }
+
+
+/* 
+  onSwitch(i: number, statut: boolean, capteurDefautAmpoule: boolean) {
+    if (capteurDefautAmpoule === true) {
+      alert('L\'ampoule de cet éclairage est hors-service!');
+      return;
+    }
+    if (statut === true) {
+      this.eclairageService.switchOffOne(i);
+    } else if (statut === false) {
+      this.eclairageService.switchOnOne(i);
+    }
+  }
+   */

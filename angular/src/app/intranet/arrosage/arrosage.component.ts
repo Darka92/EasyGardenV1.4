@@ -45,7 +45,7 @@ export class ArrosageComponent implements OnInit, OnDestroy {
 
 
   /* Méthodes de style pour le HTML */ 
-  /* Méthode pour changer la couleur du string de l'interpolation {{ arrosage.nom }} du champ "nom" */
+  /* Méthode pour changer la couleur du string de l'interpolation {{ arrosage.nom }} du <td> "nom" */
   getColor(statut: boolean) {
     if (statut === true) {
       return 'green';
@@ -53,7 +53,8 @@ export class ArrosageComponent implements OnInit, OnDestroy {
       return 'red';
     }
   }
-  /* Méthode pour les boutons Eteindre/Allumer qui appellent les deux autres méthodes dans le service arrosages.service.ts */
+  /* Méthode pour les boutons Eteindre/Allumer qui appellent les deux autres méthodes dans le service arrosages.service.ts
+  afin de récupérer le boolean du <td> statut */
   onSwitch(i: number, statut: boolean) {
     if (statut === true) {
       this.arrosageService.switchOffOne(i);

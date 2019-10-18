@@ -14,17 +14,8 @@ import { Component, OnInit  } from '@angular/core';
 
 export class AppComponent implements OnInit {
 
-  isAuth = false;
-
-  constructor() {
-
-    setTimeout(
-      () => {
-        this.isAuth = true;
-      }, 4000
-    );
-  }
-
+  constructor() {}
+  
   ngOnInit() {
   }
 

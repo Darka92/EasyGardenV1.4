@@ -19,7 +19,7 @@ import { HttpClient } from '@angular/common/http';
 
 export class ArrosagesService {
 
-  baseUrl;
+  baseUrl: string;
 
   arrosages: Arrosage []=[];
 
@@ -117,7 +117,7 @@ export class ArrosagesService {
   }
 
 
-  /* Méthodes de style pour le HTML */ 
+  /* Méthodes */ 
   /* Méthodes pour les boutons Eteindre/Allumer */
   switchOnOne(i: number) {
     this.arrosages[i].statut = true;

@@ -13,7 +13,6 @@ import { FpasswordComponent } from './fpassword/fpassword.component';
 import { Erreur404Component } from './erreur404/erreur404.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 /* MODULES  */
-import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
@@ -34,8 +33,7 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule,
-    NgxPaginationModule
+    HttpClientModule
   ],
   bootstrap: [AppComponent]
 })
