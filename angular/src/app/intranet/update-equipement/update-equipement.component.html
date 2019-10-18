@@ -1,11 +1,11 @@
 <div class="wrapper">
   <h2 class="h2-titre-appli shadows">Modifier Equipement</h2>
   <div id="formContent">
-    <form ng-submit="submit()">
-      <input type="text" id="nom" placeholder="Nom" value="{{arrosages.nom}}" required>
-      <input type="text" id="localisation" class="input-custom" placeholder="Localisation" value="{{arrosages.localisation}}" required>
+    <form (ngSubmit)="onSubmit(evt)">
+      <input type="text" id="nom" placeholder="Nom" value="{{arrosage.nom}}" required>
+      <input type="text" id="localisation" class="input-custom" placeholder="Localisation" value="{{arrosage.localisation}}" required>
 
-      <button id="submit" class="btn btn-secondary btn-log btn-modifier" alt="Modifier" title="Modifier" (click)="onSave()" routerLink="/intranet/easy-garden/arrosage">Modifier</button>
+      <button id="submit" type="submit" class="btn btn-secondary btn-log btn-modifier" alt="Modifier" title="Modifier">Modifier</button>
     </form>
 
     <div id="formFooter">
