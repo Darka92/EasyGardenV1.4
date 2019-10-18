@@ -19,11 +19,15 @@ import { HttpClient } from '@angular/common/http';
 
 export class ArrosagesService {
 
+  baseUrl;
+
   arrosages: Arrosage []=[];
 
   arrosagesSubject = new Subject<any[]>();
 
   constructor(private httpClient: HttpClient) {
+
+    this.baseUrl = 'http://127.0.0.1:8000';
 
     let arrosages1: Arrosage = new Arrosage (1,'Réseau 1','Devant', 0.01, 9.2, true);
     let arrosages2: Arrosage = new Arrosage (2,'Réseau 2','Derrière', 0.05, 10.23, false);
@@ -75,7 +79,7 @@ export class ArrosagesService {
   /* Create */
   addArrosageApi() {
     this.httpClient
-      .post('http://127.0.0.1:8000/api/addarrosage', this.arrosages)
+      .post(''+this.baseUrl+'/api/addarrosage', this.arrosages)
       .subscribe(
         () => {
           console.log('Arrosage ajouté!');
@@ -86,9 +90,9 @@ export class ArrosagesService {
       );
   }
   /* Update */
-  updateArrosageApi() {
+  updateArrosageApi(id) {
     this.httpClient
-      .put('http://127.0.0.1:8000/api/updatearrosage/{id}', this.arrosages)
+      .put(''+this.baseUrl+'/api/updatearrosage/'+id+'', this.arrosages)
       .subscribe(
         () => {
           console.log('Arrosage modifié!');
@@ -101,7 +105,7 @@ export class ArrosagesService {
   /* Delete */
   deleteArrosageApi() {
     this.httpClient
-      .delete('http://127.0.0.1:8000/api/deletearrosage/{id}')
+      .delete(''+this.baseUrl+'/api/deletearrosage/{id}')
       .subscribe(
         () => {
           console.log('Arrosage supprimé!');
