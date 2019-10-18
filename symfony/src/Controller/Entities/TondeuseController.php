@@ -143,7 +143,7 @@ class TondeuseController extends AbstractController
 
         $tondeuse->setNom($request->get('nom'))
                 ->setCapteurBatterie($request->get('capteurBatterie'))
-                ->setStatut($request->get('statut'));
+                ->setStatut(false);
         
         $this->em->persist($tondeuse);
         $this->em->flush();

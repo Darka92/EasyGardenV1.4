@@ -143,7 +143,7 @@ class EclairageController extends AbstractController
                 ->setLocalisation($request->get('localisation'))
                 ->setCapteurDefautAmpoule(false)
                 ->setCapteurLuminosite($request->get('capteurLuminosite'))
-                ->setStatut($request->get('statut'));
+                ->setStatut(false);
         
         $this->em->persist($eclairage);
         $this->em->flush();

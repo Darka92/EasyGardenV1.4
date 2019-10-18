@@ -145,7 +145,7 @@ class ArrosageController extends AbstractController
                 ->setLocalisation($request->get('localisation'))
                 ->setCapteurDebit($request->get('capteurDebit'))
                 ->setCapteurPression($request->get('capteurPression'))
-                ->setStatut($request->get('statut'));
+                ->setStatut(false);
         
         $this->em->persist($arrosage);
         $this->em->flush();

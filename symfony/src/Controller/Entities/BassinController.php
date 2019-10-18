@@ -142,7 +142,7 @@ class BassinController extends AbstractController
         $bassin = new bassin();
 
         $bassin->setNom($request->get('nom'))
-                ->setStatut($request->get('statut'));
+                ->setStatut(false);
         
         $this->em->persist($bassin);
         $this->em->flush();

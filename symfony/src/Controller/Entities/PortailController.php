@@ -142,8 +142,8 @@ class PortailController extends AbstractController
 
         $portail->setNom($request->get('nom'))
                 ->setLocalisation($request->get('localisation'))
-                ->setCapteurPresence($request->get('capteurPresence'))
-                ->setStatut($request->get('statut'));
+                ->setCapteurPresence(false)
+                ->setStatut(false);
         
         $this->em->persist($portail);
         $this->em->flush();
