@@ -91,7 +91,7 @@ class RestController extends AbstractFOSRestController
 
     /**
      * Retrieves addUserController
-     * @Route("/adduser", methods={"GET", "POST"})
+     * @Route("/adduser", methods={"POST"})
      */
     public function addUserController(Request $request) {
 
@@ -100,7 +100,7 @@ class RestController extends AbstractFOSRestController
 
     /**
      * Retrieves updateUserController
-     * @Route("/updateuser/{id}", methods={"GET", "PUT"})
+     * @Route("/updateuser/{id}", methods={"PUT"})
      */
     public function updateUserController(Request $request, int $id) {
 
@@ -139,7 +139,7 @@ class RestController extends AbstractFOSRestController
 
     /**
      * Retrieves addJardinController
-     * @Route("/addjardin", methods={"GET", "POST"})
+     * @Route("/addjardin", methods={"POST"})
      */
     public function addJardinController(Request $request) {
 
@@ -148,7 +148,7 @@ class RestController extends AbstractFOSRestController
 
     /**
      * Retrieves updateJardinController
-     * @Route("/updatejardin/{id}", methods={"GET", "PUT"})
+     * @Route("/updatejardin/{id}", methods={"PUT"})
      */
     public function updateJardinController(Request $request, int $id) {
 
@@ -187,7 +187,7 @@ class RestController extends AbstractFOSRestController
 
     /**
      * Retrieves addArrosageController
-     * @Route("/addarrosage", methods={"GET", "POST"})
+     * @Route("/addarrosage", methods={"POST"})
      */
     public function addArrosageController(Request $request) {
 
@@ -196,7 +196,7 @@ class RestController extends AbstractFOSRestController
 
     /**
      * Retrieves updateArrosageController
-     * @Route("/updatearrosage/{id}", methods={"GET", "PUT"})
+     * @Route("/updatearrosage/{id}", methods={"PUT"})
      */
     public function updateArrosageController(Request $request, int $id) {
 
@@ -235,7 +235,7 @@ class RestController extends AbstractFOSRestController
 
     /**
      * Retrieves addEclairageController
-     * @Route("/addeclairage", methods={"GET", "POST"})
+     * @Route("/addeclairage", methods={"POST"})
      */
     public function addEclairageController(Request $request) {
 
@@ -244,7 +244,7 @@ class RestController extends AbstractFOSRestController
 
     /**
      * Retrieves updateEclairageController
-     * @Route("/updateeclairage/{id}", methods={"GET", "PUT"})
+     * @Route("/updateeclairage/{id}", methods={"PUT"})
      */
     public function updateEclairageController(Request $request, int $id) {
 
@@ -283,7 +283,7 @@ class RestController extends AbstractFOSRestController
 
     /**
      * Retrieves addBassinController
-     * @Route("/addbassin", methods={"GET", "POST"})
+     * @Route("/addbassin", methods={"POST"})
      */
     public function addBassinController(Request $request) {
 
@@ -292,7 +292,7 @@ class RestController extends AbstractFOSRestController
 
     /**
      * Retrieves updateBassinController
-     * @Route("/updatebassin/{id}", methods={"GET", "PUT"})
+     * @Route("/updatebassin/{id}", methods={"PUT"})
      */
     public function updateBassinController(Request $request, int $id) {
 
@@ -331,7 +331,7 @@ class RestController extends AbstractFOSRestController
 
     /**
      * Retrieves addTondeuseController
-     * @Route("/addtondeuse", methods={"GET", "POST"})
+     * @Route("/addtondeuse", methods={"POST"})
      */
     public function addTondeuseController(Request $request) {
 
@@ -340,7 +340,7 @@ class RestController extends AbstractFOSRestController
 
     /**
      * Retrieves updateTondeuseController
-     * @Route("/updatetondeuse/{id}", methods={"GET", "PUT"})
+     * @Route("/updatetondeuse/{id}", methods={"PUT"})
      */
     public function updateTondeuseController(Request $request, int $id) {
 
@@ -379,7 +379,7 @@ class RestController extends AbstractFOSRestController
 
     /**
      * Retrieves addPortailController
-     * @Route("/addportail", methods={"GET", "POST"})
+     * @Route("/addportail", methods={"POST"})
      */
     public function addPortailController(Request $request) {
 
@@ -388,7 +388,7 @@ class RestController extends AbstractFOSRestController
 
     /**
      * Retrieves updatePortailController
-     * @Route("/updateportail/{id}", methods={"GET", "PUT"})
+     * @Route("/updateportail/{id}", methods={"PUT"})
      */
     public function updatePortailController(Request $request, int $id) {
 
