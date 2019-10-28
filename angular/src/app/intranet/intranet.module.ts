@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 
 /*  MES IMPORTS  */
-
 /*  COMPONENT  */
 import { AccueilComponent } from './accueil/accueil.component';
 import { NavComponent } from './nav/nav.component';
